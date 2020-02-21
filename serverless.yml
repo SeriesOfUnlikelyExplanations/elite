@@ -2,8 +2,8 @@ service: elite
 provider:
   name: aws
   runtime: nodejs12.x
-  cfnRole: arn:aws:iam::718523126320:role/cloudformation
-#  stage: dev
+  cfnRole: arn:aws:iam::718523126320:role/serverless
+  stage: prod
 #  region: us-east-1
 
 functions:
@@ -12,3 +12,5 @@ functions:
     events:
         - http: ANY /
         - http: 'ANY {proxy+}'
+plugins:
+  - serverless-offline

@@ -1,17 +1,29 @@
 {
   "name": "elite",
   "version": "1.0.0",
-  "description": "",
+  "description": "Elite Dangerous Fansite",
   "main": "handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serverless offline start",
+    "dev": "nodemon ./handler.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "hbs": "^4.1.0",
-    "serverless-http": "^2.3.1"
-  }
+    "nodemon": "^2.0.2",
+    "serverless-http": "^2.3.1",
+    "serverless-offline": "^5.12.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SeriesOfUnlikelyExplanations/elite.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/SeriesOfUnlikelyExplanations/elite/issues"
+  },
+  "homepage": "https://github.com/SeriesOfUnlikelyExplanations/elite"
 }
