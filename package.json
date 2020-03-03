@@ -5,8 +5,8 @@
   "main": "handler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "serverless offline start",
-    "dev": "nodemon ./handler.js"
+    "offline": "serverless offline start",
+    "deploy": "sls deploy"
   },
   "author": "",
   "license": "ISC",
