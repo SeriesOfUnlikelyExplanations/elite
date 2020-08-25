@@ -1,14 +1,13 @@
-service: elite
+service: always-onward
 provider:
   name: aws
   runtime: nodejs12.x
   cfnRole: arn:aws:iam::718523126320:role/serverless
   stage: prod
-#  region: us-east-1
 
 functions:
   app:
-    handler: handler.elite
+    handler: handler.always-onward
     events:
         - http: ANY /
         - http: 'ANY {proxy+}'

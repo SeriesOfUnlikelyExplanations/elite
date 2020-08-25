@@ -18,18 +18,18 @@ app.get("/", (req, res) => {
 });
 
 app.get("/ranks", (req, res) => {
-  
+
   res.status(200).render("ranks");
 });
 
 app.get("/engineers", (req, res) => {
-  
+
   res.status(200).render("engineers");
 });
 
 app.get("/ships", (req, res) => {
-  
+
   res.status(200).render("ships");
 });
 
-module.exports.elite= serverless(app);
+module.exports.always-onward= serverless(app);
