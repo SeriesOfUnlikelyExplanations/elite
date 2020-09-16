@@ -14,3 +14,5 @@ In the Cognito Dashboard, select the User Pool and follow the steps below:
 
 
 https://medium.com/@Da_vidgf/using-cognito-for-users-management-in-your-serverless-application-1695fec9e225
+
+https://gist.github.com/jamesthomasonjr/d63a4fe6d53938e3f97e6039b4a19605

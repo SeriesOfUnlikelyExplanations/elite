@@ -4,7 +4,8 @@
   "description": "Elite Dangerous Fansite",
   "main": "handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nyc mocha",
+    "posttest": "nyc report",
     "offline": "http-server ./static -p 3000",
     "deploy": "sls deploy"
   },
