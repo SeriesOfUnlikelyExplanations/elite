@@ -27,7 +27,7 @@
     "serverless-offline": "^5.12.1",
     "http-server": "^0.12.3",
     "serverless-cloudfront-invalidate": "^1.5.0",
-    "serverless-s3-sync": "^1.14.4"
+    "serverless-s3-sync": "^1.14.4",
     "chai": "^4.2.0",
     "mocha": "^7.2.0",
     "nock": "^12.0.3",
