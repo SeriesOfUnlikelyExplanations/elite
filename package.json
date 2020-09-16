@@ -19,6 +19,12 @@
     "type": "git",
     "url": "https://github.com/SeriesOfUnlikelyExplanations/always-onward.git"
   },
+  "nyc": {
+    "reporter": [
+      "json",
+      "html"
+    ]
+  },
   "keywords": [],
   "bugs": {
     "url": "https://github.com/SeriesOfUnlikelyExplanations/always-onward/issues"

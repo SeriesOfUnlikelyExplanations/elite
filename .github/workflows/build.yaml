@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '12.x'
 
-      - name: Configure Serverless
+      - name: Configure NPM
         run: |
           npm install
           npm test

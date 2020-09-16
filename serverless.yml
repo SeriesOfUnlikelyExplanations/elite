@@ -34,8 +34,8 @@ resources:
         AccessControl: PublicRead
         BucketName: ${self:custom.siteName}
         WebsiteConfiguration:
-          IndexDocument: login.html
-          ErrorDocument: login.html
+          IndexDocument: index.html
+          ErrorDocument: index.html
 
     StaticSiteS3BucketPolicy:
       Type: AWS::S3::BucketPolicy
@@ -78,11 +78,11 @@ resources:
           Enabled: 'true'
           Aliases:
             - ${self:custom.siteName}
-          DefaultRootObject: login.html
+          DefaultRootObject: index.html
           CustomErrorResponses:
             - ErrorCode: 404
               ResponseCode: 200
-              ResponsePagePath: /login.html
+              ResponsePagePath: /index.html
           DefaultCacheBehavior:
             AllowedMethods:
               - GET
