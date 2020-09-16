@@ -5,7 +5,7 @@ var cookie = require('cookie')
 
 const app = express();
 
-app.set('views',path.join(__dirname,"views"))
+app.set('views',path.join(__dirname, "views"))
 app.set("view engine","hbs")
 
 app.use( (req, res, next) => {
@@ -17,19 +17,19 @@ app.get("/", (req, res) => {
   res.status(200).render("index");
 });
 
+app.get("/elite", (req, res) => {
+  res.status(200).render("elite/index");
+});
 app.get("/ranks", (req, res) => {
-
-  res.status(200).render("ranks");
+  res.status(200).render("elite/ranks");
 });
 
 app.get("/engineers", (req, res) => {
-
-  res.status(200).render("engineers");
+  res.status(200).render("elite/engineers");
 });
 
 app.get("/ships", (req, res) => {
-
-  res.status(200).render("ships");
+  res.status(200).render("elite/ships");
 });
 
-module.exports.always-onward= serverless(app);
+module.exports.onward = serverless(app);

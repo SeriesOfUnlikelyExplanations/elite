@@ -5,15 +5,13 @@
   "main": "handler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "offline": "serverless offline start",
+    "offline": "http-server ./static -p 3000",
     "deploy": "sls deploy"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "hbs": "^4.1.1",
-    "nodemon": "^2.0.2",
+    "serverless": "^1.83.0",
     "serverless-http": "^2.3.1"
   },
   "repository": {
@@ -26,6 +24,13 @@
   },
   "homepage": "https://github.com/SeriesOfUnlikelyExplanations/always-onward",
   "devDependencies": {
-    "serverless-offline": "^5.12.1"
+    "serverless-offline": "^5.12.1",
+    "http-server": "^0.12.3",
+    "serverless-cloudfront-invalidate": "^1.5.0",
+    "serverless-s3-sync": "^1.14.4"
+    "chai": "^4.2.0",
+    "mocha": "^7.2.0",
+    "nock": "^12.0.3",
+    "nyc": "^15.1.0"
   }
 }

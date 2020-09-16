@@ -1,0 +1,32 @@
+name: Deploy
+# This workflow is triggered on pushes to the repository.
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Configure Serverless
+        run: |
+          npm install
+          npm test
+
+      - name: Deploy
+        run: |
+          sls package
+
+      #~ - uses: codecov/codecov-action@v1
+        #~ with:
+          #~ file: coverage/*.json
+          #~ fail_ci_if_error: true
+
