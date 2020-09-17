@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ecstatic": "^4.1.4",
     "serverless": "^1.83.0",
     "serverless-http": "^2.3.1"
   },
