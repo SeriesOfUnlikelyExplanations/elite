@@ -13,7 +13,7 @@ describe("Testing the skill", function() {
             throw err;
         }
         var html_string = new TextDecoder("utf-8").decode(data);
-        expect(html_string).to.contain('https://auth.always-onward.com');
+        expect(html_string).to.contain('Always Onward');
         done();
       })
     })
