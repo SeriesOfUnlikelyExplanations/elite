@@ -3,7 +3,6 @@ var expect = require('chai').expect;
 const nock = require('nock');
 var fs = require('fs');
 
-
 describe("Testing the skill", function() {
   this.timeout(4000);
   describe("Test that the webpage loads and has certain important strings", () => {

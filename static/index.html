@@ -5,85 +5,45 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Always Onward</title>
-
   <link href="css/master.css" rel="stylesheet">
 
 </head>
 <body class="tm-gray-bg">
   <!-- Header -->
-  <div include-html="assets/header.html"></div>
-  <!-- Banner -->
-  <section class="tm-banner">
-    <!-- Flexslider -->
-    <div class="flexslider flexslider-banner">
-      <ul class="slides">
-        <li>
-          <div class="tm-banner-inner">
-          <h1 class="tm-banner-title">Find <span class="tm-yellow-text">The Best</span> Place</h1>
-          <p class="tm-banner-subtitle">For Your Holidays</p>
-          <a href="#more" class="tm-banner-link">Learn More</a>
-        </div>
-        <img src="img/banner-1.jpg" alt="Image" />
-        </li>
-        <li>
-          <div class="tm-banner-inner">
-          <h1 class="tm-banner-title">Lorem <span class="tm-yellow-text">Ipsum</span> Dolor</h1>
-          <p class="tm-banner-subtitle">Wonderful Destinations</p>
-          <a href="#more" class="tm-banner-link">Learn More</a>
-        </div>
-          <img src="img/banner-2.jpg" alt="Image" />
-        </li>
-        <li>
-          <div class="tm-banner-inner">
-          <h1 class="tm-banner-title">Proin <span class="tm-yellow-text">Gravida</span> Nibhvell</h1>
-          <p class="tm-banner-subtitle">Velit Auctor</p>
-          <a href="#more" class="tm-banner-link">Learn More</a>
-        </div>
-          <img src="img/banner-3.jpg" alt="Image" />
-        </li>
-      </ul>
-    </div>
-  </section>
+  <div data-include="header"></div>
 
   <!-- gray bg -->
   <section class="container tm-home-section-1" id="more">
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-6">
         <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
-          <img src="img/index-01.jpg" alt="image" class="img-responsive">
-          <a href="#">
-            <div class="tm-green-gradient-bg tm-city-price-container">
-              <span>New York</span>
-              <span>$6,600</span>
+          <a href="rental/index.html"><img src="img/index-01.jpg" alt="image" class="img-responsive"></a>
+            <div class="tm-green-gradient-bg tm-tool-container">
+              <a href="rental/index.html"><span>Rental Manager</span></a>
+              <a id="rental-signin-button" href=""><span>Login</span></a>
             </div>
-          </a>
         </div>
       </div>
 
       <div class="col-lg-4 col-md-4 col-sm-6">
         <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
-          <img src="img/index-01.jpg" alt="image" class="img-responsive">
-          <a href="#">
-            <div class="tm-green-gradient-bg tm-city-price-container">
-              <span>New York</span>
-              <span>$6,600</span>
-            </div>
-          </a>
+          <a href="elite/index.html"><img src="img/WCCFelitedangerous2-tile.jpg" alt="image" class="img-responsive"></a>
+          <div class="tm-green-gradient-bg tm-tool-container">
+            <a href="elite/index.html"><span>Elite Dangerous</span></a>
+          </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-6">
         <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-right">
           <img src="img/index-02.jpg" alt="image" class="img-responsive">
-          <a href="#">
-            <div class="tm-red-gradient-bg tm-city-price-container">
-              <span>Paris</span>
-              <span>$4,200</span>
-            </div>
-          </a>
+          <div class="tm-red-gradient-bg tm-tool-container">
+             <a href="#"><span>Paris</span></a>
+          </div>
         </div>
       </div>
     </div>
 
+<!--
     <div class="section-margin-top">
       <div class="row">
         <div class="tm-section-header">
@@ -150,7 +110,6 @@
     </div>
   </section>
 
-  <!-- white bg -->
   <section class="tm-white-bg section-padding-bottom">
     <div class="container">
       <div class="row">
@@ -220,17 +179,16 @@
           </div>
           </div>
       </div>
-    </div>
+    </div>-->
   </section>
-  <footer class="tm-black-bg">
+
+  <footer class="footer">
     <div class="container">
       <div class="row">
         <p class="tm-copyright-text">Copyright &copy; 2084 Your Company Name</p>
       </div>
     </div>
   </footer>
-
-
   <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
   <script type="text/javascript" src="js/master.js"></script>  <!-- Common Scripts -->
   <script>
@@ -262,4 +220,4 @@
     });
   </script>
 </body>
- </html>
+</html>
