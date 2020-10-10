@@ -5,11 +5,9 @@ https://www.serverlessops.io/blog/static-websites-on-aws-s3-with-serverless-fram
 https://github.com/tmclaugh/serverless-zombo.com/blob/master/serverless.yml
 
 ToDo:
-1. Move CSS & JS to CDN
-2. Finish Elite workflow
-3. Add Title bar to all pages
-4. Stand up rental manager. Login has redirect URL link to there
-5. JS to make the header highlight the active workspace
+- build out the about page
+- build out the contact us page
+- Stand up rental manager. Login has redirect URL link to there
 
 Deployment requirements:
 

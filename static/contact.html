@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Holiday - Contact</title>
 
-  <link href="css/master.css" rel="stylesheet">
+  <link href="assets/master.css" rel="stylesheet">
 
 </head>
 <body>
@@ -107,7 +107,8 @@
       </div>
     </div>
   </footer>
-  <script type="text/javascript" src="js/master.js"></script>  <!-- Common Scripts -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
+  <script type="text/javascript" src="assets/master.js"></script>  <!-- Common Scripts -->
   <script>
     /* Google map
         ------------------------------------------------*/
@@ -145,7 +146,6 @@
 
         // DOM is ready
     $(function() {
-
       // https://css-tricks.com/snippets/jquery/smooth-scrolling/
       $('a[href*=#]:not([href=#])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -160,15 +160,15 @@
         }
       });
 
-        // Flexslider
+      // Flexslider
+      $(window).load(function() {
         $('.flexslider').flexslider({
-          controlNav: false,
-          directionNav: false
+          controlNav: false
         });
-
-        // Google Map
-        loadGoogleMap();
       });
+      // Google Map
+      loadGoogleMap();
+    });
   </script>
 </body>
 </html>

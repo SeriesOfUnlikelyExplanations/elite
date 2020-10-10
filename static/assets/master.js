@@ -11,8 +11,8 @@ function loadScript(url_string) {
 }
 
 loadScript('https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js');
-loadScript('js/moment.js');
-loadScript('js/jquery.flexslider-min.js');
+loadScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js');
+loadScript('https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/jquery.flexslider-min.js');
 $(function(){
   // Mobile menu
   $('.mobile-menu-icon').click(function(){
@@ -28,7 +28,7 @@ $(function(){
       if ($(this).data('include') == 'header') {
         if (window.location.href.includes('index.html')) {
           var els = document.querySelectorAll('a[href^="index.html"]')
-          console.log(els)
+          // console.log(els)
         }
       }
     });
