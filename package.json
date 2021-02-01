@@ -18,6 +18,7 @@
   "scripts": {
     "build": "tsc",
     "test": "echo pass",
+    "serve": "live-server ./static -p 3000",
     "deploy": "cdk deploy --require-approval never",
     "preinstall": "npx npm-force-resolutions"
   },
