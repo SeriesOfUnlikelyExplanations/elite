@@ -36,7 +36,8 @@
     "@aws-cdk/aws-s3-deployment": "^1.87.1",
     "@aws-cdk/core": "1.87.1",
     "source-map-support": "^0.5.16",
-    "@mobileposse/auto-delete-bucket": "^1.55.0"
+    "@mobileposse/auto-delete-bucket": "^1.55.0",
+    "live-server": "^1.2.1"
   },
   "resolutions": {
     "axios": "^0.21.1"

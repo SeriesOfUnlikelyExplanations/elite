@@ -23,11 +23,11 @@
   <section class="container tm-home-section-1" id="more">
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-6">
-        <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
+        <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-right">
           <a href="rental/index.html"><img src="img/index-01.jpg" alt="image" class="img-responsive"></a>
-            <div class="tm-green-gradient-bg tm-tool-container">
-              <a href="rental/index.html"><span>Rental Manager</span></a>
-              <a id="rental-signin-button" href=""><span>Login</span></a>
+            <div class="btn-primary tool-container">
+              <a href="rental/index.html" style="float:left;margin-left: 10px"><span>Rental Manager</span></a>
+              <a id="rental-signin-button" href="" style="float:right;margin-right: 10px"><span>Login</span></a>
             </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
     <div class="col-lg-4 col-md-4 col-sm-6">
       <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-right">
         <a href="https://blog.always-onward.com"><img src="img/index-02.jpg" alt="image" class="img-responsive"></a>
-        <div class="tm-red-gradient-bg tm-tool-container">
+        <div class="btn-primary tool-container">
            <a href="https://blog.always-onward.com"><span>Blog</span></a>
         </div>
       </div>
@@ -44,9 +44,9 @@
 
     <!--Elite Dangerous game-->
     <div class="col-lg-4 col-md-4 col-sm-6">
-        <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
+        <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-right">
           <a href="elite/index.html"><img src="img/WCCFelitedangerous2-tile.jpg" alt="image" class="img-responsive"></a>
-          <div class="tm-green-gradient-bg tm-tool-container">
+          <div class="btn-primary tool-container">
             <a href="elite/index.html"><span>Elite Dangerous</span></a>
           </div>
         </div>
@@ -64,27 +64,10 @@
   </footer>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
   <script>
-    // HTML document is loaded. DOM is ready.
-    $(function() {
-      $('#hotelCarTabs a').click(function (e) {
-        e.preventDefault()
-        $(this).tab('show')
-      })
-      // https://css-tricks.com/snippets/jquery/smooth-scrolling/
-      $('a[href*=#]:not([href=#])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          if (target.length) {
-            $('html,body').animate({
-              scrollTop: target.offset().top
-            }, 1000);
-            return false;
-          }
-        }
-      });
-    });
+    // http://stackoverflow.com/questions/2851663/how-do-i-simulate-a-hover-with-a-touch-in-touch-enabled-browsers
+    $('body').bind('touchstart', function() {});
 
-  </script>
+    $('#rental-signin-button').attr("href", 'https://auth.always-onward.com/login?client_id=5c72ninemr6imij5ul0a0i0jbe&response_type=token&redirect_uri='+window.location.protocol+'//'+window.location.host)</script>
+
 </body>
 </html>
