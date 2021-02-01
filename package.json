@@ -1,13 +1,25 @@
 {
   "name": "always-onward",
   "version": "0.1.0",
+  "description": "Always Onward website",
+  "author": "Tom Woodard",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SeriesOfUnlikelyExplanations/always-onward.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SeriesOfUnlikelyExplanations/always-onward/issues"
+  },
+  "homepage": "https://github.com/SeriesOfUnlikelyExplanations/always-onward",
   "bin": {
     "always-onward": "bin/always-onward.js"
   },
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "deploy": "cdk deploy --require-approval never"
+    "deploy": "cdk deploy --require-approval never",
+    "preinstall": "npx npm-force-resolutions"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.87.1",
@@ -24,5 +36,8 @@
     "@aws-cdk/core": "1.87.1",
     "source-map-support": "^0.5.16",
     "@mobileposse/auto-delete-bucket": "^1.55.0"
+  },
+  "resolutions": {
+    "axios": "^0.21.1"
   }
 }
