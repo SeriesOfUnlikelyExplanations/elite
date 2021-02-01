@@ -6,9 +6,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "deploy": "cdk deploy --require-approval never"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.87.1",
@@ -18,10 +17,12 @@
     "ts-jest": "^26.2.0",
     "aws-cdk": "1.87.1",
     "ts-node": "^9.0.0",
-    "typescript": "~3.9.7"
-  },
-  "dependencies": {
+    "typescript": "~3.9.7",
+    "@aws-cdk/aws-cloudfront": "^1.87.1",
+    "@aws-cdk/aws-route53-targets": "^1.87.1",
+    "@aws-cdk/aws-s3-deployment": "^1.87.1",
     "@aws-cdk/core": "1.87.1",
-    "source-map-support": "^0.5.16"
+    "source-map-support": "^0.5.16",
+    "@mobileposse/auto-delete-bucket": "^1.55.0"
   }
 }

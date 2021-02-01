@@ -1,14 +1,19 @@
-# Welcome to your CDK TypeScript project!
+# always-onward
 
-This is a blank project for TypeScript development with CDK.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+https://www.serverlessops.io/blog/static-websites-on-aws-s3-with-serverless-framework
+https://github.com/tmclaugh/serverless-zombo.com/blob/master/serverless.yml
 
-## Useful commands
+ToDo:
+- build out the about page
+- build out the contact us page
+- Stand up rental manager. Login has redirect URL link to there
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+Deployment requirements:
+( work in progress - need to try deleting resources and redeploying to capture extra steps)
+In the Cognito Dashboard, select the User Pool and follow the steps below:
+    Select "App client settings", enable Cognito User Pool as a provider and enter the callback and sign out URLs. Select "Implicit grant" as allowed OAuth flow and tick all the scopes
+    Select "Domain name" and create one
+
+https://medium.com/@Da_vidgf/using-cognito-for-users-management-in-your-serverless-application-1695fec9e225
+https://gist.github.com/jamesthomasonjr/d63a4fe6d53938e3f97e6039b4a19605
