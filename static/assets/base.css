@@ -529,12 +529,6 @@ hr { border-top: 1px solid #111010; }
   padding-top: 20px;
   padding-bottom: 15px;
 }
-.tm-what-we-do-right {
-  float: right;
-  margin-left: 30px;
-  max-width: 820px;
-  width: 100%;
-}
 .tm-about-box-2 { overflow: hidden; }
 .tm-about-box-2-img,
 .tm-about-box-2-text {
@@ -686,7 +680,6 @@ hr { border-top: 1px solid #111010; }
   }
   .tm-testimonials-box { width: 220px; }
   .tm-testimonials-content { padding: 20px; }
-  .tm-what-we-do-right { max-width: 685px; }
   .tm-about-box-2-img {
     max-width: 280px;
     height: auto;
@@ -745,11 +738,6 @@ hr { border-top: 1px solid #111010; }
   .tm-about-box-1 {
     margin: 0 auto 30px;
     width: 100%;
-  }
-  .tm-what-we-do-right {
-    float: none;
-    margin-left: 0;
-    max-width: 100%;
   }
   .tm-about-box-2-img { max-width: 100%; }
   .tm-about-box-2-text { max-width: 340px; }
@@ -834,7 +822,6 @@ hr { border-top: 1px solid #111010; }
     margin-left: auto;
     margin-right: auto;
   }
-  .tm-what-we-do-right { text-align: center; }
   .section-margin-top.about-section { margin-top: 120px; }
   .tm-section-header { margin-bottom: 40px; }
   .tm-about-box-1 {
