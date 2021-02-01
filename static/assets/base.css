@@ -28,7 +28,7 @@ li {
     line-height: 10px;
 }
 
-/* Header & Nav */
+/* Header */
 body { overflow-x: hidden; }
 .header {
   background: #000000;
@@ -44,7 +44,7 @@ body { overflow-x: hidden; }
   text-transform: uppercase;
 }
 
-/* Section 1, index.html */
+/* Home */
 .home-section {
   position: relative;
   top: 50px;
@@ -64,149 +64,55 @@ body { overflow-x: hidden; }
 .tool-container a { color: white; }
 .tool-container a:hover { color: gray; }
 
-.tm-home-box-1 {
+.home-card {
   width: 346px;
   height: 436px;
-}
-.tm-home-box-1-center {
-  margin: 0 auto;
-}
-.tm-home-box-1-right,
-.tm-home-box-2-right {
   margin-left: auto;
 }
-.input-group-addon { border-radius: 0; }
 
 /* Footer */
 .footer { background-color: #000; margin-top: 70px; }
-.tm-copyright-text {
+.copyright-text {
   color: white;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.tm-copyright-text a {
+.copyright-text a {
   color: #FCDD44;
 }
 
-.tm-copyright-text a:hover {
+.copyright-text a:hover {
   color: white;
 }
 
 @media screen and (max-width: 1199px) {
-  .tm-banner-title { font-size: 50px; }
-  .tm-banner-subtitle { font-size: 30px; }
-  .home-section { top: -20px;}
-  .tm-home-box-1 {
+  .home-section { top: 5px;}
+  .home-card {
     width: 300px;
     height: 388px;
   }
-  .hotel-search-form .form-group { margin-bottom: 18px; }
-  .tm-home-box-2-description { padding-bottom: 15px; }
-  .tm-home-box-3 {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .tm-home-box-2-description.box-3 { width: 185px; }
-  .tm-about-box-1 {
-    width: 215px;
-    padding: 24px 15px;
-  }
-  .tm-testimonials-box { width: 220px; }
-  .tm-testimonials-content { padding: 20px; }
-  .tm-about-box-2-img {
-    max-width: 280px;
-    height: auto;
-  }
-  .tm-about-box-2-text { max-width: 360px; }
-  .tm-contact-box-1 { padding: 30px; }
-  .contact-image { max-width: 450px; }
-  .contact-text { max-width: 400px; }
-  .flexslider.flexslider-about .slides img { width: 450px;  }
-}
-
-@media screen and (max-width: 1199px) and (min-width: 992px) {
-  .tm-home-box-2-description { width: 94px; }
-  .tm-home-box-2-icon {
-    padding: 18px;
-    width: 55px;
-    height: 55px;
-  }
-  .tm-home-box-3-description { padding-bottom: 47px; }
 }
 
 @media screen and (max-width: 991px) {
-  .tm-home-box-1 {
+  .home-card {
     margin-bottom: 50px;
     width: 346px;
     height: 436px;
   }
-  .tm-home-box-2 { margin: 0 auto 30px; }
-  .tm-home-box-2-description {
-    width: 125px;
-    vertical-align: top;
-  }
-  .tm-home-box-2-description.box-3 { width: 175px; }
 }
 
 @media screen and (max-width: 767px) {
-  /* http://www.impressivewebs.com/animate-display-block-none/
-   * Comment by Jon Christensen
-   */
-  .tm-home-box-1 {
+  .home-card {
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
+    height: auto;
   }
-  .tm-home-box-1-2 { height: auto; }
-  .tm-tours-box-1 {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .section-margin-top.about-section { margin-top: 120px; }
-  .tm-section-header { margin-bottom: 40px; }
-  .tm-about-box-1 {
-    width: 100%;
-    max-width: 300px;
-    padding: 30px;
-  }
-  .tm-about-box-2-img,
-  .tm-about-box-2-text {
-    float: none;
-  }
-  .tm-about-box-2-text { margin: 30px auto; }
 }
 
 @media screen and (max-width: 600px) {
-  .col-xxs-12 { width: 100%; }
-  .section-margin-top { margin-top: 50px; }
-  .tm-banner-title {
-      font-size: 30px;
-  }
-  .tm-banner-subtitle { font-size: 16px; }
-  .tm-banner-link {
-    padding: 10px 25px;
-  }
   .home-section { top: 0; }
-  .tm-home-box-3-img-container,
-  .tm-home-box-3-info {
-    float: none;
-  }
-  .tm-home-box-3-info {
-    max-width: 250px;
-    border: 1px solid #CCC;
-    border-top: none;
-  }
-  .tm-home-box-3-description {
-      padding-top: 30px;
-      padding-bottom: 34px;
-  }
-  .tm-home-box-3 { max-width: 250px; }
-  .tm-home-box-2-description.box-3 { width: 120px; }
-}
-
-@media screen and (max-width: 400px) {
-  .tm-section-title { font-size: 28px; }
 }
 
 .split {height: 100%;width: 50%;position: fixed;z-index: 1;top: 0;overflow-x: hidden}
