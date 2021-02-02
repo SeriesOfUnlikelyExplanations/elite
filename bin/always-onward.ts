@@ -10,3 +10,5 @@ new AlwaysOnwardStack(app, 'AlwaysOnwardStack', {
     region: 'us-east-1'
   }
 });
+
+new CognitoStack(app, "cognito");
