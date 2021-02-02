@@ -27,13 +27,13 @@ export class CognitoStack extends cdk.Stack {
     });
 
     // Export values
-    new CfnOutput(this, "UserPoolId", {
+    new cdk.CfnOutput(this, "UserPoolId", {
       value: userPool.userPoolId,
     });
-    new CfnOutput(this, "UserPoolClientId", {
+    new cdk.CfnOutput(this, "UserPoolClientId", {
       value: userPoolClient.userPoolClientId,
     });
-    new CfnOutput(this, "IdentityPoolId", {
+    new cdk.CfnOutput(this, "IdentityPoolId", {
       value: identityPool.ref,
     });
   }
