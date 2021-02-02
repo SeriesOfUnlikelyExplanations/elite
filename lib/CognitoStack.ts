@@ -2,7 +2,7 @@ import { CfnOutput } from "@aws-cdk/core";
 import * as cognito from "@aws-cdk/aws-cognito";
 import * as sst from "@serverless-stack/resources";
 
-export default class CognitoStack extends sst.Stack {
+export default class CognitoStack extends cdk.Stack {
   constructor(scope, id, props) {
     super(scope, id, props);
 
