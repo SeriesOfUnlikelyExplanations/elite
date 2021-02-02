@@ -1,6 +1,5 @@
-import { CfnOutput } from "@aws-cdk/core";
+import cdk = require('@aws-cdk/core');
 import * as cognito from "@aws-cdk/aws-cognito";
-import * as sst from "@serverless-stack/resources";
 
 export class CognitoStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
