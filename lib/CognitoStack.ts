@@ -2,8 +2,8 @@ import { CfnOutput } from "@aws-cdk/core";
 import * as cognito from "@aws-cdk/aws-cognito";
 import * as sst from "@serverless-stack/resources";
 
-export default class CognitoStack extends cdk.Stack {
-  constructor(scope, id, props) {
+export class CognitoStack extends cdk.Stack {
+  constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     const userPool = new cognito.UserPool(this, "UserPool", {
