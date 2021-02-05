@@ -23,18 +23,19 @@
     "preinstall": "npx npm-force-resolutions"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.87.1",
-    "@types/node": "10.17.27",
-    "aws-cdk": "1.87.1",
-    "ts-node": "^9.0.0",
-    "typescript": "~3.9.7",
-    "@aws-cdk/aws-cloudfront": "^1.87.1",
-    "@aws-cdk/aws-route53-targets": "^1.87.1",
-    "@aws-cdk/aws-s3-deployment": "^1.87.1",
-    "@aws-cdk/core": "1.87.1",
-    "source-map-support": "^0.5.16",
+    "@aws-cdk/assert": "^1.88.0",
+    "@aws-cdk/aws-cloudfront": "^1.88.0",
+    "@aws-cdk/aws-route53-targets": "^1.88.0",
+    "@aws-cdk/aws-s3-deployment": "^1.88.0",
+    "@aws-cdk/core": "^1.88",
     "@mobileposse/auto-delete-bucket": "^1.55.0",
-    "live-server": "^1.2.1"
+    "@types/node": "10.17.27",
+    "aws-cdk": "^1.88",
+    "cdk": "^1.88.0",
+    "live-server": "^1.2.1",
+    "source-map-support": "^0.5.16",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
   },
   "resolutions": {
     "axios": "^0.21.1"
