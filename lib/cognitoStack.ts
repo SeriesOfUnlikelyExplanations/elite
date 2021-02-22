@@ -33,7 +33,7 @@ export class CognitoStack extends cdk.Stack {
       zoneName: config.zoneName,
     });
     new route53.ARecord(this, config.authDomain + '-alias-record', {
-     target: route53.RecordTarget.fromAlias(new route53_targets.UserPoolDomainTarget(userPoolDomain)),
+     target: route53.RecordTarget.fromAlias(new targets.UserPoolDomainTarget(userPoolDomain)),
       zone: myHostedZone,
       recordName: config.authDomain,
     });
