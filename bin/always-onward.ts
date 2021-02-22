@@ -2,7 +2,7 @@
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
 import { AlwaysOnwardStack } from '../lib/alwaysOnwardStack';
-import { CognitoStack } from '../lib/CognitoStack';
+import { CognitoStack } from '../lib/cognitoStack';
 
 const app = new cdk.App();
 new AlwaysOnwardStack(app, 'AlwaysOnwardStack', {
