@@ -19,11 +19,21 @@ export class CognitoStack extends cdk.Stack {
       },
     });
     const domainCert = acm.Certificate.fromCertificateArn(this, 'domainCert', config.certificateArn);
-    userPool.addDomain('CustomDomain', {
+    const userPoolDomain = new cognito.UserPoolDomain(this, 'UserPoolDomain', {
+      userPool,
       customDomain: {
         domainName: config.authDomain,
         certificate: domainCert,
       },
+    });
+    const myHostedZone = route53.HostedZone.fromHostedZoneAttributes(this, config.siteNames[0] + '-hosted-zone', {
+      hostedZoneId: config.hostedZoneId,
+      zoneName: config.zoneName,
+    });
+    new route53.ARecord(this, config.authDomain + '-alias-record', {
+     target: route53.RecordTarget.fromAlias(new route53_targets.UserPoolDomainTarget(userPoolDomain)),
+      zone: myHostedZone,
+      recordName: config.authDomain,
     });
 
     const userPoolClient = new cognito.UserPoolClient(this, "UserPoolClient", {
