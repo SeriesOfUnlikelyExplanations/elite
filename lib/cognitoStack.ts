@@ -1,5 +1,7 @@
 import cdk = require('@aws-cdk/core');
 import * as cognito from "@aws-cdk/aws-cognito";
+import route53 = require('@aws-cdk/aws-route53');
+import targets = require('@aws-cdk/aws-route53-targets');
 import * as config from './onwardConfig';
 import * as acm from '@aws-cdk/aws-certificatemanager';
 
