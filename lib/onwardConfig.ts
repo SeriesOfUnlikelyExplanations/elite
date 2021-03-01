@@ -5,4 +5,4 @@ export var siteNames = ['www.always-onward.com','always-onward.com'];
 export var subSites = ['photos.always-onward.com']
 export var zoneName = 'always-onward.com';
 export var authDomain = 'auth.always-onward.com'
-export var authName = 'onward-auth'
+export var authName = 'auth-onward'
