@@ -37,7 +37,7 @@ export class CognitoStack extends cdk.Stack {
       recordName: config.authDomain,
     });
 
-    pool.addClient('app-client', {
+    const userPoolClient = userPool.addClient('app-client', {
       oAuth: {
         flows: {
           authorizationCodeGrant: true,
@@ -45,7 +45,7 @@ export class CognitoStack extends cdk.Stack {
         },
         scopes: [ cognito.OAuthScope.OPENID, cognito.OAuthScope.EMAIL, cognito.OAuthScope.PHONE, cognito.OAuthScope.PROFILE ],
         callbackUrls: config.subSites,
-        logoutUrls: config.sitenames,
+        logoutUrls: config.siteNames,
       }
     });
     const identityPool = new cognito.CfnIdentityPool(this, "IdentityPool", {
