@@ -21,9 +21,9 @@ export class CognitoStack extends cdk.Stack {
       },
     });
     const domainCert = acm.Certificate.fromCertificateArn(this, 'domainCert', config.certificateArn);
-    userPool.addDomain('CustomDomain', {
+    const userPoolDomain = userPool.addDomain('CustomDomain', {
       customDomain: {
-        domainName: config.authDomain,,
+        domainName: config.authDomain,
         certificate: domainCert,
       },
     });
@@ -37,11 +37,17 @@ export class CognitoStack extends cdk.Stack {
       recordName: config.authDomain,
     });
 
-    const userPoolClient = new cognito.UserPoolClient(this, "UserPoolClient", {
-      userPool,
-      generateSecret: false, // Don't need to generate secret for web app running on browsers
+    pool.addClient('app-client', {
+      oAuth: {
+        flows: {
+          authorizationCodeGrant: true,
+          implicitCodeGrant: true,
+        },
+        scopes: [ cognito.OAuthScope.OPENID, cognito.OAuthScope.EMAIL, cognito.OAuthScope.PHONE, cognito.OAuthScope.PROFILE ],
+        callbackUrls: config.subSites,
+        logoutUrls: config.sitenames,
+      }
     });
-
     const identityPool = new cognito.CfnIdentityPool(this, "IdentityPool", {
       allowUnauthenticatedIdentities: false, // Don't allow unathenticated users
       cognitoIdentityProviders: [
