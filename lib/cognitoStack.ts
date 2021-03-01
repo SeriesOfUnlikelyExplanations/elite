@@ -44,8 +44,8 @@ export class CognitoStack extends cdk.Stack {
           implicitCodeGrant: true,
         },
         scopes: [ cognito.OAuthScope.OPENID, cognito.OAuthScope.EMAIL, cognito.OAuthScope.PHONE, cognito.OAuthScope.PROFILE ],
-        callbackUrls: config.subSites,
-        logoutUrls: config.siteNames,
+        callbackUrls: config.subSites.map(i => 'https://' + i),
+        logoutUrls: config.siteNames.map(i => 'https://' + i),
       }
     });
     const identityPool = new cognito.CfnIdentityPool(this, "IdentityPool", {
