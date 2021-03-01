@@ -21,10 +21,9 @@ export class CognitoStack extends cdk.Stack {
       },
     });
     const domainCert = acm.Certificate.fromCertificateArn(this, 'domainCert', config.certificateArn);
-    const userPoolDomain = new cognito.UserPoolDomain(this, 'UserPoolDomain', {
-      userPool,
+    userPool.addDomain('CustomDomain', {
       customDomain: {
-        domainName: config.authDomain,
+        domainName: config.authDomain,,
         certificate: domainCert,
       },
     });
