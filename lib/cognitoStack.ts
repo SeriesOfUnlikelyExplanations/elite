@@ -8,7 +8,7 @@ import * as acm from '@aws-cdk/aws-certificatemanager';
 export class CognitoStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
-
+    //Create User Pool
     const userPool = new cognito.UserPool(this, "UserPool", {
       userPoolName: config.siteNames[0],
       selfSignUpEnabled: true, // Allow users to sign up
@@ -19,7 +19,8 @@ export class CognitoStack extends cdk.Stack {
       cognitoDomain: {
         domainPrefix: config.authName,
       },
-    });
+    })
+    //Setup Domain names
     const domainCert = acm.Certificate.fromCertificateArn(this, 'domainCert', config.certificateArn);
     const userPoolDomain = userPool.addDomain('CustomDomain', {
       customDomain: {
@@ -36,7 +37,7 @@ export class CognitoStack extends cdk.Stack {
       zone: myHostedZone,
       recordName: config.authDomain,
     });
-
+    // setup Clients
     const userPoolClient = userPool.addClient('app-client', {
       oAuth: {
         flows: {
@@ -48,6 +49,7 @@ export class CognitoStack extends cdk.Stack {
         logoutUrls: config.siteNames.map(i => 'https://' + i),
       }
     });
+    //Setup Identity Pool
     const identityPool = new cognito.CfnIdentityPool(this, "IdentityPool", {
       allowUnauthenticatedIdentities: false, // Don't allow unathenticated users
       cognitoIdentityProviders: [
