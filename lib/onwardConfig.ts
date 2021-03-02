@@ -1,4 +1,4 @@
-import fs;
+fs = require('fs');
 
 export var websiteDistSourcePath = './static';
 export var certificateArn = 'arn:aws:acm:us-east-1:718523126320:certificate/759a286c-c57f-44b4-a40f-4c864a8ab447';
