@@ -16,5 +16,7 @@ if (fs.existsSync(".env")) {
   throw new Error("Failed to load");
 }
 
+console.log(process.env);
+
 export var LWA_CLIENT_ID = process.env.LWA_CLIENT_ID;
 export var LWA_CLIENT_SECRET = process.env.LWA_CLIENT_SECRET;
