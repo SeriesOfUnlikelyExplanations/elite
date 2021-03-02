@@ -59,10 +59,19 @@ export class CognitoStack extends cdk.Stack {
         },
       ],
     });
-    // Setup LWA
+    // Setup LWA & login with Google
     new cognito.UserPoolIdentityProviderAmazon(this, 'Amazon', {
-      clientId: config.LWA_CLIENT_ID as string,
-      clientSecret: config.LWA_CLIENT_SECRET as string,
+      clientId: config.LWA_CLIENT_ID,
+      clientSecret: config.LWA_CLIENT_SECRET,
+      userPool: userPool,
+      attributeMapping: {
+        email: cognito.ProviderAttribute.AMAZON_EMAIL,
+        fullname: cognito.ProviderAttribute.AMAZON_NAME
+      },
+    });
+    new cognito.UserPoolIdentityProviderGoogle(this, 'Google', {
+      clientId: config.GOOGLE_CLIENT_ID,
+      clientSecret: config.GOOGLE_CLIENT_SECRET,
       userPool: userPool,
       attributeMapping: {
         email: cognito.ProviderAttribute.AMAZON_EMAIL,
