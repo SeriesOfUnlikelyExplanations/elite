@@ -74,8 +74,8 @@ export class CognitoStack extends cdk.Stack {
       clientSecret: config.GOOGLE_CLIENT_SECRET,
       userPool: userPool,
       attributeMapping: {
-        email: cognito.ProviderAttribute.AMAZON_EMAIL,
-        fullname: cognito.ProviderAttribute.AMAZON_NAME
+        email: cognito.ProviderAttribute.GOOGLE_EMAIL,
+        fullname: cognito.ProviderAttribute.GOOGLE_NAME
       },
     });
     // Export values
