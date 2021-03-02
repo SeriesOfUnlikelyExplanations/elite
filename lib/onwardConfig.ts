@@ -10,10 +10,10 @@ export var authDomain = 'auth.always-onward.com'
 export var authName = 'auth-onward'
 
 if (fs.existsSync(".env")) {
-    console.log("Using .env file to supply config environment variables");
-    require('dotenv').config();
+  console.log("Using .env file to supply config environment variables");
+  require('dotenv').config();
 } else {
-    console.log("Failed to load");
+  throw new Error("Failed to load");
 }
 
 export var LWA_CLIENT_ID = process.env.LWA_CLIENT_ID;
