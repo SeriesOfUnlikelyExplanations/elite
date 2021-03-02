@@ -26,7 +26,6 @@
     "axios": "^0.21.1"
   },
   "dependencies": {
-    "npm-force-resolutions": "^0.0.8",
     "@aws-cdk/assert": "^1.88.0",
     "@aws-cdk/aws-cloudfront": "^1.88.0",
     "@aws-cdk/aws-route53-targets": "^1.88.0",
@@ -36,7 +35,9 @@
     "@types/node": "10.17.27",
     "aws-cdk": "^1.88",
     "cdk": "^1.88.0",
+    "dotenv": "^8.2.0",
     "live-server": "^1.2.1",
+    "npm-force-resolutions": "^0.0.8",
     "source-map-support": "^0.5.16",
     "ts-node": "^9.0.0",
     "typescript": "~3.9.7"

@@ -1,4 +1,4 @@
-import dotenv from "dotenv";
+import dotenv = require("dotenv");
 import fs;
 
 export var websiteDistSourcePath = './static';
