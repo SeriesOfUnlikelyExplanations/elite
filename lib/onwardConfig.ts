@@ -1,4 +1,3 @@
-import dotenv = require("dotenv");
 import fs;
 
 export var websiteDistSourcePath = './static';
@@ -12,7 +11,7 @@ export var authName = 'auth-onward'
 
 if (fs.existsSync(".env")) {
     console.log("Using .env file to supply config environment variables");
-    dotenv.config({ path: ".env" });
+    require('dotenv').config({ path: '.env' });
 } else {
     console.log("Failed to load");
 }
