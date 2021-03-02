@@ -61,8 +61,8 @@ export class CognitoStack extends cdk.Stack {
     });
     // Setup LWA
     new cognito.UserPoolIdentityProviderAmazon(this, 'Amazon', {
-      clientId: config.LWA_CLIENT_ID,
-      clientSecret: config.LWA_CLIENT_SECRET,
+      clientId: config.LWA_CLIENT_ID as string,
+      clientSecret: config.LWA_CLIENT_SECRET as string,
       userPool: userPool,
       attributeMapping: {
         email: cognito.ProviderAttribute.AMAZON_EMAIL,
