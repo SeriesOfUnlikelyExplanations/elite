@@ -72,7 +72,6 @@ export class CognitoStack extends cdk.Stack {
     new cognito.UserPoolIdentityProviderGoogle(this, 'Google', {
       clientId: config.GOOGLE_CLIENT_ID,
       clientSecret: config.GOOGLE_CLIENT_SECRET,
-      scopes: ['profile'],
       userPool: userPool,
       attributeMapping: {
         email: cognito.ProviderAttribute.GOOGLE_EMAIL,
