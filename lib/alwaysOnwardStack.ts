@@ -4,14 +4,13 @@ import { Bucket, BlockPublicAccess } from '@aws-cdk/aws-s3';
 import { BucketDeployment, Source } from '@aws-cdk/aws-s3-deployment';
 import route53 = require('@aws-cdk/aws-route53');
 import targets = require('@aws-cdk/aws-route53-targets');
-import { AutoDeleteBucket } from '@mobileposse/auto-delete-bucket'
 import * as config from './onwardConfig';
 
 export class AlwaysOnwardStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const sourceBucket = new AutoDeleteBucket(this, config.siteNames[0] + '-website', {
+    const sourceBucket = new Bucket(this, config.siteNames[0] + '-website', {
       websiteIndexDocument: 'index.html',
       bucketName: config.siteNames[0],
       removalPolicy: cdk.RemovalPolicy.DESTROY,
