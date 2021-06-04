@@ -85,21 +85,21 @@ export class CognitoStack extends cdk.Stack {
     new cdk.CfnOutput(this, "UserPoolId", {
       value: userPool.userPoolId,
     });
-    new ssm.StringParameter(this, 'UserPoolId', {
+    new ssm.StringParameter(this, 'SSMUserPoolId', {
       parameterName: 'AlwaysOnwardUserPoolId',
       stringValue: `${userPool.userPoolId}`
     });
     new cdk.CfnOutput(this, "UserPoolClientId", {
       value: userPoolClient.userPoolClientId,
     });
-    new ssm.StringParameter(this, 'UserPoolClientId', {
+    new ssm.StringParameter(this, 'SSMUserPoolClientId', {
       parameterName: 'AlwaysOnwardUserPoolClientId',
       stringValue: `${userPoolClient.userPoolClientId}`
     });
     new cdk.CfnOutput(this, "IdentityPoolId", {
       value: identityPool.ref,
     });
-    new ssm.StringParameter(this, 'IdentityPoolId', {
+    new ssm.StringParameter(this, 'SSMIdentityPoolId', {
       parameterName: 'AlwaysOnwardIdentityPoolId',
       stringValue: `${identityPool.ref}`
     });
