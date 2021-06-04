@@ -15,8 +15,6 @@ const cog = new CognitoStack(app, "cognito", { env: env });
 
 const Lambda = new LambdaStack(app, "lambda", { env: env });
 
-
-new AlwaysOnwardStack(app, 'AlwaysOnwardStack', {
-  env: env,
-  apigw: Lambda.apigateway
+new AlwaysOnwardStack(app, 'AlwaysOnwardStack', Lambda.apigateway, {
+  env: env
 });
