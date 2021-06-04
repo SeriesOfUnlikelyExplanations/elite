@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("source-map-support/register");
+const cdk = require("@aws-cdk/core");
+const alwaysOnwardStack_1 = require("../lib/alwaysOnwardStack");
+const cognitoStack_1 = require("../lib/cognitoStack");
+const lambdaStack_1 = require("../lib/lambdaStack");
+const app = new cdk.App();
+new alwaysOnwardStack_1.AlwaysOnwardStack(app, 'AlwaysOnwardStack', {
+    env: {
+        account: process.env.CDK_DEFAULT_ACCOUNT,
+        region: 'us-east-1'
+    }
+});
+new cognitoStack_1.CognitoStack(app, "cognito");
+new lambdaStack_1.LambdaStack(app, "lambda");
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYWx3YXlzLW9ud2FyZC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImFsd2F5cy1vbndhcmQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQ0EsdUNBQXFDO0FBQ3JDLHFDQUFxQztBQUNyQyxnRUFBNkQ7QUFDN0Qsc0RBQW1EO0FBQ25ELG9EQUFpRDtBQUVqRCxNQUFNLEdBQUcsR0FBRyxJQUFJLEdBQUcsQ0FBQyxHQUFHLEVBQUUsQ0FBQztBQUMxQixJQUFJLHFDQUFpQixDQUFDLEdBQUcsRUFBRSxtQkFBbUIsRUFBRTtJQUM5QyxHQUFHLEVBQUU7UUFDSCxPQUFPLEVBQUUsT0FBTyxDQUFDLEdBQUcsQ0FBQyxtQkFBbUI7UUFDeEMsTUFBTSxFQUFFLFdBQVc7S0FDcEI7Q0FDRixDQUFDLENBQUM7QUFFSCxJQUFJLDJCQUFZLENBQUMsR0FBRyxFQUFFLFNBQVMsQ0FBQyxDQUFDO0FBRWpDLElBQUkseUJBQVcsQ0FBQyxHQUFHLEVBQUUsUUFBUSxDQUFDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIjIS91c3IvYmluL2VudiBub2RlXG5pbXBvcnQgJ3NvdXJjZS1tYXAtc3VwcG9ydC9yZWdpc3Rlcic7XG5pbXBvcnQgKiBhcyBjZGsgZnJvbSAnQGF3cy1jZGsvY29yZSc7XG5pbXBvcnQgeyBBbHdheXNPbndhcmRTdGFjayB9IGZyb20gJy4uL2xpYi9hbHdheXNPbndhcmRTdGFjayc7XG5pbXBvcnQgeyBDb2duaXRvU3RhY2sgfSBmcm9tICcuLi9saWIvY29nbml0b1N0YWNrJztcbmltcG9ydCB7IExhbWJkYVN0YWNrIH0gZnJvbSAnLi4vbGliL2xhbWJkYVN0YWNrJztcblxuY29uc3QgYXBwID0gbmV3IGNkay5BcHAoKTtcbm5ldyBBbHdheXNPbndhcmRTdGFjayhhcHAsICdBbHdheXNPbndhcmRTdGFjaycsIHtcbiAgZW52OiB7XG4gICAgYWNjb3VudDogcHJvY2Vzcy5lbnYuQ0RLX0RFRkFVTFRfQUNDT1VOVCxcbiAgICByZWdpb246ICd1cy1lYXN0LTEnXG4gIH1cbn0pO1xuXG5uZXcgQ29nbml0b1N0YWNrKGFwcCwgXCJjb2duaXRvXCIpO1xuXG5uZXcgTGFtYmRhU3RhY2soYXBwLCBcImxhbWJkYVwiKTtcbiJdfQ==
