@@ -5,6 +5,7 @@ import * as apigw from '@aws-cdk/aws-apigateway';
 import * as ssm from '@aws-cdk/aws-ssm';
 
 export class LambdaStack extends cdk.Stack {
+  public readonly apigateway: apigw.LambdaRestApi;
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
     //Create the Lambda
@@ -29,5 +30,8 @@ export class LambdaStack extends cdk.Stack {
       description: `Simple lambda API service. Timestamp: ${Date.now()}`
     });
 
+    new cdk.CfnOutput(this, "APIgateway", {
+      value: apigateway,
+    });
   }
 }

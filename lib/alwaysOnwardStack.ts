@@ -4,10 +4,11 @@ import { Bucket, BlockPublicAccess } from '@aws-cdk/aws-s3';
 import { BucketDeployment, Source } from '@aws-cdk/aws-s3-deployment';
 import * as route53 from '@aws-cdk/aws-route53';
 import * as targets from '@aws-cdk/aws-route53-targets';
+import * as apigw from '@aws-cdk/aws-apigateway';
 import * as config from './onwardConfig';
 
 export class AlwaysOnwardStack extends cdk.Stack {
-  constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
+  constructor(scope: cdk.App, id: string, apigw: apigw.LambdaRestApi, props?: cdk.StackProps) {
     super(scope, id, props);
 
     const sourceBucket = new Bucket(this, config.siteNames[0] + '-website', {
@@ -30,6 +31,16 @@ export class AlwaysOnwardStack extends cdk.Stack {
             originAccessIdentity: oia
           },
           behaviors : [ {isDefaultBehavior: true}]
+        },
+        {
+          customOriginSource: {
+            domainName: `${apigw.restApiId}.execute-api.${this.region}.${this.urlSuffix}`
+          },
+          originPath: `/${apigw.deploymentStage.stageName}`,
+          behaviors: [{
+            pathPattern: '/api/*',
+            allowedMethods: cloudfront.CloudFrontAllowedMethods.ALL
+          }]
         }
       ],
       aliasConfiguration: {
