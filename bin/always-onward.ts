@@ -11,8 +11,8 @@ const env = { env: {
   region: 'us-east-1'
 }}
 
-new AlwaysOnwardStack(app, 'AlwaysOnwardStack', env);
+new CognitoStack(app, "cognito");
 
-new CognitoStack(app, "cognito", env);
+new LambdaStack(app, "lambda");
 
-new LambdaStack(app, "lambda", env);
+new AlwaysOnwardStack(app, 'AlwaysOnwardStack');
