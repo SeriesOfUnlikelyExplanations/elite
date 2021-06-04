@@ -1,9 +1,9 @@
-import cdk = require('@aws-cdk/core');
+import * as cdk from '@aws-cdk/core';
 import { CloudFrontWebDistribution, OriginAccessIdentity } from '@aws-cdk/aws-cloudfront'
 import { Bucket, BlockPublicAccess } from '@aws-cdk/aws-s3';
 import { BucketDeployment, Source } from '@aws-cdk/aws-s3-deployment';
-import route53 = require('@aws-cdk/aws-route53');
-import targets = require('@aws-cdk/aws-route53-targets');
+import * as route53 from '@aws-cdk/aws-route53';
+import * as targets from '@aws-cdk/aws-route53-targets';
 import * as config from './onwardConfig';
 
 export class AlwaysOnwardStack extends cdk.Stack {

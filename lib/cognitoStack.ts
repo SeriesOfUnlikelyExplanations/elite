@@ -1,9 +1,10 @@
-import cdk = require('@aws-cdk/core');
+import * as cdk from '@aws-cdk/core';
 import * as cognito from "@aws-cdk/aws-cognito";
-import route53 = require('@aws-cdk/aws-route53');
-import targets = require('@aws-cdk/aws-route53-targets');
+import * as route53 from '@aws-cdk/aws-route53';
+import * as targets from '@aws-cdk/aws-route53-targets';
 import * as config from './onwardConfig';
 import * as acm from '@aws-cdk/aws-certificatemanager';
+import * as ssm from '@aws-cdk/aws-ssm';
 
 export class CognitoStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
@@ -63,6 +64,7 @@ export class CognitoStack extends cdk.Stack {
     new cognito.UserPoolIdentityProviderAmazon(this, 'Amazon', {
       clientId: config.LWA_CLIENT_ID,
       clientSecret: config.LWA_CLIENT_SECRET,
+      scopes: ['profile'],
       userPool: userPool,
       attributeMapping: {
         email: cognito.ProviderAttribute.AMAZON_EMAIL,
@@ -83,11 +85,16 @@ export class CognitoStack extends cdk.Stack {
     new cdk.CfnOutput(this, "UserPoolId", {
       value: userPool.userPoolId,
     });
+    new ssm.StringParameter(this, 'SSMUserPoolId', {
+      parameterName: 'AlwaysOnwardUserPoolId',
+      stringValue: `${userPool.userPoolId}`
+    });
     new cdk.CfnOutput(this, "UserPoolClientId", {
       value: userPoolClient.userPoolClientId,
     });
     new cdk.CfnOutput(this, "IdentityPoolId", {
       value: identityPool.ref,
     });
+
   }
 }
