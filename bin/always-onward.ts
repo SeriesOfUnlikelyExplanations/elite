@@ -11,10 +11,10 @@ const env = {
   region: 'us-west-2'
 }
 
-const cog = new CognitoStack(app, "cognito", {
-  stackName: 'Always-Onward-cognito-stack',
-  env: env
-});
+//~ const cog = new CognitoStack(app, "cognito", {
+  //~ stackName: 'Always-Onward-cognito-stack',
+  //~ env: env
+//~ });
 
 const Lambda = new LambdaStack(app, "lambda", {
   stackName: 'Always-Onward-lambda-stack',
