@@ -3,6 +3,7 @@ import * as config from './onwardConfig';
 import * as lambda from "@aws-cdk/aws-lambda";
 import * as apigateway from '@aws-cdk/aws-apigateway';
 import * as ssm from '@aws-cdk/aws-ssm';
+import console = require('console');
 
 export class LambdaStack extends cdk.Stack {
   public readonly apigw: apigateway.LambdaRestApi;
@@ -20,7 +21,7 @@ export class LambdaStack extends cdk.Stack {
     });
 
     //create an API gateway to trigger the lambda
-    const apigw = new apigateway.LambdaRestApi(this, "api", {
+    this.apigw = new apigateway.LambdaRestApi(this, "api", {
       handler: handler,
       defaultMethodOptions: {
         authorizationType: apigateway.AuthorizationType.NONE
