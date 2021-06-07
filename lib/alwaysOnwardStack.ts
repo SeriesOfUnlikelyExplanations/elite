@@ -7,13 +7,12 @@ import * as targets from '@aws-cdk/aws-route53-targets';
 import * as apigateway from '@aws-cdk/aws-apigateway';
 import * as config from './onwardConfig';
 
-
 interface LambdaStackProps extends cdk.StackProps {
   apigw: apigateway.LambdaRestApi;
 }
 
 export class AlwaysOnwardStack extends cdk.Stack {
-  constructor(scope: cdk.App, id: string, props?: LambdaStackProps) {
+  constructor(scope: cdk.App, id: string, props: LambdaStackProps) {
     super(scope, id, props);
 
     const {apigw} = props;
