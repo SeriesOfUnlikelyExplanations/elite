@@ -4,12 +4,12 @@ import { Bucket, BlockPublicAccess } from '@aws-cdk/aws-s3';
 import { BucketDeployment, Source } from '@aws-cdk/aws-s3-deployment';
 import * as route53 from '@aws-cdk/aws-route53';
 import * as targets from '@aws-cdk/aws-route53-targets';
-import * as apigw from '@aws-cdk/aws-apigateway';
+import * as apigateway from '@aws-cdk/aws-apigateway';
 import * as config from './onwardConfig';
 
 export class AlwaysOnwardStack extends cdk.Stack {
-  constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
-    super(scope, id, props);
+  constructor(scope: cdk.App, id: string, apigw: apigateway.LambdaRestApi, props?: cdk.StackProps) {
+    super(scope, id, apigw, props);
 
     const sourceBucket = new Bucket(this, config.siteNames[0] + '-website', {
       websiteIndexDocument: 'index.html',
@@ -34,9 +34,9 @@ export class AlwaysOnwardStack extends cdk.Stack {
         },
         {
           customOriginSource: {
-            domainName: `${props.apigw.restApiId}.execute-api.${this.region}.${this.urlSuffix}`
+            domainName: `${apigw.restApiId}.execute-api.${this.region}.${this.urlSuffix}`
           },
-          originPath: `/${props.apigw.deploymentStage.stageName}`,
+          originPath: `/${apigw.deploymentStage.stageName}`,
           behaviors: [{
             pathPattern: '/api/*',
             allowedMethods: CloudFrontAllowedMethods.ALL
