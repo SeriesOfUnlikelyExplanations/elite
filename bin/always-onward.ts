@@ -12,7 +12,7 @@ const env = {
 }
 
 const cog = new CognitoStack(app, "cognito", {
-  stackName: 'Always-Onward-lambda-stack',
+  stackName: 'Always-Onward-cognito-stack',
   env: env
 });
 
