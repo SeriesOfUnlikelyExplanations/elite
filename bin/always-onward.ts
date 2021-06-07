@@ -8,12 +8,18 @@ import { LambdaStack } from '../lib/lambdaStack';
 const app = new cdk.App();
 const env = {
   account: process.env.CDK_DEFAULT_ACCOUNT,
-  region: 'us-east-1'
+  region: 'us-west-2'
 }
 
-const cog = new CognitoStack(app, "cognito", { env:  env });
+const cog = new CognitoStack(app, "cognito", {
+  stackName: 'Always-Onward-lambda-stack',
+  env: env
+});
 
-const Lambda = new LambdaStack(app, "lambda", { env:  env} );
+const Lambda = new LambdaStack(app, "lambda", {
+  stackName: 'Always-Onward-lambda-stack',
+  env: env,
+});
 
 new AlwaysOnwardStack(app, 'AlwaysOnwardStack', {
   apigw: Lambda.apigw,
