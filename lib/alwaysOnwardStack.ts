@@ -1,5 +1,5 @@
 import * as cdk from '@aws-cdk/core';
-import { CloudFrontWebDistribution, OriginAccessIdentity } from '@aws-cdk/aws-cloudfront'
+import { CloudFrontWebDistribution, OriginAccessIdentity, CloudFrontAllowedMethods } from '@aws-cdk/aws-cloudfront'
 import { Bucket, BlockPublicAccess } from '@aws-cdk/aws-s3';
 import { BucketDeployment, Source } from '@aws-cdk/aws-s3-deployment';
 import * as route53 from '@aws-cdk/aws-route53';
@@ -8,8 +8,8 @@ import * as apigw from '@aws-cdk/aws-apigateway';
 import * as config from './onwardConfig';
 
 export class AlwaysOnwardStack extends cdk.Stack {
-  constructor(scope: cdk.App, id: string, apigw: apigw.LambdaRestApi, props?: cdk.StackProps) {
-    super(scope, id, apigw, props);
+  constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
 
     const sourceBucket = new Bucket(this, config.siteNames[0] + '-website', {
       websiteIndexDocument: 'index.html',
@@ -34,12 +34,12 @@ export class AlwaysOnwardStack extends cdk.Stack {
         },
         {
           customOriginSource: {
-            domainName: `${apigw.restApiId}.execute-api.${this.region}.${this.urlSuffix}`
+            domainName: `${props.apigw.restApiId}.execute-api.${this.region}.${this.urlSuffix}`
           },
-          originPath: `/${apigw.deploymentStage.stageName}`,
+          originPath: `/${props.apigw.deploymentStage.stageName}`,
           behaviors: [{
             pathPattern: '/api/*',
-            allowedMethods: cloudfront.CloudFrontAllowedMethods.ALL
+            allowedMethods: CloudFrontAllowedMethods.ALL
           }]
         }
       ],
