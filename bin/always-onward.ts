@@ -17,6 +17,6 @@ const Lambda = new LambdaStack(app, "lambda", { env:  env} );
 
 new AlwaysOnwardStack(app, 'AlwaysOnwardStack', {
   apigw: Lambda.apigw,
-  stackName: 'Always-Onward-site-stack',
+  stackName: 'Always-Onward-base-stack',
   env: env,
 });
