@@ -9,7 +9,7 @@ const app = new cdk.App();
 const env = {
   account: process.env.CDK_DEFAULT_ACCOUNT,
   region: 'us-east-1'
-}}
+}
 
 const cog = new CognitoStack(app, "cognito", { env: env });
 
