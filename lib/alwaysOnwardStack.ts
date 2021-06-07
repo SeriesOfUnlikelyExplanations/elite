@@ -9,7 +9,7 @@ import * as config from './onwardConfig';
 
 export class AlwaysOnwardStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, apigw: apigw.LambdaRestApi, props?: cdk.StackProps) {
-    super(scope, id, props);
+    super(scope, id, apigw, props);
 
     const sourceBucket = new Bucket(this, config.siteNames[0] + '-website', {
       websiteIndexDocument: 'index.html',
