@@ -7,9 +7,16 @@ import * as targets from '@aws-cdk/aws-route53-targets';
 import * as apigateway from '@aws-cdk/aws-apigateway';
 import * as config from './onwardConfig';
 
+
+interface LambdaStackProps extends cdk.StackProps {
+  apigw: apigateway.LambdaRestApi;
+}
+
 export class AlwaysOnwardStack extends cdk.Stack {
-  constructor(scope: cdk.App, id: string, apigw: apigateway.LambdaRestApi, props?: cdk.StackProps) {
+  constructor(scope: cdk.App, id: string, props?: LambdaStackProps) {
     super(scope, id, props);
+
+    const {apigw} = props;
 
     const sourceBucket = new Bucket(this, config.siteNames[0] + '-website', {
       websiteIndexDocument: 'index.html',

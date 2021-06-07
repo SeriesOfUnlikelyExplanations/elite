@@ -1,11 +1,11 @@
 import * as cdk from '@aws-cdk/core';
 import * as config from './onwardConfig';
 import * as lambda from "@aws-cdk/aws-lambda";
-import * as apigw from '@aws-cdk/aws-apigateway';
+import * as apigateway from '@aws-cdk/aws-apigateway';
 import * as ssm from '@aws-cdk/aws-ssm';
 
 export class LambdaStack extends cdk.Stack {
-  public readonly apigateway: apigw.LambdaRestApi;
+  public readonly apigw: apigateway.LambdaRestApi;
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
     //Create the Lambda
@@ -20,18 +20,13 @@ export class LambdaStack extends cdk.Stack {
     });
 
     //create an API gateway to trigger the lambda
-    const apigateway = new apigw.LambdaRestApi(this, "api", {
+    const apigw = new apigateway.LambdaRestApi(this, "api", {
       handler: handler,
       defaultMethodOptions: {
-        // We only do this because Midway authentication is enabled in the Flask app
-        authorizationType: apigw.AuthorizationType.NONE
+        authorizationType: apigateway.AuthorizationType.NONE
       },
       binaryMediaTypes: ['*/*'],
       description: `Simple lambda API service. Timestamp: ${Date.now()}`
-    });
-
-    new cdk.CfnOutput(this, "APIgateway", {
-      value: apigateway,
     });
   }
 }
