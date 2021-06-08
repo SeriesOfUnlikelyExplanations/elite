@@ -118,9 +118,14 @@ export class AlwaysOnwardStack extends cdk.Stack {
           implicitCodeGrant: true,
         },
         scopes: [ cognito.OAuthScope.OPENID, cognito.OAuthScope.EMAIL, cognito.OAuthScope.PHONE, cognito.OAuthScope.PROFILE ],
-        callbackUrls: config.subSites.map(i => 'https://' + i),
+        callbackUrls: config.siteNames.map(i => 'https://' + i),
         logoutUrls: config.siteNames.map(i => 'https://' + i),
-      }
+      },
+      supportedIdentityProviders: [
+        cognito.UserPoolClientIdentityProvider.AMAZON,
+        cognito.UserPoolClientIdentityProvider.COGNITO,
+        cognito.UserPoolClientIdentityProvider.GOOGLE
+      ],
     });
     //Setup Identity Pool
     const identityPool = new cognito.CfnIdentityPool(this, "IdentityPool", {

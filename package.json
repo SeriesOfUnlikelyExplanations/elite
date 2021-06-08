@@ -19,11 +19,7 @@
     "build": "tsc",
     "test": "cdk synth",
     "static": "live-server ./static",
-    "deploy": "cdk deploy --all --require-approval never",
-    "preinstall": "npx npm-force-resolutions"
-  },
-  "resolutions": {
-    "axios": "^0.21.1"
+    "deploy": "cdk deploy --all --require-approval never"
   },
   "dependencies": {
     "@aws-cdk/assert": "^1.107.0",
@@ -33,9 +29,7 @@
     "@aws-cdk/core": "^1.107",
     "aws-cdk": "^1.107",
     "cdk": "^1.107.0",
-    "dotenv": "^8.2.0",
     "lambda-api": "^0.10.7",
-    "npm-force-resolutions": "^0.0.8",
     "source-map-support": "^0.5.16",
     "ts-node": "^9.0.0",
     "typescript": "~3.9.7"
