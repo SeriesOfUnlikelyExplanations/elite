@@ -2,13 +2,11 @@
 const api = require('lambda-api')()
 
 // Define a route
-api.get('/status', async (req,res) => {
-  return { status: 'ok' }
-})
-
 api.get('/api/status', async (req,res) => {
   return { status: 'ok - api' }
 })
+
+api.register(require('./auth'), { prefix: '/api/auth' })
 
 // Declare your Lambda handler
 exports.handler = async (event, context) => {

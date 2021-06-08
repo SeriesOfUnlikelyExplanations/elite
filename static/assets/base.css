@@ -33,6 +33,12 @@ body { overflow-x: hidden; }
   font-weight: 600;
   text-transform: uppercase;
 }
+.login-link {
+  color: #0645AD;
+  font-size: 17px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
 
 /* Home */
 .home-section {

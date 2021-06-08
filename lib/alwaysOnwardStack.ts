@@ -104,7 +104,6 @@ export class AlwaysOnwardStack extends cdk.Stack {
       },
     });
 
-
     new route53.ARecord(this, config.authDomain + '-alias-record', {
      target: route53.RecordTarget.fromAlias(new targets.UserPoolDomainTarget(userPoolDomain)),
       zone: myHostedZone,
