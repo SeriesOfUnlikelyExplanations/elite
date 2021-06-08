@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "echo pass",
+    "test": "cdk synth",
     "static": "live-server ./static",
     "deploy": "cdk deploy --all --require-approval never",
     "preinstall": "npx npm-force-resolutions"
