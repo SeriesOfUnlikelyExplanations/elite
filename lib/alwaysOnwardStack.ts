@@ -70,13 +70,18 @@ export class AlwaysOnwardStack extends cdk.Stack {
       zoneName: config.zoneName,
     });
 
-    const aRecord = config.siteNames.forEach((siteName) => {
-      return new route53.ARecord(this, siteName + '-alias-record', {
-        target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
-        zone: myHostedZone,
-        recordName: siteName,
-      });
+    new route53.ARecord(this, config.siteNames[0]  + '-alias-record', {
+      target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
+      zone: myHostedZone,
+      recordName: config.siteNames[0],
     });
+
+    const aRecord = new route53.ARecord(this, config.siteNames[1] + '-alias-record', {
+      target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
+      zone: myHostedZone,
+      recordName: config.siteNames[1],
+    });
+
     const userPool = new cognito.UserPool(this, "UserPool", {
       userPoolName: config.siteNames[0],
       selfSignUpEnabled: true, // Allow users to sign up
@@ -88,6 +93,8 @@ export class AlwaysOnwardStack extends cdk.Stack {
         domainPrefix: config.authName,
       },
     })
+    userPool.node.addDependency(aRecord);
+
     //Setup Domain names
     const domainCert = acm.Certificate.fromCertificateArn(this, 'domainCert', config.certificateArn);
     const userPoolDomain = userPool.addDomain('CustomDomain', {
@@ -96,7 +103,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
         certificate: domainCert,
       },
     });
-    userPoolDomain.node.addDependency(aRecord);
+
 
     new route53.ARecord(this, config.authDomain + '-alias-record', {
      target: route53.RecordTarget.fromAlias(new targets.UserPoolDomainTarget(userPoolDomain)),
