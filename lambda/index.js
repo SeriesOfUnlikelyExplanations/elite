@@ -9,5 +9,6 @@ api.get('/status', async (req,res) => {
 // Declare your Lambda handler
 exports.handler = async (event, context) => {
   // Run the request
+  console.log(event);
   return await api.run(event, context)
 }

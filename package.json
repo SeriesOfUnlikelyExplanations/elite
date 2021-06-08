@@ -33,7 +33,7 @@
     "@aws-cdk/core": "^1.107",
     "aws-cdk": "^1.107",
     "cdk": "^1.107.0",
-    "npm ": "^8.2.0",
+    "dotenv": "^8.2.0",
     "lambda-api": "^0.10.7",
     "npm-force-resolutions": "^0.0.8",
     "source-map-support": "^0.5.16",
