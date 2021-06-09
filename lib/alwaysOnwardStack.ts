@@ -117,7 +117,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
           implicitCodeGrant: true,
         },
         scopes: [ cognito.OAuthScope.OPENID, cognito.OAuthScope.EMAIL, cognito.OAuthScope.PHONE, cognito.OAuthScope.PROFILE ],
-        callbackUrls: config.siteNames.map(i => 'https://' + i).concat(['http://127.0.0.1:8080']) ,
+        callbackUrls: config.siteNames.map(i => 'https://' + i).concat(['https://127.0.0.1:8080']),
         logoutUrls: config.siteNames.map(i => 'https://' + i),
       },
       supportedIdentityProviders: [
