@@ -78,6 +78,7 @@
     </div>
   </footer>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-amplify/4.0.3/aws-amplify.min.js" integrity="sha512-K1Wb2iM6yxDtYI7PT5MQcrjQaQtSI/XVVdW1VBdh5g04xzz4D06JjRU4jsnveEzggoTr/kcm/wDq1aSMICkNMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     // http://stackoverflow.com/questions/2851663/how-do-i-simulate-a-hover-with-a-touch-in-touch-enabled-browsers
     $('body').bind('touchstart', function() {});
@@ -111,11 +112,21 @@
       }
     }, 1000);
     document.addEventListener( 'DOMContentLoaded',  async function () {
-      const response = await fetch('https://www.always-onward.com/api/auth/clientId');
+      const response = await fetch('https://www.always-onward.com/api/auth/parameters');
       const clientId = await response.json(); //extract JSON from the http response
       $('#login-link').attr("href", 'https://auth.always-onward.com/login?client_id='+clientId['clientId']+'&response_type=code&scope=email+openid+phone+profile&redirect_uri='+window.location.protocol+'//'+window.location.host)
-    });
 
+      // Configure Auth category with your Amazon Cognito credentials
+      Amplify.configure({
+        Auth: {
+          identityPoolId: 'XX-XXXX-X:XXXXXXXX-XXXX', // Amazon Cognito Identity Pool ID
+          region: 'XX-XXXX-X', // Amazon Cognito Region
+        }
+      });
+      await Auth.currentAuthenticatedUser()
+        .then(() => { console.log('User Logged In'); })
+        .catch(() => { console.log('User Not Logged In');; });
+    });
   </script>
 </body>
 </html>
