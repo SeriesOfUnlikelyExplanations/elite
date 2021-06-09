@@ -1,5 +1,4 @@
-
-// routes/v1/products.js
+// route - api/auth
 module.exports = (api, opts) => {
   api.get('/parameters', async (req,res) => {
     res.cors({
