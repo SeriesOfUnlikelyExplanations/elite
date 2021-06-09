@@ -78,7 +78,8 @@
     </div>
   </footer>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-amplify/4.0.3/aws-amplify.min.js" integrity="sha512-K1Wb2iM6yxDtYI7PT5MQcrjQaQtSI/XVVdW1VBdh5g04xzz4D06JjRU4jsnveEzggoTr/kcm/wDq1aSMICkNMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js@5.0.2/lib/index.min.js" ></script>
+  <script type="text/javascript" src="https://sdk.amazonaws.com/js/aws-sdk-2.924.0.min.js"></script>
   <script>
     // http://stackoverflow.com/questions/2851663/how-do-i-simulate-a-hover-with-a-touch-in-touch-enabled-browsers
     $('body').bind('touchstart', function() {});
@@ -116,16 +117,22 @@
       const authParams = await response.json(); //extract JSON from the http response
       $('#login-link').attr("href", 'https://auth.always-onward.com/login?client_id='+authParams['clientId']+'&response_type=code&scope=email+openid+phone+profile&redirect_uri='+window.location.protocol+'//'+window.location.host)
 
-      // Configure Auth category with your Amazon Cognito credentials
-      Amplify.configure({
-        Auth: {
-          identityPoolId: authParams['identityPoolId'], // Amazon Cognito Identity Pool ID
-          region: authParams['region'], // Amazon Cognito Region
-        }
-      });
-      await Auth.currentAuthenticatedUser()
-        .then(() => { console.log('User Logged In'); })
-        .catch(() => { console.log('User Not Logged In'); });
+      var poolData = { UserPoolId : authParams['clientId'],
+        ClientId : authParams['clientId']
+      };
+
+      var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+
+      var cognitoUser = userPool.getCurrentUser();
+      if (cognitoUser != null) {
+        console.log('user exists');
+
+      } else {
+        console.log('nope');
+      }
+    }
+
+
     });
   </script>
 </body>
