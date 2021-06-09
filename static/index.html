@@ -113,7 +113,7 @@
     document.addEventListener( 'DOMContentLoaded',  async function () {
       const response = await fetch('https://www.always-onward.com/api/auth/clientId');
       const clientId = await response.json(); //extract JSON from the http response
-      $('#login').attr("href", 'https://auth.always-onward.com/login?client_id='+clientId['clientId']+'&response_type=code&scope=email+openid+phone+profile&redirect_uri='+window.location.protocol+'//'+window.location.host)
+      $('#login-link').attr("href", 'https://auth.always-onward.com/login?client_id='+clientId['clientId']+'&response_type=code&scope=email+openid+phone+profile&redirect_uri='+window.location.protocol+'//'+window.location.host)
     });
 
   </script>
