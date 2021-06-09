@@ -16,8 +16,8 @@
           <span class="site-name">Always Onward</span>
         </div>
         <div class="col-lg-6 col-md-4 col-sm-3" style="padding-top: 15px;">
-          <a href="https://auth.always-onward.com/login?client_id=2st20dfpa6esj5hff65aoi9dua&response_type=code&scope=email+openid+phone+profile&redirect_uri=https://always-onward.com">
-            <span class="login-link pull-right">Login</span>
+          <a id="login-link" href="">
+            <span class="pull-right">Login</span>
           </a>
         </div>
       </div>
@@ -34,7 +34,16 @@
         </div>
       </div></a>
     </div>
-    <!-- Mynd photo manager -->
+    <!--Elite Dangerous game-->
+    <div class="col-lg-4 col-md-4 col-sm-6">
+      <div class="home-card">
+        <a href="elite/index.html"><img src="img/WCCFelitedangerous2-tile.jpg" alt="image"></a>
+        <div class="btn-primary tool-container">
+          <a href="elite/index.html"><span>Elite Dangerous</span></a>
+        </div>
+      </div>
+    </div>
+          <!-- Mynd photo manager -->
     <div class="col-lg-4 col-md-4 col-sm-6">
       <div class="home-card">
         <a href="rental/index.html"><img src="img/index-01.jpg" alt="image"></a>
@@ -43,15 +52,6 @@
           </div>
       </div>
     </div>
-    <!--Elite Dangerous game-->
-    <div class="col-lg-4 col-md-4 col-sm-6">
-        <div class="home-card">
-          <a href="elite/index.html"><img src="img/WCCFelitedangerous2-tile.jpg" alt="image"></a>
-          <div class="btn-primary tool-container">
-            <a href="elite/index.html"><span>Elite Dangerous</span></a>
-          </div>
-        </div>
-      </div>
     <!--Countdown-->
     <div class="col-lg-4 col-md-4 col-sm-6">
         <div class="home-card">
@@ -82,7 +82,6 @@
     // http://stackoverflow.com/questions/2851663/how-do-i-simulate-a-hover-with-a-touch-in-touch-enabled-browsers
     $('body').bind('touchstart', function() {});
 
-    $('#rental-signin-button').attr("href", 'https://auth.always-onward.com/login?client_id=5c72ninemr6imij5ul0a0i0jbe&response_type=token&redirect_uri='+window.location.protocol+'//'+window.location.host)
     <!-- Display the countdown timer in an element -->
 
     // Set the date we're counting down to
@@ -90,13 +89,10 @@
 
     // Update the count down every 1 second
     var x = setInterval(function() {
-
       // Get today's date and time
       var now = new Date().getTime();
-
       // Find the distance between now and the count down date
       var distance = countDownDate - now;
-
       // Time calculations for days, hours, minutes and seconds
       var weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
       var days = Math.floor(distance % (1000 * 60 * 60 * 24 * 7) / (1000 * 60 * 60 * 24));
@@ -114,6 +110,12 @@
         document.getElementById("countdown").innerHTML = "EXPIRED";
       }
     }, 1000);
+    document.addEventListener( 'DOMContentLoaded',  async function () {
+      const response = await fetch('https://www.always-onward.com/api/auth/clientId');
+      const clientId = await response.json(); //extract JSON from the http response
+      $('#login').attr("href", 'https://auth.always-onward.com/login?client_id='+clientId['clientId']+'&response_type=code&scope=email+openid+phone+profile&redirect_uri='+window.location.protocol+'//'+window.location.host)
+    });
+
   </script>
 </body>
 </html>

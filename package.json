@@ -19,6 +19,7 @@
     "build": "tsc",
     "test": "cdk synth",
     "static": "live-server ./static",
+    "serveBase": "sam-beta-cdk local start-api --warm-containers EAGER",
     "deploy": "cdk deploy --all --require-approval never"
   },
   "dependencies": {

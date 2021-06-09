@@ -1,0 +1,2176 @@
+{
+  "version": "11.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "lambda": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://718523126320/us-west-2",
+      "properties": {
+        "templateFile": "lambda.template.json",
+        "validateOnSynth": false,
+        "stackName": "Always-Onward-lambda-stack"
+      },
+      "metadata": {
+        "/lambda": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "/mnt/c/users/woodardt/workspace/always-onward/lambda",
+              "id": "9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d",
+              "packaging": "zip",
+              "sourceHash": "9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d",
+              "s3BucketParameter": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3BucketD9A045DB",
+              "s3KeyParameter": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3VersionKey06E37464",
+              "artifactHashParameter": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dArtifactHashEDAF7396"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/construct-compat.ts:451:92)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:171:23)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "LambdaStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:600:29)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:13:21)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/alwaysOnwardLambda/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "alwaysOnwardLambdaServiceRole3AF05F22",
+            "trace": [
+              "new Role (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-iam/lib/role.ts:326:18)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:580:31)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:13:21)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/alwaysOnwardLambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "alwaysOnwardLambda964B3CA1",
+            "trace": [
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:642:35)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:13:21)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/alwaysOnwardLambda/EventInvokeConfig/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "alwaysOnwardLambdaEventInvokeConfigD5434D52",
+            "trace": [
+              "new EventInvokeConfig (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/event-invoke-config.ts:84:5)",
+              "Function.configureAsyncInvoke (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:353:5)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:710:12)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:13:21)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/AssetParameters/9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3BucketD9A045DB",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "LambdaStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:600:29)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:13:21)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/AssetParameters/9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3VersionKey06E37464",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "LambdaStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:600:29)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:13:21)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/AssetParameters/9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dArtifactHashEDAF7396",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "LambdaStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:600:29)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:13:21)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiC8550315",
+            "trace": [
+              "new RestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:711:22)",
+              "new LambdaRestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:50:5)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:24:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/api/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiCloudWatchRoleAC81D93E",
+            "trace": [
+              "new Role (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-iam/lib/role.ts:326:18)",
+              "LambdaRestApi._configureCloudWatchRole (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:496:18)",
+              "new RestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:728:12)",
+              "new LambdaRestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:50:5)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:24:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/api/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiAccount57E28B43",
+            "trace": [
+              "LambdaRestApi._configureCloudWatchRole (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:501:22)",
+              "new RestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:728:12)",
+              "new LambdaRestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:50:5)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:24:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/api/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiDeployment149F1294e2d123b30180609e8fcf547f7277fe8d",
+            "trace": [
+              "new Deployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/deployment.ts:75:21)",
+              "LambdaRestApi._configureDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:529:32)",
+              "new RestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:731:10)",
+              "new LambdaRestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:50:5)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:24:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/api/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiDeploymentStageprod896C8101",
+            "trace": [
+              "new Stage (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/stage.ts:240:22)",
+              "LambdaRestApi._configureDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:539:30)",
+              "new RestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:731:10)",
+              "new LambdaRestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:50:5)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:24:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/api/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiEndpoint9349E63C",
+            "trace": [
+              "LambdaRestApi._configureDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:544:7)",
+              "new RestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:731:10)",
+              "new LambdaRestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:50:5)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:24:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/api/Default/{proxy+}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiproxy4EA44110",
+            "trace": [
+              "new Resource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:446:22)",
+              "new ProxyResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:518:5)",
+              "RootResource.addProxy (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:191:12)",
+              "new LambdaRestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:57:17)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:24:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/api/Default/{proxy+}/ANY/ApiPermission.lambdaapiC0087213.ANY..{proxy+}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiproxyANYApiPermissionlambdaapiC0087213ANYproxyC7D8F07D",
+            "trace": [
+              "Function.addPermission (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:246:5)",
+              "LambdaIntegration.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:63:18)",
+              "new Method (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:197:36)",
+              "ProxyResource.addMethod (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:187:12)",
+              "ProxyResource.addMethod (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:540:18)",
+              "new ProxyResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:527:29)",
+              "RootResource.addProxy (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:191:12)",
+              "new LambdaRestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:57:17)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:24:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/api/Default/{proxy+}/ANY/ApiPermission.Test.lambdaapiC0087213.ANY..{proxy+}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiproxyANYApiPermissionTestlambdaapiC0087213ANYproxy77068950",
+            "trace": [
+              "Function.addPermission (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:246:5)",
+              "LambdaIntegration.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:71:20)",
+              "new Method (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:197:36)",
+              "ProxyResource.addMethod (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:187:12)",
+              "ProxyResource.addMethod (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:540:18)",
+              "new ProxyResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:527:29)",
+              "RootResource.addProxy (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:191:12)",
+              "new LambdaRestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:57:17)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:24:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/api/Default/{proxy+}/ANY/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiproxyANY7F13F09C",
+            "trace": [
+              "new Method (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:215:22)",
+              "ProxyResource.addMethod (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:187:12)",
+              "ProxyResource.addMethod (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:540:18)",
+              "new ProxyResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:527:29)",
+              "RootResource.addProxy (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:191:12)",
+              "new LambdaRestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:57:17)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:24:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/api/Default/ANY/ApiPermission.lambdaapiC0087213.ANY..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiANYApiPermissionlambdaapiC0087213ANY16368EB4",
+            "trace": [
+              "Function.addPermission (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:246:5)",
+              "LambdaIntegration.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:63:18)",
+              "new Method (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:197:36)",
+              "RootResource.addMethod (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:187:12)",
+              "ProxyResource.addMethod (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:537:29)",
+              "new ProxyResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:527:29)",
+              "RootResource.addProxy (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:191:12)",
+              "new LambdaRestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:57:17)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:24:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/api/Default/ANY/ApiPermission.Test.lambdaapiC0087213.ANY..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiANYApiPermissionTestlambdaapiC0087213ANYE993E961",
+            "trace": [
+              "Function.addPermission (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:246:5)",
+              "LambdaIntegration.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:71:20)",
+              "new Method (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:197:36)",
+              "RootResource.addMethod (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:187:12)",
+              "ProxyResource.addMethod (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:537:29)",
+              "new ProxyResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:527:29)",
+              "RootResource.addProxy (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:191:12)",
+              "new LambdaRestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:57:17)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:24:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/api/Default/ANY/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiANYB3DF8C3C",
+            "trace": [
+              "new Method (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:215:22)",
+              "RootResource.addMethod (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:187:12)",
+              "ProxyResource.addMethod (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:537:29)",
+              "new ProxyResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:527:29)",
+              "RootResource.addProxy (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:191:12)",
+              "new LambdaRestApi (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:57:17)",
+              "new LambdaStack (/mnt/c/users/woodardt/workspace/always-onward/lib/lambdaStack.ts:24:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:13:16)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/lambda/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:22:24)",
+              "/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/synthesis.ts:202:5)",
+              "visit (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/synthesis.ts:198:5)",
+              "injectMetadataResources (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stage.ts:180:23)",
+              "process.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:467:12)",
+              "process.emit (/mnt/c/users/woodardt/workspace/always-onward/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ],
+        "/lambda/Exports/Output{\"Ref\":\"apiC8550315\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefapiC855031500EF81AC",
+            "trace": [
+              "LambdaStack.exportValue (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:865:7)",
+              "createImportValue (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/refs.ts:167:37)",
+              "resolveValue (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/refs.ts:103:10)",
+              "Object.resolveReferences (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/refs.ts:30:24)",
+              "Object.prepareApp (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/prepare-app.ts:31:3)",
+              "Object.synthesize (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/synthesis.ts:24:3)",
+              "App.synth (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stage.ts:180:23)",
+              "process.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:467:12)",
+              "process.emit (/mnt/c/users/woodardt/workspace/always-onward/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ],
+        "/lambda/Exports/Output{\"Ref\":\"apiDeploymentStageprod896C8101\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefapiDeploymentStageprod896C8101B2549B76",
+            "trace": [
+              "LambdaStack.exportValue (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:865:7)",
+              "createImportValue (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/refs.ts:167:37)",
+              "resolveValue (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/refs.ts:103:10)",
+              "Object.resolveReferences (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/refs.ts:30:24)",
+              "Object.prepareApp (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/prepare-app.ts:31:3)",
+              "Object.synthesize (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/synthesis.ts:24:3)",
+              "App.synth (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stage.ts:180:23)",
+              "process.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:467:12)",
+              "process.emit (/mnt/c/users/woodardt/workspace/always-onward/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ]
+      },
+      "displayName": "lambda"
+    },
+    "AlwaysOnwardStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://718523126320/us-west-2",
+      "properties": {
+        "templateFile": "AlwaysOnwardStack.template.json",
+        "validateOnSynth": false,
+        "stackName": "Always-Onward-base-stack"
+      },
+      "dependencies": [
+        "lambda"
+      ],
+      "metadata": {
+        "/AlwaysOnwardStack": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/lambda-layer-awscli/lib/layer.zip",
+              "id": "e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68",
+              "packaging": "file",
+              "sourceHash": "e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68",
+              "s3BucketParameter": "AssetParameterse9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68S3BucketAEADE8C7",
+              "s3KeyParameter": "AssetParameterse9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68S3VersionKeyE415415F",
+              "artifactHashParameter": "AssetParameterse9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68ArtifactHashD9A515C3"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/construct-compat.ts:451:92)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:171:23)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new LayerVersion (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/layers.ts:189:29)",
+              "new AwsCliLayer (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/lambda-layer-awscli/lib/awscli-layer.ts:12:5)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:199:16)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          },
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/lambda",
+              "id": "c24b999656e4fe6c609c31bae56a1cf4717a405619c3aa6ba1bc686b8c2c86cf",
+              "packaging": "zip",
+              "sourceHash": "c24b999656e4fe6c609c31bae56a1cf4717a405619c3aa6ba1bc686b8c2c86cf",
+              "s3BucketParameter": "AssetParametersc24b999656e4fe6c609c31bae56a1cf4717a405619c3aa6ba1bc686b8c2c86cfS3Bucket55EFA30C",
+              "s3KeyParameter": "AssetParametersc24b999656e4fe6c609c31bae56a1cf4717a405619c3aa6ba1bc686b8c2c86cfS3VersionKey60329B70",
+              "artifactHashParameter": "AssetParametersc24b999656e4fe6c609c31bae56a1cf4717a405619c3aa6ba1bc686b8c2c86cfArtifactHash85F58E48"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/construct-compat.ts:451:92)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:171:23)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:600:29)",
+              "SingletonFunction.ensureLambda (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:134:12)",
+              "new SingletonFunction (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:56:32)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:196:21)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          },
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "/mnt/c/users/woodardt/workspace/always-onward/static",
+              "id": "849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd",
+              "packaging": "zip",
+              "sourceHash": "849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd",
+              "s3BucketParameter": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3BucketAF3DE9B6",
+              "s3KeyParameter": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3VersionKeyB556397C",
+              "artifactHashParameter": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdArtifactHashD7D2D412"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/construct-compat.ts:451:92)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:171:23)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "Object.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/source.ts:89:23)",
+              "/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:213:83",
+              "Array.map (<anonymous>)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:213:51)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          },
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/runtime",
+              "id": "f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797",
+              "packaging": "zip",
+              "sourceHash": "f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797",
+              "s3BucketParameter": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3BucketBEE108A9",
+              "s3KeyParameter": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3VersionKeyA877E3C9",
+              "artifactHashParameter": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797ArtifactHashAAFCA968"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/construct-compat.ts:451:92)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:171:23)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:600:29)",
+              "SingletonFunction.ensureLambda (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:134:12)",
+              "new SingletonFunction (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:56:32)",
+              "new AwsCustomResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:360:22)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.ts:139:39)",
+              "UserPoolDomainTarget.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.ts:14:28)",
+              "new RecordSet (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:222:73)",
+              "new ARecord (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:256:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:107:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/www.always-onward.com-website/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "wwwalwaysonwardcomwebsite5EBB9A61",
+            "trace": [
+              "new Bucket (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:1331:22)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:23:26)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/www.always-onward.com-website/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "wwwalwaysonwardcomwebsitePolicy99A78DC5",
+            "trace": [
+              "new BucketPolicy (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3/lib/bucket-policy.ts:42:21)",
+              "Bucket.addToResourcePolicy (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:504:21)",
+              "Function.addToPrincipalOrResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-iam/lib/grant.ts:143:45)",
+              "Bucket.grant (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:723:27)",
+              "Bucket.grantRead (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:601:17)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:34:18)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/OIA/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OIAE39B2685",
+            "trace": [
+              "new OriginAccessIdentity (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cloudfront/lib/origin-access-identity.ts:112:21)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:31:17)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/www.always-onward.com-cfront/CFDistribution": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "wwwalwaysonwardcomcfrontCFDistribution15172762",
+            "trace": [
+              "new CloudFrontWebDistribution (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cloudfront/lib/web-distribution.ts:944:26)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:35:26)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/www.always-onward.comDeployWebsite/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "wwwalwaysonwardcomDeployWebsiteAwsCliLayer341920DE",
+            "trace": [
+              "new LayerVersion (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/layers.ts:197:39)",
+              "new AwsCliLayer (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/lambda-layer-awscli/lib/awscli-layer.ts:12:5)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:199:16)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/www.always-onward.comDeployWebsite/CustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "wwwalwaysonwardcomDeployWebsiteCustomResourceD34B1D91",
+            "trace": [
+              "new CustomResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/custom-resource.ts:119:21)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:224:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AssetParameters/e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameterse9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68S3BucketAEADE8C7",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new LayerVersion (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/layers.ts:189:29)",
+              "new AwsCliLayer (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/lambda-layer-awscli/lib/awscli-layer.ts:12:5)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:199:16)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AssetParameters/e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameterse9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68S3VersionKeyE415415F",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new LayerVersion (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/layers.ts:189:29)",
+              "new AwsCliLayer (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/lambda-layer-awscli/lib/awscli-layer.ts:12:5)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:199:16)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AssetParameters/e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameterse9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68ArtifactHashD9A515C3",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new LayerVersion (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/layers.ts:189:29)",
+              "new AwsCliLayer (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/lambda-layer-awscli/lib/awscli-layer.ts:12:5)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:199:16)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AssetParameters/c24b999656e4fe6c609c31bae56a1cf4717a405619c3aa6ba1bc686b8c2c86cf/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersc24b999656e4fe6c609c31bae56a1cf4717a405619c3aa6ba1bc686b8c2c86cfS3Bucket55EFA30C",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:600:29)",
+              "SingletonFunction.ensureLambda (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:134:12)",
+              "new SingletonFunction (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:56:32)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:196:21)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AssetParameters/c24b999656e4fe6c609c31bae56a1cf4717a405619c3aa6ba1bc686b8c2c86cf/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersc24b999656e4fe6c609c31bae56a1cf4717a405619c3aa6ba1bc686b8c2c86cfS3VersionKey60329B70",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:600:29)",
+              "SingletonFunction.ensureLambda (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:134:12)",
+              "new SingletonFunction (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:56:32)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:196:21)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AssetParameters/c24b999656e4fe6c609c31bae56a1cf4717a405619c3aa6ba1bc686b8c2c86cf/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersc24b999656e4fe6c609c31bae56a1cf4717a405619c3aa6ba1bc686b8c2c86cfArtifactHash85F58E48",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:600:29)",
+              "SingletonFunction.ensureLambda (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:134:12)",
+              "new SingletonFunction (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:56:32)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:196:21)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AssetParameters/849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3BucketAF3DE9B6",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "Object.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/source.ts:89:23)",
+              "/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:213:83",
+              "Array.map (<anonymous>)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:213:51)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AssetParameters/849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3VersionKeyB556397C",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "Object.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/source.ts:89:23)",
+              "/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:213:83",
+              "Array.map (<anonymous>)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:213:51)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AssetParameters/849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdArtifactHashD7D2D412",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "Object.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/source.ts:89:23)",
+              "/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:213:83",
+              "Array.map (<anonymous>)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:213:51)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AssetParameters/f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3BucketBEE108A9",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:600:29)",
+              "SingletonFunction.ensureLambda (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:134:12)",
+              "new SingletonFunction (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:56:32)",
+              "new AwsCustomResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:360:22)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.ts:139:39)",
+              "UserPoolDomainTarget.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.ts:14:28)",
+              "new RecordSet (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:222:73)",
+              "new ARecord (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:256:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:107:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AssetParameters/f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3VersionKeyA877E3C9",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:600:29)",
+              "SingletonFunction.ensureLambda (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:134:12)",
+              "new SingletonFunction (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:56:32)",
+              "new AwsCustomResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:360:22)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.ts:139:39)",
+              "UserPoolDomainTarget.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.ts:14:28)",
+              "new RecordSet (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:222:73)",
+              "new ARecord (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:256:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:107:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AssetParameters/f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797ArtifactHashAAFCA968",
+            "trace": [
+              "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
+              "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "AlwaysOnwardStack.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack.ts:663:29)",
+              "LegacyStackSynthesizer.addFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:145:40)",
+              "AssetCode.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/code.ts:277:20)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:600:29)",
+              "SingletonFunction.ensureLambda (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:134:12)",
+              "new SingletonFunction (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:56:32)",
+              "new AwsCustomResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:360:22)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.ts:139:39)",
+              "UserPoolDomainTarget.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.ts:14:28)",
+              "new RecordSet (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:222:73)",
+              "new ARecord (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:256:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:107:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
+            "trace": [
+              "new Role (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-iam/lib/role.ts:326:18)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:580:31)",
+              "SingletonFunction.ensureLambda (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:134:12)",
+              "new SingletonFunction (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:56:32)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:196:21)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
+            "trace": [
+              "new Policy (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-iam/lib/policy.ts:154:22)",
+              "Role.addToPrincipalPolicy (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-iam/lib/role.ts:367:28)",
+              "Function.addToPrincipal (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-iam/lib/grant.ts:164:61)",
+              "Function.addToPrincipalOrResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-iam/lib/grant.ts:115:26)",
+              "Import.grant (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:723:27)",
+              "Import.grantRead (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:601:17)",
+              "Asset.grantRead (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:204:17)",
+              "Object.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/source.ts:96:15)",
+              "/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:213:83",
+              "Array.map (<anonymous>)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:213:51)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536",
+            "trace": [
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:642:35)",
+              "SingletonFunction.ensureLambda (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:134:12)",
+              "new SingletonFunction (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:56:32)",
+              "new BucketDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:196:21)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:61:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/www.always-onward.com-alias-record/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "wwwalwaysonwardcomaliasrecord0FD7C225",
+            "trace": [
+              "new RecordSet (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:217:23)",
+              "new ARecord (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:256:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:73:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AWSCloudFrontPartitionHostedZoneIdMap": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWSCloudFrontPartitionHostedZoneIdMap",
+            "trace": [
+              "Function.getHostedZoneId (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53-targets/lib/cloudfront-target.ts:26:7)",
+              "CloudFrontTarget.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53-targets/lib/cloudfront-target.ts:45:38)",
+              "new RecordSet (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:222:73)",
+              "new ARecord (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:256:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:73:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/always-onward.com-alias-record/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "alwaysonwardcomaliasrecord6C17ADF9",
+            "trace": [
+              "new RecordSet (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:217:23)",
+              "new ARecord (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:256:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:79:21)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/UserPool/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPool6BA7E5F2",
+            "trace": [
+              "new UserPool (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool.ts:758:22)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:85:22)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/UserPool/CognitoDomain/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPoolCognitoDomainD6C7F9FA",
+            "trace": [
+              "new UserPoolDomain (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.ts:117:22)",
+              "UserPool.addDomain (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool.ts:637:12)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:91:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/UserPool/CustomDomain/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPoolCustomDomainC8F5B565",
+            "trace": [
+              "new UserPoolDomain (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.ts:117:22)",
+              "UserPool.addDomain (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool.ts:637:12)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:100:37)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/UserPool/CustomDomain/CloudFrontDomainName/CustomResourcePolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPoolCustomDomainCloudFrontDomainNameCustomResourcePolicyE9085791",
+            "trace": [
+              "new Policy (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-iam/lib/policy.ts:154:22)",
+              "new AwsCustomResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:398:20)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.ts:139:39)",
+              "UserPoolDomainTarget.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.ts:14:28)",
+              "new RecordSet (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:222:73)",
+              "new ARecord (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:256:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:107:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/UserPool/CustomDomain/CloudFrontDomainName/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPoolCustomDomainCloudFrontDomainNameCD3C02C2",
+            "trace": [
+              "new CustomResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/custom-resource.ts:119:21)",
+              "new AwsCustomResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:405:27)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.ts:139:39)",
+              "UserPoolDomainTarget.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.ts:14:28)",
+              "new RecordSet (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:222:73)",
+              "new ARecord (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:256:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:107:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/UserPool/app-client/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPoolappclientE1BF3384",
+            "trace": [
+              "new UserPoolClient (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool-client.ts:370:22)",
+              "UserPool.addClient (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool.ts:630:12)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:113:37)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/auth.always-onward.com-alias-record/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "authalwaysonwardcomaliasrecord3EFFCEB5",
+            "trace": [
+              "new RecordSet (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:217:23)",
+              "new ARecord (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:256:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:107:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AWS679f53fac002430cb0da5b7982bd2287/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+            "trace": [
+              "new Role (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-iam/lib/role.ts:326:18)",
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:580:31)",
+              "SingletonFunction.ensureLambda (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:134:12)",
+              "new SingletonFunction (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:56:32)",
+              "new AwsCustomResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:360:22)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.ts:139:39)",
+              "UserPoolDomainTarget.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.ts:14:28)",
+              "new RecordSet (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:222:73)",
+              "new ARecord (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:256:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:107:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/AWS679f53fac002430cb0da5b7982bd2287/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "trace": [
+              "new Function (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/function.ts:642:35)",
+              "SingletonFunction.ensureLambda (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:134:12)",
+              "new SingletonFunction (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:56:32)",
+              "new AwsCustomResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:360:22)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.ts:139:39)",
+              "UserPoolDomainTarget.bind (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.ts:14:28)",
+              "new RecordSet (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:222:73)",
+              "new ARecord (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:256:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:107:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/IdentityPool": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IdentityPool",
+            "trace": [
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:130:26)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/Amazon/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Amazon2AC2D6B3",
+            "trace": [
+              "new UserPoolIdentityProviderAmazon (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool-idps/amazon.ts:40:22)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:140:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/Google/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoogleAF1E99FA",
+            "trace": [
+              "new UserPoolIdentityProviderGoogle (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-cognito/lib/user-pool-idps/google.ts:40:22)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:150:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/UserPoolId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPoolId",
+            "trace": [
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:161:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/SSMUserPoolId/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SSMUserPoolId2A87157A",
+            "trace": [
+              "new StringParameter (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-ssm/lib/parameter.ts:438:22)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:164:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/UserPoolClientId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPoolClientId",
+            "trace": [
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:168:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/SSMUserPoolClientId/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SSMUserPoolClientId0D4A0E0A",
+            "trace": [
+              "new StringParameter (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-ssm/lib/parameter.ts:438:22)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:171:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/IdentityPoolId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IdentityPoolId",
+            "trace": [
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:175:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/SSMIdentityPoolId/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SSMIdentityPoolId30696FC9",
+            "trace": [
+              "new StringParameter (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-ssm/lib/parameter.ts:438:22)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:178:5)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/AlwaysOnwardStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:22:24)",
+              "/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/synthesis.ts:202:5)",
+              "visit (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/synthesis.ts:198:5)",
+              "injectMetadataResources (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stage.ts:180:23)",
+              "process.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:467:12)",
+              "process.emit (/mnt/c/users/woodardt/workspace/always-onward/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ]
+      },
+      "displayName": "AlwaysOnwardStack"
+    }
+  }
+}
