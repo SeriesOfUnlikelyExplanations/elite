@@ -6,7 +6,8 @@ api.get('/api/status', async (req,res) => {
   return { status: 'ok - api' }
 })
 
-api.register(require('./auth'), { prefix: '/api/auth' })
+api.register(require('./api'), { prefix: '/api' })
+api.register(require('./local'), { prefix: '/*'})
 
 // Declare your Lambda handler
 exports.handler = async (event, context) => {

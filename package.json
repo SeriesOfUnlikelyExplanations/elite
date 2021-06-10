@@ -16,11 +16,11 @@
     "always-onward": "bin/always-onward.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "cp node_modules/amazon-cognito-identity-js/dist/amazon-cognito-identity.min.js static/assets/amazon-cognito-identity.min.js && tsc",
     "test": "cdk synth",
     "static": "live-server ./static --https=/usr/local/lib/node_modules/live-server-https",
-    "serveBase": "sam-beta-cdk local start-api --warm-containers EAGER",
-    "deploy": "cdk deploy --all --require-approval never"
+    "serve": "sam-beta-cdk local start-api --warm-containers EAGER",
+    "deploy": "npm run build && cdk deploy --all --require-approval never"
   },
   "dependencies": {
     "@aws-cdk/assert": "^1.107.0",
@@ -28,6 +28,7 @@
     "@aws-cdk/aws-route53-targets": "^1.107.0",
     "@aws-cdk/aws-s3-deployment": "^1.107.0",
     "@aws-cdk/core": "^1.107",
+    "amazon-cognito-identity-js": "^5.0.2",
     "aws-cdk": "^1.107",
     "cdk": "^1.107.0",
     "lambda-api": "^0.10.7",
