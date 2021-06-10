@@ -21,12 +21,12 @@
             "type": "aws:cdk:asset",
             "data": {
               "path": "/mnt/c/users/woodardt/workspace/always-onward/lambda",
-              "id": "11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc",
+              "id": "3002973f088bb6eeb0eb1d828d3faf78682ce1d5845eea9c23d5045a86545ccb",
               "packaging": "zip",
-              "sourceHash": "11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc",
-              "s3BucketParameter": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3BucketD2F9EAB7",
-              "s3KeyParameter": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3VersionKey2E59B438",
-              "artifactHashParameter": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccArtifactHashEC44C5B6"
+              "sourceHash": "3002973f088bb6eeb0eb1d828d3faf78682ce1d5845eea9c23d5045a86545ccb",
+              "s3BucketParameter": "AssetParameters3002973f088bb6eeb0eb1d828d3faf78682ce1d5845eea9c23d5045a86545ccbS3Bucket16B15612",
+              "s3KeyParameter": "AssetParameters3002973f088bb6eeb0eb1d828d3faf78682ce1d5845eea9c23d5045a86545ccbS3VersionKeyCD332DAB",
+              "artifactHashParameter": "AssetParameters3002973f088bb6eeb0eb1d828d3faf78682ce1d5845eea9c23d5045a86545ccbArtifactHashF167CF07"
             },
             "trace": [
               "ConstructNode.addMetadata (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/construct-compat.ts:451:92)",
@@ -138,10 +138,10 @@
             ]
           }
         ],
-        "/lambda/AssetParameters/11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc/S3Bucket": [
+        "/lambda/AssetParameters/3002973f088bb6eeb0eb1d828d3faf78682ce1d5845eea9c23d5045a86545ccb/S3Bucket": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3BucketD2F9EAB7",
+            "data": "AssetParameters3002973f088bb6eeb0eb1d828d3faf78682ce1d5845eea9c23d5045a86545ccbS3Bucket16B15612",
             "trace": [
               "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
               "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
@@ -171,10 +171,10 @@
             ]
           }
         ],
-        "/lambda/AssetParameters/11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc/S3VersionKey": [
+        "/lambda/AssetParameters/3002973f088bb6eeb0eb1d828d3faf78682ce1d5845eea9c23d5045a86545ccb/S3VersionKey": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3VersionKey2E59B438",
+            "data": "AssetParameters3002973f088bb6eeb0eb1d828d3faf78682ce1d5845eea9c23d5045a86545ccbS3VersionKeyCD332DAB",
             "trace": [
               "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
               "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
@@ -204,10 +204,10 @@
             ]
           }
         ],
-        "/lambda/AssetParameters/11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc/ArtifactHash": [
+        "/lambda/AssetParameters/3002973f088bb6eeb0eb1d828d3faf78682ce1d5845eea9c23d5045a86545ccb/ArtifactHash": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccArtifactHashEC44C5B6",
+            "data": "AssetParameters3002973f088bb6eeb0eb1d828d3faf78682ce1d5845eea9c23d5045a86545ccbArtifactHashF167CF07",
             "trace": [
               "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
               "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
@@ -324,7 +324,7 @@
         "/lambda/api/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "apiDeployment149F1294ba5b31c4aa50bc484086561f75becc36",
+            "data": "apiDeployment149F1294760214252c3ca66bfd7366f32e5b7bcf",
             "trace": [
               "new Deployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/deployment.ts:75:21)",
               "LambdaRestApi._configureDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:529:32)",

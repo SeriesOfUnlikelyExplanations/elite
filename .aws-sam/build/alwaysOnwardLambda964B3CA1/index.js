@@ -7,15 +7,11 @@ api.get('/api/status', async (req,res) => {
 })
 
 api.register(require('./api'), { prefix: '/api' })
-api.register(require('./static-routes'))
+api.register(require('./local'))
 
-
-module.exports = api
-
-//~ // Declare your Lambda handler
-//~ exports.handler = async (event, context) => {
-  //~ // Run the request
-  //~ console.log(event);
-  //~ return await api.run(event, context)
-//~ }
-
+// Declare your Lambda handler
+exports.handler = async (event, context) => {
+  // Run the request
+  console.log(event);
+  return await api.run(event, context)
+}

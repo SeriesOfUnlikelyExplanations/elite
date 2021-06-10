@@ -4,6 +4,7 @@ bin/*.js
 *.d.ts
 node_modules
 .env
+template.yaml
 
 # CDK asset staging directory
 .cdk.staging

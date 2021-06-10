@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/SeriesOfUnlikelyExplanations/always-onward#readme",
   "dependencies": {
-    "aws-sdk": "^2.923.0",
+    "aws-amplify": "^4.0.3",
     "lambda-api": "^0.10.7"
   }
 }
