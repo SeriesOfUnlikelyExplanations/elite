@@ -39,7 +39,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": {
-            "Ref": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3BucketD9A045DB"
+            "Ref": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3BucketD2F9EAB7"
           },
           "S3Key": {
             "Fn::Join": [
@@ -52,7 +52,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3VersionKey06E37464"
+                          "Ref": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3VersionKey2E59B438"
                         }
                       ]
                     }
@@ -65,7 +65,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3VersionKey06E37464"
+                          "Ref": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3VersionKey2E59B438"
                         }
                       ]
                     }
@@ -115,7 +115,7 @@
         "BinaryMediaTypes": [
           "*/*"
         ],
-        "Description": "Simple lambda API service. Timestamp: 1623202316199",
+        "Description": "Simple lambda API service. Timestamp: 1623287699077",
         "Name": "api"
       },
       "Metadata": {
@@ -173,7 +173,7 @@
         "aws:cdk:path": "lambda/api/Account"
       }
     },
-    "apiDeployment149F1294e2d123b30180609e8fcf547f7277fe8d": {
+    "apiDeployment149F1294ba5b31c4aa50bc484086561f75becc36": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -197,7 +197,7 @@
           "Ref": "apiC8550315"
         },
         "DeploymentId": {
-          "Ref": "apiDeployment149F1294e2d123b30180609e8fcf547f7277fe8d"
+          "Ref": "apiDeployment149F1294ba5b31c4aa50bc484086561f75becc36"
         },
         "StageName": "prod"
       },
@@ -451,17 +451,17 @@
     }
   },
   "Parameters": {
-    "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3BucketD9A045DB": {
+    "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3BucketD2F9EAB7": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d\""
+      "Description": "S3 bucket for asset \"11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc\""
     },
-    "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3VersionKey06E37464": {
+    "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3VersionKey2E59B438": {
       "Type": "String",
-      "Description": "S3 key for asset version \"9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d\""
+      "Description": "S3 key for asset version \"11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc\""
     },
-    "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dArtifactHashEDAF7396": {
+    "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccArtifactHashEC44C5B6": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d\""
+      "Description": "Artifact hash for asset \"11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc\""
     }
   },
   "Outputs": {

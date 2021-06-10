@@ -21,12 +21,12 @@
             "type": "aws:cdk:asset",
             "data": {
               "path": "/mnt/c/users/woodardt/workspace/always-onward/lambda",
-              "id": "9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d",
+              "id": "11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc",
               "packaging": "zip",
-              "sourceHash": "9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d",
-              "s3BucketParameter": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3BucketD9A045DB",
-              "s3KeyParameter": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3VersionKey06E37464",
-              "artifactHashParameter": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dArtifactHashEDAF7396"
+              "sourceHash": "11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc",
+              "s3BucketParameter": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3BucketD2F9EAB7",
+              "s3KeyParameter": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3VersionKey2E59B438",
+              "artifactHashParameter": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccArtifactHashEC44C5B6"
             },
             "trace": [
               "ConstructNode.addMetadata (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/construct-compat.ts:451:92)",
@@ -138,10 +138,10 @@
             ]
           }
         ],
-        "/lambda/AssetParameters/9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d/S3Bucket": [
+        "/lambda/AssetParameters/11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc/S3Bucket": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3BucketD9A045DB",
+            "data": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3BucketD2F9EAB7",
             "trace": [
               "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
               "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
@@ -171,10 +171,10 @@
             ]
           }
         ],
-        "/lambda/AssetParameters/9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d/S3VersionKey": [
+        "/lambda/AssetParameters/11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc/S3VersionKey": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3VersionKey06E37464",
+            "data": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3VersionKey2E59B438",
             "trace": [
               "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
               "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
@@ -204,10 +204,10 @@
             ]
           }
         ],
-        "/lambda/AssetParameters/9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d/ArtifactHash": [
+        "/lambda/AssetParameters/11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc/ArtifactHash": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dArtifactHashEDAF7396",
+            "data": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccArtifactHashEC44C5B6",
             "trace": [
               "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
               "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
@@ -324,7 +324,7 @@
         "/lambda/api/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "apiDeployment149F1294e2d123b30180609e8fcf547f7277fe8d",
+            "data": "apiDeployment149F1294ba5b31c4aa50bc484086561f75becc36",
             "trace": [
               "new Deployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/deployment.ts:75:21)",
               "LambdaRestApi._configureDeployment (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:529:32)",
@@ -793,12 +793,12 @@
             "type": "aws:cdk:asset",
             "data": {
               "path": "/mnt/c/users/woodardt/workspace/always-onward/static",
-              "id": "849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd",
+              "id": "167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f",
               "packaging": "zip",
-              "sourceHash": "849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd",
-              "s3BucketParameter": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3BucketAF3DE9B6",
-              "s3KeyParameter": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3VersionKeyB556397C",
-              "artifactHashParameter": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdArtifactHashD7D2D412"
+              "sourceHash": "167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f",
+              "s3BucketParameter": "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fS3Bucket9534E01F",
+              "s3KeyParameter": "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fS3VersionKey0AD0A035",
+              "artifactHashParameter": "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fArtifactHashD9C33410"
             },
             "trace": [
               "ConstructNode.addMetadata (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/construct-compat.ts:451:92)",
@@ -1253,10 +1253,10 @@
             ]
           }
         ],
-        "/AlwaysOnwardStack/AssetParameters/849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd/S3Bucket": [
+        "/AlwaysOnwardStack/AssetParameters/167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f/S3Bucket": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3BucketAF3DE9B6",
+            "data": "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fS3Bucket9534E01F",
             "trace": [
               "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
               "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
@@ -1288,10 +1288,10 @@
             ]
           }
         ],
-        "/AlwaysOnwardStack/AssetParameters/849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd/S3VersionKey": [
+        "/AlwaysOnwardStack/AssetParameters/167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f/S3VersionKey": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3VersionKeyB556397C",
+            "data": "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fS3VersionKey0AD0A035",
             "trace": [
               "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
               "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
@@ -1323,10 +1323,10 @@
             ]
           }
         ],
-        "/AlwaysOnwardStack/AssetParameters/849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd/ArtifactHash": [
+        "/AlwaysOnwardStack/AssetParameters/167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f/ArtifactHash": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdArtifactHashD7D2D412",
+            "data": "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fArtifactHashD9C33410",
             "trace": [
               "new FileAssetParameters (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
               "LegacyStackSynthesizer.doAddFileAsset (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
@@ -1996,11 +1996,12 @@
             ]
           }
         ],
-        "/AlwaysOnwardStack/UserPoolId": [
+        "/AlwaysOnwardStack/UserPoolId/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "UserPoolId",
+            "data": "UserPoolId86CD4426",
             "trace": [
+              "new StringParameter (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-ssm/lib/parameter.ts:438:22)",
               "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:161:5)",
               "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
               "Module._compile (internal/modules/cjs/loader.js:1063:30)",
@@ -2021,13 +2022,13 @@
             ]
           }
         ],
-        "/AlwaysOnwardStack/SSMUserPoolId/Resource": [
+        "/AlwaysOnwardStack/UserPoolClientId/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SSMUserPoolId2A87157A",
+            "data": "UserPoolClientId7B9A01E7",
             "trace": [
               "new StringParameter (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-ssm/lib/parameter.ts:438:22)",
-              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:164:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:165:5)",
               "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
               "Module._compile (internal/modules/cjs/loader.js:1063:30)",
               "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
@@ -2047,89 +2048,13 @@
             ]
           }
         ],
-        "/AlwaysOnwardStack/UserPoolClientId": [
+        "/AlwaysOnwardStack/IdentityPoolId/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "UserPoolClientId",
-            "trace": [
-              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:168:5)",
-              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
-              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
-              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
-              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
-              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
-              "Module.load (internal/modules/cjs/loader.js:928:32)",
-              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
-              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
-              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
-              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
-              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
-              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
-              "Module.load (internal/modules/cjs/loader.js:928:32)",
-              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
-              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
-              "internal/main/run_main_module.js:17:47"
-            ]
-          }
-        ],
-        "/AlwaysOnwardStack/SSMUserPoolClientId/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "SSMUserPoolClientId0D4A0E0A",
+            "data": "IdentityPoolId577C8687",
             "trace": [
               "new StringParameter (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-ssm/lib/parameter.ts:438:22)",
-              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:171:5)",
-              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
-              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
-              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
-              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
-              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
-              "Module.load (internal/modules/cjs/loader.js:928:32)",
-              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
-              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
-              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
-              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
-              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
-              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
-              "Module.load (internal/modules/cjs/loader.js:928:32)",
-              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
-              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
-              "internal/main/run_main_module.js:17:47"
-            ]
-          }
-        ],
-        "/AlwaysOnwardStack/IdentityPoolId": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "IdentityPoolId",
-            "trace": [
-              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:175:5)",
-              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
-              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
-              "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",
-              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
-              "Object.require.extensions.<computed> [as .ts] (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1059:12)",
-              "Module.load (internal/modules/cjs/loader.js:928:32)",
-              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
-              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
-              "main (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:198:14)",
-              "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/bin.ts:288:3)",
-              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
-              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
-              "Module.load (internal/modules/cjs/loader.js:928:32)",
-              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
-              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
-              "internal/main/run_main_module.js:17:47"
-            ]
-          }
-        ],
-        "/AlwaysOnwardStack/SSMIdentityPoolId/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "SSMIdentityPoolId30696FC9",
-            "trace": [
-              "new StringParameter (/mnt/c/users/woodardt/workspace/always-onward/node_modules/@aws-cdk/aws-ssm/lib/parameter.ts:438:22)",
-              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:178:5)",
+              "new AlwaysOnwardStack (/mnt/c/users/woodardt/workspace/always-onward/lib/alwaysOnwardStack.ts:170:5)",
               "Object.<anonymous> (/mnt/c/users/woodardt/workspace/always-onward/bin/always-onward.ts:18:1)",
               "Module._compile (internal/modules/cjs/loader.js:1063:30)",
               "Module.m._compile (/mnt/c/users/woodardt/workspace/always-onward/node_modules/ts-node/src/index.ts:1056:23)",

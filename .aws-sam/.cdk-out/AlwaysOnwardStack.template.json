@@ -306,7 +306,7 @@
         },
         "SourceBucketNames": [
           {
-            "Ref": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3BucketAF3DE9B6"
+            "Ref": "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fS3Bucket9534E01F"
           }
         ],
         "SourceObjectKeys": [
@@ -321,7 +321,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3VersionKeyB556397C"
+                          "Ref": "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fS3VersionKey0AD0A035"
                         }
                       ]
                     }
@@ -334,7 +334,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3VersionKeyB556397C"
+                          "Ref": "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fS3VersionKey0AD0A035"
                         }
                       ]
                     }
@@ -418,7 +418,7 @@
                       },
                       ":s3:::",
                       {
-                        "Ref": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3BucketAF3DE9B6"
+                        "Ref": "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fS3Bucket9534E01F"
                       }
                     ]
                   ]
@@ -433,7 +433,7 @@
                       },
                       ":s3:::",
                       {
-                        "Ref": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3BucketAF3DE9B6"
+                        "Ref": "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fS3Bucket9534E01F"
                       },
                       "/*"
                     ]
@@ -794,7 +794,8 @@
         ],
         "CallbackURLs": [
           "https://www.always-onward.com",
-          "https://always-onward.com"
+          "https://always-onward.com",
+          "https://127.0.0.1:8080"
         ],
         "LogoutURLs": [
           "https://www.always-onward.com",
@@ -997,7 +998,7 @@
         "aws:cdk:path": "AlwaysOnwardStack/Google/Resource"
       }
     },
-    "SSMUserPoolId2A87157A": {
+    "UserPoolId86CD4426": {
       "Type": "AWS::SSM::Parameter",
       "Properties": {
         "Type": "String",
@@ -1007,10 +1008,10 @@
         "Name": "AlwaysOnwardUserPoolId"
       },
       "Metadata": {
-        "aws:cdk:path": "AlwaysOnwardStack/SSMUserPoolId/Resource"
+        "aws:cdk:path": "AlwaysOnwardStack/UserPoolId/Resource"
       }
     },
-    "SSMUserPoolClientId0D4A0E0A": {
+    "UserPoolClientId7B9A01E7": {
       "Type": "AWS::SSM::Parameter",
       "Properties": {
         "Type": "String",
@@ -1020,10 +1021,10 @@
         "Name": "AlwaysOnwardUserPoolClientId"
       },
       "Metadata": {
-        "aws:cdk:path": "AlwaysOnwardStack/SSMUserPoolClientId/Resource"
+        "aws:cdk:path": "AlwaysOnwardStack/UserPoolClientId/Resource"
       }
     },
-    "SSMIdentityPoolId30696FC9": {
+    "IdentityPoolId577C8687": {
       "Type": "AWS::SSM::Parameter",
       "Properties": {
         "Type": "String",
@@ -1033,13 +1034,13 @@
         "Name": "AlwaysOnwardIdentityPoolId"
       },
       "Metadata": {
-        "aws:cdk:path": "AlwaysOnwardStack/SSMIdentityPoolId/Resource"
+        "aws:cdk:path": "AlwaysOnwardStack/IdentityPoolId/Resource"
       }
     },
     "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-        "Analytics": "v2:deflate64:H4sIAAAAAAAAA3VTTU/DMAz9LdzTjGl8XCmdQEigTZuAc5Z6U1gST3ECGlH/O0m7dhuCU579bMd+ccZ8fHnLLy/uxBcVst6OokQHPC69kFtWoSXvgvRsAYTBSWAlEfjEbpTdsCqQRzNw1dqe4rlwwoAHl40Xsdu1KWs7C34XfMPylZEmPN4HuQWfqQPqjjlqJfdHd2c3TGoM9dqh9TzOnEqdlFIC0VMN1ivfZlQ55iHH/B0x0O+wmqo0pFoFr9Dm3FO7YTQpYg07jXuTknnXynRwMJEFId7q0jAtzKoWPKYyz2IP7g0c5bLLNLsGj/YhWNleNIAU2uOGKWF4XKDuxMznUYV+fofBw3XSrVxAeq260z2jZW5B4sYqjzy+Erg5os78gHswRSOUPaUOnt6stMrjnQQcPb2OZxUHp8NPVYMrjfjGsxt+R/yb+oiY1Erak8mr6JJ4Z8s0GE2veKGz2kVaKakVL78oNds+AJPtjhbusJjUkmd72zCLNfAPGn2Or/j4Jn2HD1KqcCE1ZYAvuvMHdj/KCCsDAAA="
+        "Analytics": "v2:deflate64:H4sIAAAAAAAAA3VTwU4jMQz9Fu6ZQMUC1x2mYrUSiKrVwjnNmCo0ias4AZVo/h1npjNtV7unPPvZsf3izOTs6k5eXfxUn1TpdnuZNQaQeRWV3ooGPcWQdBRLIExBg6iJIDK7MX4jmkQR3cQ1b/4UL1RQDiKEYjyp3Y5TOlEKZbqW+T7pLcTCHdBwLNAavT+6B7sT2mJq3wL6KPNzMFy/1hqIfrfgo4l9RlNiHkrMvyMm+hXWc8OjmXWKBn3JPbU7QddVbmFnce84WQ6tzCeHUEUGkr0anbDKrVslM1/zqPYQXiBQuXbFE1uI6B+S132hCXDoiDthlJN5iXaQsJxHFcb5A6YIN6xbvQR+o3ZQu6BVaUHjxpuIMv8hCAtEW/gJj2COThl/Sh08o9lYU8Y7CTh6Rh3PbpycAT9MC6F26gvPKvwd8d/UX4isFmtPrixgYPHOVmgyulHxyha1K14pbY2sP4mb7R9A6H4zq3BYR+rJs23thMcW5Dtdfsx+yNktf4J3MqYKiZtyIJfD+Q0In5aWIQMAAA=="
       },
       "Metadata": {
         "aws:cdk:path": "AlwaysOnwardStack/CDKMetadata/Default"
@@ -1071,17 +1072,17 @@
       "Type": "String",
       "Description": "Artifact hash for asset \"c24b999656e4fe6c609c31bae56a1cf4717a405619c3aa6ba1bc686b8c2c86cf\""
     },
-    "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3BucketAF3DE9B6": {
+    "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fS3Bucket9534E01F": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd\""
+      "Description": "S3 bucket for asset \"167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f\""
     },
-    "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3VersionKeyB556397C": {
+    "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fS3VersionKey0AD0A035": {
       "Type": "String",
-      "Description": "S3 key for asset version \"849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd\""
+      "Description": "S3 key for asset version \"167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f\""
     },
-    "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdArtifactHashD7D2D412": {
+    "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fArtifactHashD9C33410": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd\""
+      "Description": "Artifact hash for asset \"167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f\""
     },
     "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3BucketBEE108A9": {
       "Type": "String",
@@ -1103,23 +1104,6 @@
       },
       "aws-cn": {
         "zoneId": "Z3RFFRIM2A3IF5"
-      }
-    }
-  },
-  "Outputs": {
-    "UserPoolId": {
-      "Value": {
-        "Ref": "UserPool6BA7E5F2"
-      }
-    },
-    "UserPoolClientId": {
-      "Value": {
-        "Ref": "UserPoolappclientE1BF3384"
-      }
-    },
-    "IdentityPoolId": {
-      "Value": {
-        "Ref": "IdentityPool"
       }
     }
   }

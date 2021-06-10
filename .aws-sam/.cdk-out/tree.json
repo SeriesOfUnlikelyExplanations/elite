@@ -103,7 +103,7 @@
                   "aws:cdk:cloudformation:props": {
                     "code": {
                       "s3Bucket": {
-                        "Ref": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3BucketD9A045DB"
+                        "Ref": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3BucketD2F9EAB7"
                       },
                       "s3Key": {
                         "Fn::Join": [
@@ -116,7 +116,7 @@
                                   "Fn::Split": [
                                     "||",
                                     {
-                                      "Ref": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3VersionKey06E37464"
+                                      "Ref": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3VersionKey2E59B438"
                                     }
                                   ]
                                 }
@@ -129,7 +129,7 @@
                                   "Fn::Split": [
                                     "||",
                                     {
-                                      "Ref": "AssetParameters9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65dS3VersionKey06E37464"
+                                      "Ref": "AssetParameters11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033ccS3VersionKey2E59B438"
                                     }
                                   ]
                                 }
@@ -195,13 +195,13 @@
             "id": "AssetParameters",
             "path": "lambda/AssetParameters",
             "children": {
-              "9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d": {
-                "id": "9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d",
-                "path": "lambda/AssetParameters/9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d",
+              "11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc": {
+                "id": "11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc",
+                "path": "lambda/AssetParameters/11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc",
                 "children": {
                   "S3Bucket": {
                     "id": "S3Bucket",
-                    "path": "lambda/AssetParameters/9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d/S3Bucket",
+                    "path": "lambda/AssetParameters/11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc/S3Bucket",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.107.0"
@@ -209,7 +209,7 @@
                   },
                   "S3VersionKey": {
                     "id": "S3VersionKey",
-                    "path": "lambda/AssetParameters/9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d/S3VersionKey",
+                    "path": "lambda/AssetParameters/11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc/S3VersionKey",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.107.0"
@@ -217,7 +217,7 @@
                   },
                   "ArtifactHash": {
                     "id": "ArtifactHash",
-                    "path": "lambda/AssetParameters/9b55479c7f553ef8ee8b3dd939a0e576ac7f07ba2db735d440e17e40cb41d65d/ArtifactHash",
+                    "path": "lambda/AssetParameters/11d1e3109593269940cd5aed87e6619069b4adb9a7ca0509865708e7c9e033cc/ArtifactHash",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.107.0"
@@ -248,7 +248,7 @@
                     "binaryMediaTypes": [
                       "*/*"
                     ],
-                    "description": "Simple lambda API service. Timestamp: 1623202316199",
+                    "description": "Simple lambda API service. Timestamp: 1623287699077",
                     "name": "api"
                   }
                 },
@@ -366,7 +366,7 @@
                           "Ref": "apiC8550315"
                         },
                         "deploymentId": {
-                          "Ref": "apiDeployment149F1294e2d123b30180609e8fcf547f7277fe8d"
+                          "Ref": "apiDeployment149F1294ba5b31c4aa50bc484086561f75becc36"
                         },
                         "stageName": "prod"
                       }
@@ -1302,13 +1302,13 @@
                   "version": "1.107.0"
                 }
               },
-              "849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd": {
-                "id": "849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd",
-                "path": "AlwaysOnwardStack/AssetParameters/849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd",
+              "167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f": {
+                "id": "167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f",
+                "path": "AlwaysOnwardStack/AssetParameters/167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f",
                 "children": {
                   "S3Bucket": {
                     "id": "S3Bucket",
-                    "path": "AlwaysOnwardStack/AssetParameters/849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd/S3Bucket",
+                    "path": "AlwaysOnwardStack/AssetParameters/167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f/S3Bucket",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.107.0"
@@ -1316,7 +1316,7 @@
                   },
                   "S3VersionKey": {
                     "id": "S3VersionKey",
-                    "path": "AlwaysOnwardStack/AssetParameters/849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd/S3VersionKey",
+                    "path": "AlwaysOnwardStack/AssetParameters/167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f/S3VersionKey",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.107.0"
@@ -1324,7 +1324,7 @@
                   },
                   "ArtifactHash": {
                     "id": "ArtifactHash",
-                    "path": "AlwaysOnwardStack/AssetParameters/849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bd/ArtifactHash",
+                    "path": "AlwaysOnwardStack/AssetParameters/167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8f/ArtifactHash",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.107.0"
@@ -1453,7 +1453,7 @@
                                           },
                                           ":s3:::",
                                           {
-                                            "Ref": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3BucketAF3DE9B6"
+                                            "Ref": "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fS3Bucket9534E01F"
                                           }
                                         ]
                                       ]
@@ -1468,7 +1468,7 @@
                                           },
                                           ":s3:::",
                                           {
-                                            "Ref": "AssetParameters849825c23d8c9452031814c94ef868ae9d17ffd4477fdb84762d9bf10c88b1bdS3BucketAF3DE9B6"
+                                            "Ref": "AssetParameters167a6f1e5a861099d132271cabc07c453a12f73d519cad95ec4d8476c3147e8fS3Bucket9534E01F"
                                           },
                                           "/*"
                                         ]
@@ -1950,7 +1950,8 @@
                         ],
                         "callbackUrLs": [
                           "https://www.always-onward.com",
-                          "https://always-onward.com"
+                          "https://always-onward.com",
+                          "https://127.0.0.1:8080"
                         ],
                         "logoutUrLs": [
                           "https://www.always-onward.com",
@@ -2276,18 +2277,10 @@
           "UserPoolId": {
             "id": "UserPoolId",
             "path": "AlwaysOnwardStack/UserPoolId",
-            "constructInfo": {
-              "fqn": "@aws-cdk/core.CfnOutput",
-              "version": "1.107.0"
-            }
-          },
-          "SSMUserPoolId": {
-            "id": "SSMUserPoolId",
-            "path": "AlwaysOnwardStack/SSMUserPoolId",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "AlwaysOnwardStack/SSMUserPoolId/Resource",
+                "path": "AlwaysOnwardStack/UserPoolId/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::SSM::Parameter",
                   "aws:cdk:cloudformation:props": {
@@ -2312,18 +2305,10 @@
           "UserPoolClientId": {
             "id": "UserPoolClientId",
             "path": "AlwaysOnwardStack/UserPoolClientId",
-            "constructInfo": {
-              "fqn": "@aws-cdk/core.CfnOutput",
-              "version": "1.107.0"
-            }
-          },
-          "SSMUserPoolClientId": {
-            "id": "SSMUserPoolClientId",
-            "path": "AlwaysOnwardStack/SSMUserPoolClientId",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "AlwaysOnwardStack/SSMUserPoolClientId/Resource",
+                "path": "AlwaysOnwardStack/UserPoolClientId/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::SSM::Parameter",
                   "aws:cdk:cloudformation:props": {
@@ -2348,18 +2333,10 @@
           "IdentityPoolId": {
             "id": "IdentityPoolId",
             "path": "AlwaysOnwardStack/IdentityPoolId",
-            "constructInfo": {
-              "fqn": "@aws-cdk/core.CfnOutput",
-              "version": "1.107.0"
-            }
-          },
-          "SSMIdentityPoolId": {
-            "id": "SSMIdentityPoolId",
-            "path": "AlwaysOnwardStack/SSMIdentityPoolId",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "AlwaysOnwardStack/SSMIdentityPoolId/Resource",
+                "path": "AlwaysOnwardStack/IdentityPoolId/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::SSM::Parameter",
                   "aws:cdk:cloudformation:props": {
