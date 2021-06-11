@@ -121,6 +121,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
         callbackUrls: config.siteNames.map(i => 'https://' + i).concat(['https://localhost:3000']),
         logoutUrls: config.siteNames.map(i => 'https://' + i),
       },
+      generateSecret: true,
       supportedIdentityProviders: [
         cognito.UserPoolClientIdentityProvider.AMAZON,
         cognito.UserPoolClientIdentityProvider.COGNITO,

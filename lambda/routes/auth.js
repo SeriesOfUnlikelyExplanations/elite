@@ -1,37 +1,8 @@
 // route - api/auth
 var AWS = require("aws-sdk");
 var ssm = new AWS.SSM({region: 'us-west-2'}); //{region: 'us-east-1'}
-var https = require('https');
 var querystring = require('querystring');
-
-function httpRequest(params, postData) {
-  return new Promise(function(resolve, reject) {
-    var req = http.request(params, function(res) {
-        if (res.statusCode < 200 || res.statusCode >= 300) {
-            return reject(new Error('statusCode=' + res.statusCode));
-        }
-        var body = [];
-        res.on('data', function(chunk) {
-            body.push(chunk);
-        });
-        res.on('end', function() {
-            try {
-                body = JSON.parse(Buffer.concat(body).toString());
-            } catch(e) {
-                reject(e);
-            }
-            resolve(body);
-        });
-    });
-    req.on('error', function(err) {
-      reject(err);
-    });
-    if (postData) {
-      req.write(postData);
-    }
-    req.end();
-  });
-}
+var { httpRequest } = require('../components');
 
 module.exports = (api, opts) => {
   api.get('/parameters', async (req,res) => {
