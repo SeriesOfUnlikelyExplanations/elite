@@ -1,5 +1,6 @@
 // route - api/auth
 var AWS = require("aws-sdk");
+var ssm = new AWS.SSM({region: 'us-west-2'}); //{region: 'us-east-1'}
 
 module.exports = (api, opts) => {
   api.get('/parameters', async (req,res) => {
