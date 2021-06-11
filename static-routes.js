@@ -16,7 +16,7 @@ var mime = {
 
 module.exports = (api, opts) => {
   api.get('*', async (req,res) => {
-    var file = path.join(__dirname, '../', '/static', req.path.replace(/\/$/, '/index.html'))
+    var file = path.join(__dirname, '/static', req.path.replace(/\/$/, '/index.html'))
     var type = mime[path.extname(file).slice(1)] || 'text/plain';
     try {
       res.status(200);

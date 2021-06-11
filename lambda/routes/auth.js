@@ -14,6 +14,7 @@ module.exports = (api, opts) => {
       ,identityPoolId: 'us-west-2:48eaf5af-7101-4d73-a749-229113a4a8e3'
       ,UserPoolId: 'us-west-2_Re0YBqOJp'}
   })
+
   api.get('/signin', async (req,res) => {
     res.cors({
       origin: '*',
