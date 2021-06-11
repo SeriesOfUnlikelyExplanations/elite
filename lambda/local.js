@@ -3,9 +3,12 @@
  * object to something the lambda-api module understands.
  */
 
-const api = require('./index')
+const api = require('lambda-api')()
 const https = require('https')
 const fs = require('fs')
+
+api.register(require('./api'), { prefix: '/api' })
+api.register(require('./static-routes'))
 
 const options = {
   key: fs.readFileSync('key.pem'),
