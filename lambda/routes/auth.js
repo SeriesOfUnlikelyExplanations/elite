@@ -9,10 +9,10 @@ module.exports = (api, opts) => {
       headers: 'content-type, authorization',
       maxAge: 84000000
     })
-    const data = await ssm.getParameters({ Names: ['AlwaysOnward/UserPoolClientId', 'region', 'identityPoolId'], WithDecryption: true }).promise()
+    const data = await ssm.getParameters({ Names: ['/AlwaysOnward/UserPoolClientId', '/AlwaysOnward/region', '/AlwaysOnward/identityPoolId'], WithDecryption: true }).promise()
     const config = {}
     for (const i of data.Parameters) {
-      config[i.Name.replace("AlwaysOnward/","")] = i.Value;
+      config[i.Name.replace("/AlwaysOnward/","")] = i.Value;
     }
     return config
   });
