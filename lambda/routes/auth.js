@@ -4,30 +4,19 @@ var ssm = new AWS.SSM({region: 'us-west-2'}); //{region: 'us-east-1'}
 
 module.exports = (api, opts) => {
   api.get('/parameters', async (req,res) => {
-    res.cors({
-      origin: '*',
-      methods: 'GET, POST, OPTIONS',
-      headers: 'content-type, authorization',
-      maxAge: 84000000
-    })
-    const data = await ssm.getParameters({ Names: ['/AlwaysOnward/UserPoolClientId', '/AlwaysOnward/AuthDomain'], WithDecryption: true }).promise()
+    const data = await ssm.getParameters({ Names: ['/AlwaysOnward/UserPoolId', '/AlwaysOnward/UserPoolClientId', '/AlwaysOnward/AuthDomain'], WithDecryption: true }).promise()
     const config = {}
     for (const i of data.Parameters) {
       config[i.Name.replace("/AlwaysOnward/","")] = i.Value;
     }
     config.url = 'https://' + config['AuthDomain'] + '/login?client_id='+config['UserPoolClientId']
-        +'&response_type=token&scope=email+openid+phone+profile&redirect_uri=https://'
+        +'&response_type=code&scope=email+openid+phone+profile&redirect_uri=https://'
         +req.headers.host
     return config
   });
 
-  api.get('/getTokens', async (req,res) => {
-    res.cors({
-      origin: '*',
-      methods: 'GET, POST, OPTIONS',
-      headers: 'content-type, authorization',
-      maxAge: 84000000
-    })
+  api.post('/getTokens', async (req,res) => {
+
 
     return { clientId: '2st20dfpa6esj5hff65aoi9dua'
       ,region: 'us-west-2'

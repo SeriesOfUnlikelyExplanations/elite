@@ -9,6 +9,7 @@ import * as config from './onwardConfig';
 import * as cognito from "@aws-cdk/aws-cognito";
 import * as acm from '@aws-cdk/aws-certificatemanager';
 import * as ssm from '@aws-cdk/aws-ssm';
+import * as cr from '@aws-cdk/custom-resources'
 
 interface LambdaStackProps extends cdk.StackProps {
   apigw: apigateway.LambdaRestApi;
@@ -157,6 +158,33 @@ export class AlwaysOnwardStack extends cdk.Stack {
         fullname: cognito.ProviderAttribute.GOOGLE_NAME
       },
     });
+
+    //get client secret
+    const describeCognitoUserPoolClient = new cr.AwsCustomResource(
+      this,
+      'DescribeCognitoUserPoolClient',
+      {
+        resourceType: 'Custom::DescribeCognitoUserPoolClient',
+        onCreate: {
+          region: 'us-east-1',
+          service: 'CognitoIdentityServiceProvider',
+          action: 'describeUserPoolClient',
+          parameters: {
+            UserPoolId: userPool.userPoolId,
+            ClientId: userPoolClient.userPoolClientId,
+          },
+          physicalResourceId: cr.PhysicalResourceId.of(userPoolClient.userPoolClientId),
+        },
+        // TODO: can we restrict this policy more?
+        policy: cr.AwsCustomResourcePolicy.fromSdkCalls({
+          resources: cr.AwsCustomResourcePolicy.ANY_RESOURCE,
+        }),
+      }
+    )
+    const userPoolClientSecret = describeCognitoUserPoolClient.getResponseField(
+      'UserPoolClient.ClientSecret'
+    )
+
     // Export values
     new ssm.StringParameter(this, 'UserPoolId', {
       parameterName: '/AlwaysOnward/UserPoolId',
@@ -166,6 +194,11 @@ export class AlwaysOnwardStack extends cdk.Stack {
       parameterName: '/AlwaysOnward/UserPoolClientId',
       stringValue: `${userPoolClient.userPoolClientId}`
     });
+    new ssm.StringParameter(this, 'UserPoolClientSecret', {
+      parameterName: '/AlwaysOnward/UserPoolClientSecret',
+      stringValue: `${userPoolClientSecret}`
+    });
+
     new ssm.StringParameter(this, 'IdentityPoolId', {
       parameterName: '/AlwaysOnward/IdentityPoolId',
       stringValue: `${identityPool.ref}`

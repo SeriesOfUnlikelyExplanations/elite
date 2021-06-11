@@ -78,7 +78,6 @@
     </div>
   </footer>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
-  <script type="text/javascript" src="assets/amazon-cognito-identity.min.js" ></script>
   <script type="text/javascript" src="https://sdk.amazonaws.com/js/aws-sdk-2.924.0.min.js"></script>
   <script>
     // http://stackoverflow.com/questions/2851663/how-do-i-simulate-a-hover-with-a-touch-in-touch-enabled-browsers
@@ -113,23 +112,17 @@
       }
     }, 1000);
     document.addEventListener( 'DOMContentLoaded',  async function () {
-      const response = await fetch('/api/auth/parameters');
+      var response = await fetch('/api/auth/parameters');
       const authParams = await response.json(); //extract JSON from the http response
+      var url = new URL(window.location.href);
+      var response = await fetch('/api/auth/getTokens', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({code: url.searchParams.get("code")}) // body data type must match "Content-Type" header
+      });
+      const tokens = await response.json();
+      console.log(tokens);
       $('#login-link').attr("href", authParams.url)
-
-      var poolData = { UserPoolId : authParams['UserPoolId'],
-        ClientId : authParams['UserPoolClientId']
-      };
-
-      var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
-
-      var cognitoUser = userPool.getCurrentUser();
-      if (cognitoUser != null) {
-        console.log('user exists');
-
-      } else {
-        console.log('nope');
-      }
 
     });
   </script>
