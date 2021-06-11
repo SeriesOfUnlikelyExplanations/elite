@@ -4,6 +4,35 @@ var ssm = new AWS.SSM({region: 'us-west-2'}); //{region: 'us-east-1'}
 var https = require('https');
 var querystring = require('querystring');
 
+function httpRequest(params, postData) {
+  return new Promise(function(resolve, reject) {
+    var req = http.request(params, function(res) {
+        if (res.statusCode < 200 || res.statusCode >= 300) {
+            return reject(new Error('statusCode=' + res.statusCode));
+        }
+        var body = [];
+        res.on('data', function(chunk) {
+            body.push(chunk);
+        });
+        res.on('end', function() {
+            try {
+                body = JSON.parse(Buffer.concat(body).toString());
+            } catch(e) {
+                reject(e);
+            }
+            resolve(body);
+        });
+    });
+    req.on('error', function(err) {
+      reject(err);
+    });
+    if (postData) {
+      req.write(postData);
+    }
+    req.end();
+  });
+}
+
 module.exports = (api, opts) => {
   api.get('/parameters', async (req,res) => {
     const data = await ssm.getParameters({ Names: ['/AlwaysOnward/UserPoolId', '/AlwaysOnward/UserPoolClientId', '/AlwaysOnward/AuthDomain'], WithDecryption: true }).promise()
@@ -18,33 +47,27 @@ module.exports = (api, opts) => {
   });
 
   api.post('/getTokens', async (req,res) => {
-    const data = await ssm.getParameters({ Names: ['/AlwaysOnward/UserPoolId', '/AlwaysOnward/UserPoolClientId', '/AlwaysOnward/AuthDomain'], WithDecryption: true }).promise()
+    const data = await ssm.getParameters({ Names: ['/AlwaysOnward/UserPoolId', '/AlwaysOnward/UserPoolClientId', '/AlwaysOnward/AuthDomain', '/AlwaysOnward/UserPoolClientSecret'], WithDecryption: true }).promise()
     console.log(req);
     var postData = querystring.stringify({
       'grant_type' : 'authorization_code',
-      'code' : 'authorization_code'
+      'code' : 'authorization_code',
+      'client_id': config['UserPoolClientId'],
+      'redirect_uri': 'https://'+req.headers.host
     });
     const options: https.RequestOptions = {
-      hostname: 'example.url.com',
+      hostname: 'https://' + config['AuthDomain'],
       port: 443,
-      path: '/login',
+      path: '/oauth2/token',
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Length': Buffer.byteLength(requestBody)
+        'Content-Length': Buffer.byteLength(requestBody),
+        'Authorization': 'Basic '+ Buffer.from(config['UserPoolClientId']+':'+config['UserPoolClientSecret']).toString('base64'))
       }
     };
-    //~ https.post('https://' + config['AuthDomain'] + '/oauth2/token',
-
-    //~ The custom application that’s hosted at the redirect URL can then extract the authorization code from the query parameters and exchange it for user pool tokens.
-    //~ The exchange occurs by submitting a POST request to
-     //~ https://AUTH_DOMAIN/oauth2/token with the following
-
-     //~ application/x-www-form-urlencoded parameters:
-
-    //~ grant_type – Set to “authorization_code” for this grant.
-    //~ code – The authorization code that’s vended to the user.
-    //~ client_id – Same as from the request in step 1.
+    var response = await httpRequest(option, postData)
+    console.log(response);
     //~ redirect_uri – Same as from the request in step 1.
     //~ code_verifier (optional, is required if a code_challenge was specified in the original request) – The base64 URL-encoded representation of the unhashed, random string that was used to generate the PKCE code_challenge in the original request.
 

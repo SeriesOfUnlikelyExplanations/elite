@@ -166,7 +166,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
       {
         resourceType: 'Custom::DescribeCognitoUserPoolClient',
         onCreate: {
-          region: 'us-east-1',
+          region: config.region,
           service: 'CognitoIdentityServiceProvider',
           action: 'describeUserPoolClient',
           parameters: {
