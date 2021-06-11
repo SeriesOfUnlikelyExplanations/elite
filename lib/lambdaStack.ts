@@ -3,7 +3,8 @@ import * as config from './onwardConfig';
 import * as lambda from "@aws-cdk/aws-lambda";
 import * as apigateway from '@aws-cdk/aws-apigateway';
 import * as ssm from '@aws-cdk/aws-ssm';
-import console = require('console');
+import * as iam from '@aws-cdk/aws-iam';
+//~ import console = require('console');
 
 export class LambdaStack extends cdk.Stack {
   public readonly apigw: apigateway.LambdaRestApi;
