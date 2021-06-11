@@ -3,7 +3,7 @@ import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
 import { AlwaysOnwardStack } from '../lib/alwaysOnwardStack';
 import { LambdaStack } from '../lib/lambdaStack';
-import * as config from './onwardConfig';
+import * as config from '../lib/onwardConfig';
 
 const app = new cdk.App();
 const env = {
