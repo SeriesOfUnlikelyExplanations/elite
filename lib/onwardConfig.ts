@@ -5,6 +5,7 @@ export var siteNames = ['www.always-onward.com','always-onward.com'];
 export var zoneName = 'always-onward.com';
 export var authDomain = 'auth.always-onward.com'
 export var authName = 'auth-onward'
+export var region = 'us-west-2'
 
 export var LWA_CLIENT_ID = process.env.LWA_CLIENT_ID as string;
 export var LWA_CLIENT_SECRET = process.env.LWA_CLIENT_SECRET as string;

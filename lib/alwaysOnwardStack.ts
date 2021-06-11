@@ -172,7 +172,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
     });
     new ssm.StringParameter(this, 'region', {
       parameterName: 'AlwaysOnward/region',
-      stringValue: `${props.region}`
+      stringValue: `${config.region}`
     });
   }
 }
