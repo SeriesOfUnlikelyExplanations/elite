@@ -15,10 +15,10 @@ module.exports = (api, opts) => {
     for (const i of data.Parameters) {
       config[i.Name.replace("/AlwaysOnward/","")] = i.Value;
     }
-
-    return {'url': 'https://' + config['AuthDomain'] + '/login?client_id='+config['clientId']
+    config.url = 'https://' + config['AuthDomain'] + '/login?client_id='+config['UserPoolClientId']
         +'&response_type=token&scope=email+openid+phone+profile&redirect_uri=https://'
-        +req.headers.host }
+        +req.headers.host
+    return config
   });
 
   api.get('/getTokens', async (req,res) => {
@@ -28,7 +28,6 @@ module.exports = (api, opts) => {
       headers: 'content-type, authorization',
       maxAge: 84000000
     })
-
 
     return { clientId: '2st20dfpa6esj5hff65aoi9dua'
       ,region: 'us-west-2'
