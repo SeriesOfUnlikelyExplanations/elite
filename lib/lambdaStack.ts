@@ -19,6 +19,10 @@ export class LambdaStack extends cdk.Stack {
       runtime: lambda.Runtime.NODEJS_14_X,
       retryAttempts: 0
     });
+    handler.addToRolePolicy(new iam.PolicyStatement({
+      resources: ['arn:aws:ssm:us-west-2:718523126320:parameter/AlwaysOnward/*'],
+      actions: ['ssm:GetParameters'],
+    }))
 
     //create an API gateway to trigger the lambda
     this.apigw = new apigateway.LambdaRestApi(this, "api", {

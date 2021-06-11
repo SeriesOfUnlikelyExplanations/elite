@@ -113,13 +113,9 @@
       }
     }, 1000);
     document.addEventListener( 'DOMContentLoaded',  async function () {
-      const response = await fetch('/api/auth/parameters');
-      const authParams = await response.json(); //extract JSON from the http response
-
-
-      $('#login-link').attr("href", 'https://auth.always-onward.com/login?client_id='+authParams['clientId']
-        +'&response_type=code&scope=email+openid+phone+profile&redirect_uri='
-        +window.location.protocol+'//'+window.location.host)
+      const response = await fetch('/api/auth/getUrl');
+      console.log(response);
+      $('#login-link').attr("href", response)
 
       var poolData = { UserPoolId : authParams['UserPoolId'],
         ClientId : authParams['UserPoolClientId']

@@ -170,9 +170,9 @@ export class AlwaysOnwardStack extends cdk.Stack {
       parameterName: '/AlwaysOnward/IdentityPoolId',
       stringValue: `${identityPool.ref}`
     });
-    new ssm.StringParameter(this, 'region', {
-      parameterName: '/AlwaysOnward/region',
-      stringValue: `${config.region}`
+    new ssm.StringParameter(this, 'AuthDomain', {
+      parameterName: '/AlwaysOnward/AuthDomain',
+      stringValue: `${config.authDomain}`
     });
   }
 }
