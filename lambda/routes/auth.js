@@ -3,7 +3,7 @@ var AWS = require("aws-sdk");
 var ssm = new AWS.SSM({region: 'us-west-2'}); //{region: 'us-east-1'}
 
 module.exports = (api, opts) => {
-  api.get('/getUrl', async (req,res) => {
+  api.get('/parameters', async (req,res) => {
     res.cors({
       origin: '*',
       methods: 'GET, POST, OPTIONS',
@@ -16,9 +16,9 @@ module.exports = (api, opts) => {
       config[i.Name.replace("/AlwaysOnward/","")] = i.Value;
     }
 
-    return 'https://' + config['AuthDomain'] + '/login?client_id='+config['clientId']
+    return {'url': 'https://' + config['AuthDomain'] + '/login?client_id='+config['clientId']
         +'&response_type=token&scope=email+openid+phone+profile&redirect_uri=https://'
-        +req.headers.host
+        +req.headers.host }
   });
 
   api.get('/getTokens', async (req,res) => {
