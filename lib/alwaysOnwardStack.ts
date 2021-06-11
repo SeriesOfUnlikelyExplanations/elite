@@ -159,16 +159,16 @@ export class AlwaysOnwardStack extends cdk.Stack {
     });
     // Export values
     new ssm.StringParameter(this, 'UserPoolId', {
-      parameterName: 'AlwaysOnwardUserPoolId',
+      parameterName: 'AlwaysOnward/UserPoolId',
       stringValue: `${userPool.userPoolId}`
     });
     new ssm.StringParameter(this, 'UserPoolClientId', {
-      parameterName: 'AlwaysOnwardUserPoolClientId',
+      parameterName: 'AlwaysOnward/UserPoolClientId',
       stringValue: `${userPoolClient.userPoolClientId}`
     });
 
     new ssm.StringParameter(this, 'IdentityPoolId', {
-      parameterName: 'AlwaysOnwardIdentityPoolId',
+      parameterName: 'AlwaysOnward/IdentityPoolId',
       stringValue: `${identityPool.ref}`
     });
   }

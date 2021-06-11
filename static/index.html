@@ -117,10 +117,12 @@
       const authParams = await response.json(); //extract JSON from the http response
 
 
-      $('#login-link').attr("href", 'https://auth.always-onward.com/login?client_id='+authParams['clientId']+'&response_type=code&scope=email+openid+phone+profile&redirect_uri='+window.location.protocol+'//'+window.location.host)
+      $('#login-link').attr("href", 'https://auth.always-onward.com/login?client_id='+authParams['clientId']
+        +'&response_type=code&scope=email+openid+phone+profile&redirect_uri='
+        +window.location.protocol+'//'+window.location.host)
 
       var poolData = { UserPoolId : authParams['UserPoolId'],
-        ClientId : authParams['clientId']
+        ClientId : authParams['UserPoolClientId']
       };
 
       var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
