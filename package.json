@@ -19,7 +19,6 @@
     "build": "tsc",
     "test": "cdk synth",
     "static": "live-server ./static --https=/usr/local/lib/node_modules/live-server-https",
-    "synth": "cdk synth lambda --no-staging > template.yaml",
     "serve": "nodemon -L local.js",
     "deploy": "npm run build && cdk deploy --all --require-approval never"
   },

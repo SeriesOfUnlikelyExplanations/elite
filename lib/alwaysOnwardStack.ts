@@ -181,6 +181,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
         }),
       }
     )
+    describeCognitoUserPoolClient.node.addDependency(userPoolClient);
     const userPoolClientSecret = describeCognitoUserPoolClient.getResponseField(
       'UserPoolClient.ClientSecret'
     )
