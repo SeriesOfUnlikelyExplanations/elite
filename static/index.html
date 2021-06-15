@@ -111,18 +111,21 @@
         document.getElementById("countdown").innerHTML = "EXPIRED";
       }
     }, 1000);
-    document.addEventListener( 'DOMContentLoaded',  async function () {
-      var response = await fetch('/api/auth/parameters');
-      const authParams = await response.json(); //extract JSON from the http response
+    document.addEventListener( 'DOMContentLoaded', function () {
+      fetch('/api/auth/login_status',{withCredentials: true, credentials: 'include'})
+        .then((res) => res.json())
+        .then((data) => $('#login-link').attr("href", data.url));
+
       var url = new URL(window.location.href);
-      var response = await fetch('/api/auth/getTokens', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({code: url.searchParams.get("code")}) // body data type must match "Content-Type" header
-      });
-      const tokens = await response.json();
-      console.log(tokens);
-      $('#login-link').attr("href", authParams.url)
+      fetch('/api/auth/getTokens', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          withCredentials: true,
+          credentials: 'include',
+          body: JSON.stringify({code: url.searchParams.get("code")}) // body data type must match "Content-Type" header
+        }).then((res) => res.json())
+        .then((data) => console.log(data));
+
 
     });
   </script>

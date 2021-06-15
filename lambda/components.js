@@ -1,9 +1,10 @@
-var https = require('https');
-
+// List of component functions
 module.exports = {
+  // function to call an API
   httpRequest: function(params, postData) {
+    var https = require('https');
     return new Promise(function(resolve, reject) {
-      var req = http.request(params, function(res) {
+      var req = https.request(params, function(res) {
         if (res.statusCode < 200 || res.statusCode >= 300) {
           return reject(new Error('statusCode=' + res.statusCode));
         }
@@ -29,5 +30,17 @@ module.exports = {
       req.end();
     });
   },
-  //~ otherMethod: function() {},
+  // function to get config data from SSM
+  getConfig: async (names) => {
+    var AWS = require("aws-sdk");
+    var ssm = new AWS.SSM({region: 'us-west-2'});
+    const data = await ssm.getParameters({ Names: names, WithDecryption: true }).promise()
+    const config = {}
+    for (const i of data.Parameters) {
+      config[i.Name.replace("/AlwaysOnward/","")] = i.Value;
+    }
+    return config
+  }
 };
+
+

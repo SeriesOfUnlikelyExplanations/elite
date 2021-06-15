@@ -2,7 +2,7 @@
 module.exports = (api, opts) => {
   api.use((req,res,next) => {
     res.cors({
-      origin: '*',
+      origin: 'Access-Control-Allow-Origin',
       methods: 'GET, POST, OPTIONS',
       headers: 'content-type, authorization',
       maxAge: 84000000
