@@ -36,7 +36,7 @@ module.exports = (api, opts) => {
       console.log(tokens)
       tokens.expires_at =  Date.now() + tokens.expires_in
       res.cookie('tokens', {id_token: tokens.id_token},
-        {httpOnly: true, sameSite: true }
+        {httpOnly: true, sameSite: true, secure: true }
         ).status(200).json({status: 'Logged in'})
     } catch {
       res.status(401).json({status:'Not logged in'})
