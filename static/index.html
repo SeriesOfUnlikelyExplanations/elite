@@ -111,23 +111,17 @@
         document.getElementById("countdown").innerHTML = "EXPIRED";
       }
     }, 1000);
-    document.addEventListener( 'DOMContentLoaded', function () {
-      fetch('/api/auth/login_status',{withCredentials: true, credentials: 'include'})
-        .then((res) => res.json())
-        .then((data) => $('#login-link').attr("href", data.url));
 
-      var url = new URL(window.location.href);
-      fetch('/api/auth/getTokens', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          withCredentials: true,
-          credentials: 'include',
-          body: JSON.stringify({code: url.searchParams.get("code")}) // body data type must match "Content-Type" header
-        }).then((res) => res.json())
-        .then((data) => console.log(data));
+    var my_url = new URL(window.location.href);
+    var url = new URL( '/api/auth/get_auth',my_url)
+    url.search = new URLSearchParams({code: my_url.searchParams.get("code")}).toString();
+    fetch(url, {withCredentials: true, credentials: 'include'})
+      .then((res) => res.json())
+      .then((data) => {
+        $('#login-link').attr("href", data.url)
+        console.log(data)
+      });
 
-
-    });
   </script>
 </body>
 </html>
