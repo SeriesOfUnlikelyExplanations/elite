@@ -47,7 +47,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
             forwardedValues: {
               queryString: true,
               cookies: { forward: 'all'},
-              //~ headers: [ "host" ]
+              headers: [ "Host" ]
             },
           }]
         },
