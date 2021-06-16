@@ -15,7 +15,7 @@ module.exports = (api, opts) => {
         'grant_type' : 'authorization_code',
         'code' : req.query.code,
         'client_id': config['UserPoolClientId'],
-        'redirect_uri': 'https://'+req.headers.host
+        'redirect_uri': 'https://'+url.parse(req.headers.referer).host
       });
       var options = {
         hostname: config['AuthDomain'],
@@ -54,10 +54,10 @@ module.exports = (api, opts) => {
         res.status(401).json({status:'Not logged in'})
       }
     } else {
-      const url = 'https://' + config['AuthDomain'] + '/login?client_id='+config['UserPoolClientId']
+      const login_url = 'https://' + config['AuthDomain'] + '/login?client_id='+config['UserPoolClientId']
         +'&response_type=code&scope=email+openid+phone+profile&redirect_uri=https://'
-        +req.headers.host
-      res.json({'url': url})
+        +url.parse(req.headers.referer).host
+      res.json({'url': login_url})
     }
   });
 }
