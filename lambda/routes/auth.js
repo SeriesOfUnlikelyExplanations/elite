@@ -49,8 +49,7 @@ module.exports = (api, opts) => {
         res.cookie('id_token', tokens.id_token,
           {httpOnly: true,
           sameSite: true,
-          secure: true,
-          expires: date.setDate(date.getDate() + 30) }
+          secure: true }
         )
         res.status(200).json({status: 'Logged in'})
       } catch (err) {
