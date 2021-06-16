@@ -8,9 +8,26 @@ module.exports = (api, opts) => {
     //get config variables & add them to promise
     var config = await getConfig(['/AlwaysOnward/UserPoolId', '/AlwaysOnward/UserPoolClientId', '/AlwaysOnward/AuthDomain', '/AlwaysOnward/UserPoolClientSecret']);
     //~ console.log(req.cookies);
-
+    var logout_response = {
+      status: 'Logged in',
+      url: 'https://' + config['AuthDomain'] + '/logout?client_id='+config['UserPoolClientId']
+        +'&logout_uri=https://'+url.parse(req.headers.referer).host,
+      title: 'Logout'
+    }
+    var login_response = {
+      status:'Not logged in',
+      url: 'https://'+config['AuthDomain']+'/login?client_id='+config['UserPoolClientId']
+        +'&response_type=code&scope=email+openid+phone+profile&redirect_uri=https://'
+        +url.parse(req.headers.referer).host,
+      title: 'Login'
+    }
+    //If there is already an access token, then skip the rest
+    console.log('access_token' in req.cookies)
+    if ('access_token' in req.cookies) {
+      return res.json(logout_response)
+    }
     // if there is a code, get tokens
-    if ('code' in req.query && req.query.code != 'null' ) {
+    if ('code' in req.query) {
       var postData = querystring.stringify({
         'grant_type' : 'authorization_code',
         'code' : req.query.code,
@@ -30,39 +47,36 @@ module.exports = (api, opts) => {
       };
       try {
         var tokens = await httpRequest(options, postData)
-        console.log(tokens)
         var date = new Date();
+        date.setDate(date.getDate() + 30)
         //~ res.cookie('access_token',tokens.access_token+'; HttpOnly; Path=/; Secure; SameSite=Strict')
         //~ res.header('set-cookie', 'id_token='+tokens.id_token+'; HttpOnly; Path=/; Secure; SameSite=Strict', true)
-        res.cookie('refresh_token', tokens.refresh_token,
-          {httpOnly: true,
+        res.cookie('refresh_token', tokens.refresh_token, {
+          httpOnly: true,
+          path: '/api/auth/refresh',
           sameSite: true,
           secure: true,
-          expires: date.setDate(date.getDate() + 30) }
-        )
-        res.cookie('id_token', tokens.id_token,
-          {httpOnly: true,
+          expires: date
+        })
+        res.cookie('id_token', tokens.id_token, {
+          httpOnly: false,
           sameSite: true,
           secure: true,
-          expires: date.setDate(date.getDate() + 30) }
-        )
-        res.cookie('access_token', tokens.access_token,
-          {httpOnly: true,
+          expires: date
+        })
+        res.cookie('access_token', tokens.access_token, {
+          httpOnly: false,
           sameSite: true,
           secure: true,
-          expires: date + tokens.expires_in
-          }
-        )
-        res.status(200).json({status: 'Logged in'})
+          expires: new Date(new Date().getTime() + tokens.expires_in*1000)
+        })
+        return res.status(200).json(logout_response)
       } catch (err) {
         console.log(err)
-        res.status(401).json({status:'Not logged in'})
+        return res.status(401).json({status:'Not logged in'})
       }
     } else {
-      const login_url = 'https://' + config['AuthDomain'] + '/login?client_id='+config['UserPoolClientId']
-        +'&response_type=code&scope=email+openid+phone+profile&redirect_uri=https://'
-        +url.parse(req.headers.referer).host
-      res.json({'url': login_url})
+      return res.json(login_response)
     }
   });
 }

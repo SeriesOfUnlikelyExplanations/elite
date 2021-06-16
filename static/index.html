@@ -17,7 +17,7 @@
         </div>
         <div class="col-lg-6 col-md-4 col-sm-3" style="padding-top: 15px;">
           <a id="login-link" href="">
-            <span class="pull-right">Login</span>
+            <span id="login-text" class="pull-right"></span>
           </a>
         </div>
       </div>
@@ -79,6 +79,7 @@
   </footer>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
   <script type="text/javascript" src="https://sdk.amazonaws.com/js/aws-sdk-2.924.0.min.js"></script>
+  <script type="text/javascript" src="/assets/common.js"></script>
   <script>
     // http://stackoverflow.com/questions/2851663/how-do-i-simulate-a-hover-with-a-touch-in-touch-enabled-browsers
     $('body').bind('touchstart', function() {});
@@ -113,12 +114,16 @@
     }, 1000);
 
     var my_url = new URL(window.location.href);
+    var code = my_url.searchParams.get("code")
     var url = new URL( '/api/auth/get_auth',my_url)
-    url.search = new URLSearchParams({code: my_url.searchParams.get("code")}).toString();
+    if (code != null) {
+      url.search = new URLSearchParams({code: code}).toString();
+    }
     fetch(url, {withCredentials: true, credentials: 'include'})
       .then((res) => res.json())
       .then((data) => {
         $('#login-link').attr("href", data.url)
+        $('#login-text').text(data.title)
         console.log(data)
       });
 
