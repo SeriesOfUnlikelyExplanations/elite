@@ -36,15 +36,9 @@ export class AlwaysOnwardStack extends cdk.Stack {
     const distribution = new CloudFrontWebDistribution(this, config.siteNames[0] + '-cfront', {
       originConfigs: [
         {
-          s3OriginSource: {
-            s3BucketSource: sourceBucket,
-            originAccessIdentity: oia
-          },
-          behaviors : [ {isDefaultBehavior: true}]
-        },
-        {
           customOriginSource: {
-            domainName: `${apigw.restApiId}.execute-api.${this.region}.${this.urlSuffix}`
+            domainName: `${apigw.restApiId}.execute-api.${this.region}.${this.urlSuffix}`,
+            //~ originProtocolPolicy: cf.OriginProtocolPolicy.MATCH_VIEWER
           },
           originPath: `/${apigw.deploymentStage.stageName}`,
           behaviors: [{
@@ -53,10 +47,17 @@ export class AlwaysOnwardStack extends cdk.Stack {
             forwardedValues: {
               queryString: true,
               cookies: { forward: 'all'},
-              headers: [ "host" ]
+              //~ headers: [ "host" ]
             },
           }]
-        }
+        },
+        {
+          s3OriginSource: {
+            s3BucketSource: sourceBucket,
+            originAccessIdentity: oia
+          },
+          behaviors : [ {isDefaultBehavior: true}]
+        },
       ],
       aliasConfiguration: {
         acmCertRef: config.certificateArn,
