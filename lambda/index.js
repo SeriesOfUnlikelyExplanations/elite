@@ -6,9 +6,10 @@ api.register(require('./api'), { prefix: '/api' })
 // Declare your Lambda handler
 exports.handler = async (event, context) => {
   // Run the request
-  console.log(event);
+  //~ console.log(event);
+  console.log(context)
   const response = await api.run(event, context)
-  console.log(response)
+  //~ console.log(response)
   return response
 }
 
