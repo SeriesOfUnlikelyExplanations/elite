@@ -49,7 +49,11 @@ export class AlwaysOnwardStack extends cdk.Stack {
           originPath: `/${apigw.deploymentStage.stageName}`,
           behaviors: [{
             pathPattern: '/api/*',
-            allowedMethods: CloudFrontAllowedMethods.ALL
+            allowedMethods: CloudFrontAllowedMethods.ALL,
+            forwardedValues: {
+              queryString: true,
+              cookies: { forward: 'all'}
+            },
           }]
         }
       ],
