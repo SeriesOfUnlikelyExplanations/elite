@@ -7,6 +7,8 @@ api.register(require('./api'), { prefix: '/api' })
 exports.handler = async (event, context) => {
   // Run the request
   console.log(event);
-  return await api.run(event, context)
+  const response = await api.run(event, context)
+  console.log(response)
+  return response
 }
 
