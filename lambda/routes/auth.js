@@ -9,9 +9,8 @@ module.exports = (api, opts) => {
     var config = await getConfig(['/AlwaysOnward/UserPoolId', '/AlwaysOnward/UserPoolClientId', '/AlwaysOnward/AuthDomain', '/AlwaysOnward/UserPoolClientSecret']);
     //~ console.log(req.cookies);
 
-    console.log(req.query)
     // if there is a code, get tokens
-    if (code in req.query) {
+    if ('code' in req.query && req.query.code != 'null' ) {
       var postData = querystring.stringify({
         'grant_type' : 'authorization_code',
         'code' : req.query.code,
@@ -31,12 +30,27 @@ module.exports = (api, opts) => {
       };
       try {
         var tokens = await httpRequest(options, postData)
-        console.log(tokens)
-        tokens.expires_at =  Date.now() + tokens.expires_in
-        res.cookie('tokens', {id_token: tokens.id_token},
-          {httpOnly: true, sameSite: true, secure: true }
-          ).status(200).json({status: 'Logged in'})
-      } catch {
+        var date = new Date();
+        //~ res.cookie('access_token',tokens.access_token+'; HttpOnly; Path=/; Secure; SameSite=Strict')
+        //~ res.header('set-cookie', 'id_token='+tokens.id_token+'; HttpOnly; Path=/; Secure; SameSite=Strict', true)
+        console.log(res)
+        res.cookie('access_token', tokens.access_token,
+          {httpOnly: true,
+          sameSite: true,
+          secure: true
+          }
+        )
+        console.log(res)
+        res.cookie('refresh_token', tokens.refresh_token,
+          {httpOnly: true,
+          sameSite: true,
+          secure: true,
+          expires: date.setDate(date.getDate() + 30) }
+        )
+        console.log(res)
+        res.status(200).json({status: 'Logged in'})
+      } catch (err) {
+        console.log(err)
         res.status(401).json({status:'Not logged in'})
       }
     } else {
