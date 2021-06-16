@@ -30,16 +30,10 @@ module.exports = (api, opts) => {
       };
       try {
         var tokens = await httpRequest(options, postData)
+        console.log(tokens)
         var date = new Date();
         //~ res.cookie('access_token',tokens.access_token+'; HttpOnly; Path=/; Secure; SameSite=Strict')
         //~ res.header('set-cookie', 'id_token='+tokens.id_token+'; HttpOnly; Path=/; Secure; SameSite=Strict', true)
-        res.cookie('access_token', tokens.access_token,
-          {httpOnly: true,
-          sameSite: true,
-          secure: true,
-          expires: date + token.expires_in
-          }
-        )
         res.cookie('refresh_token', tokens.refresh_token,
           {httpOnly: true,
           sameSite: true,
@@ -49,10 +43,19 @@ module.exports = (api, opts) => {
         res.cookie('id_token', tokens.id_token,
           {httpOnly: true,
           sameSite: true,
-          secure: true }
+          secure: true,
+          expires: date.setDate(date.getDate() + 30) }
+        )
+        res.cookie('access_token', tokens.access_token,
+          {httpOnly: true,
+          sameSite: true,
+          secure: true,
+          expires: date + tokens.expires_in
+          }
         )
         res.status(200).json({status: 'Logged in'})
       } catch (err) {
+        console.log(err)
         res.status(401).json({status:'Not logged in'})
       }
     } else {

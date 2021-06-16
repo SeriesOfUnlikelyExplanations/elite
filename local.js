@@ -39,7 +39,7 @@ const serverWrapper = https.createServer(options, function (request, response) {
 
     api.run(event, {})
       .then((res) => {
-        console.log(res)
+        //~ console.log(res)
         let {body, headers, statusCode } = res
         if (res.isBase64Encoded) {
           body = Buffer.from(body, 'base64')
