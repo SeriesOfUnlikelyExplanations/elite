@@ -46,8 +46,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
             allowedMethods: CloudFrontAllowedMethods.ALL,
             forwardedValues: {
               queryString: true,
-              cookies: { forward: 'all'},
-              headers: [ "Host" ]
+              cookies: { forward: 'all'}
             },
           }]
         },
