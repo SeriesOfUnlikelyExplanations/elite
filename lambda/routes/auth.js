@@ -27,7 +27,7 @@ module.exports = (api, opts) => {
     var logout_response = {
       status: 'Logged in',
       redirect_url: 'https://' + config['AuthDomain'] + '/logout?client_id='+config['UserPoolClientId']
-        +'&logout_uri=https://'+host,
+        +'&logout_uri=https://'+host+ '?logout=true',
       title: 'Logout'
     }
     var login_response = {
@@ -53,7 +53,7 @@ module.exports = (api, opts) => {
         tokens = await callTokenApi(postData, config)
         console.log(tokens)
       }
-      if ('code' in req.query || (tokens instanceof Error && 'code' in req.query)) {
+      if ((!('refresh_token' in req.cookies) && 'code' in req.query) || (tokens instanceof Error && 'code' in req.query)) {
         // if there is a code, get tokens
         var postData = querystring.stringify({
           'grant_type' : 'authorization_code',
