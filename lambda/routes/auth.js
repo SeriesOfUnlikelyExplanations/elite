@@ -26,7 +26,7 @@ module.exports = (api, opts) => {
     const host = url.parse(req.headers.referer || req.headers.host).host
     var logoutResponse = {
       status: 'Logged in',
-      redirect_url: '/api/auth/get_auth/logout'
+      redirect_url: '/api/auth/get_auth/logout',
       title: 'Logout'
     }
     var loginResponse = {
