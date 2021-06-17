@@ -125,13 +125,13 @@
     });
     var my_url = new URL(window.location.href);
     if (typeof $.cookie('access_token') === 'undefined'){
-      var request_url = new URL( '/api/auth/get_auth/refresh',my_url)
+      var request_url = new URL( '/api/auth/get_auth/refresh', my_url)
       var code = my_url.searchParams.get("code")
       if (code != null) {
         request_url.search = new URLSearchParams({code: code}).toString();
       }
     } else {
-      var request_url = new URL( '/api/auth/get_auth/initial',my_url)
+      var request_url = new URL( '/api/auth/get_auth/initial', my_url)
     }
     fetch(request_url, {withCredentials: true, credentials: 'include'})
       .then((res) => res.json())

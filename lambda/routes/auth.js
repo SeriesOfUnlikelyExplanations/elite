@@ -53,7 +53,7 @@ module.exports = (api, opts) => {
         tokens = await callTokenApi(postData, config)
         console.log(tokens)
       }
-      if (tokens instanceof Error && 'code' in req.query) {
+      if ('code' in req.query || (tokens instanceof Error && 'code' in req.query)) {
         // if there is a code, get tokens
         var postData = querystring.stringify({
           'grant_type' : 'authorization_code',
