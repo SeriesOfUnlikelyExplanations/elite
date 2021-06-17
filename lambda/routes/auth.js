@@ -27,7 +27,7 @@ module.exports = (api, opts) => {
     var logout_response = {
       status: 'Logged in',
       redirect_url: 'https://' + config['AuthDomain'] + '/logout?client_id='+config['UserPoolClientId']
-        +'&logout_uri=https://'+host+ '?logout=true',
+        +'&logout_uri=https://'+host,
       title: 'Logout'
     }
     var login_response = {
