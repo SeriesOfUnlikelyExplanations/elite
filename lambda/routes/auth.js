@@ -40,20 +40,17 @@ module.exports = (api, opts) => {
       httpOnly: true,
       path: '/api/auth/get_auth/refresh',
       sameSite: true,
-      secure: true,
-      expires: date
+      secure: true
     }
     var idTokenOptions = {
       httpOnly: false,
       sameSite: true,
-      secure: true,
-      expires: date
+      secure: true
     }
     var accessTokenOptions = {
       httpOnly: false,
       sameSite: true,
-      secure: true,
-      expires: new Date(new Date().getTime() + tokens.expires_in*1000)
+      secure: true
     }
     if (type == 'logout') {
       res.clearCookie('access_token', accessTokenOptions)
@@ -96,12 +93,15 @@ module.exports = (api, opts) => {
       var date = new Date();
       date.setDate(date.getDate() + 30)
       if ('refresh_token' in tokens) {
+        refreshTokenOptions['expires'] = date
         res.cookie('refresh_token', tokens.refresh_token, refreshTokenOptions)
       }
       if ('id_token' in tokens) {
+        idTokenOptions['expires'] = date
         res.cookie('id_token', tokens.id_token, idTokenOptions)
       }
       if ('access_token' in tokens) {
+        accessTokenOptions['expires'] = new Date(new Date().getTime() + tokens.expires_in*1000)
         res.cookie('access_token', tokens.access_token, accessTokenOptions)
       }
       return res.status(200).json(logoutResponse)
