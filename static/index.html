@@ -123,17 +123,22 @@
         window.location = $(this).attr('href');
       }
     });
-
+    console.log($.cookie('access_token'))
     var my_url = new URL(window.location.href);
-    var code = my_url.searchParams.get("code")
-    var url = new URL( '/api/auth/get_auth',my_url)
-    if (code != null) {
-      url.search = new URLSearchParams({code: code}).toString();
+    if (typeof $.cookie('access_token') === 'undefined'){
+      var request_url = new URL( '/api/auth/get_auth/refresh',my_url)
+      var code = my_url.searchParams.get("code")
+      if (code != null) {
+        request_url.search = new URLSearchParams({code: code}).toString();
+      }
+    } else {
+      var request_url = new URL( '/api/auth/get_auth/initial',my_url)
     }
-    fetch(url, {withCredentials: true, credentials: 'include'})
+    console.log(request_url)
+    fetch(request_url, {withCredentials: true, credentials: 'include'})
       .then((res) => res.json())
       .then((data) => {
-        $('#login-link').attr("href", data.url)
+        $('#login-link').attr("href", data.redirect_url)
         $('#login-text').text(data.title)
         console.log(data)
       });
