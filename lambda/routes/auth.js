@@ -52,7 +52,7 @@ module.exports = (api, opts) => {
       sameSite: true,
       secure: true
     }
-    if (type == 'logout') {
+    if ('type' in req.params && req.params.type == 'logout') {
       res.clearCookie('access_token', accessTokenOptions)
       res.clearCookie('id_token', idTokenOptions)
       res.clearCookie('refresh_token', refreshTokenOptions)
