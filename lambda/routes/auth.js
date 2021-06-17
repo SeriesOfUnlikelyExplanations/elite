@@ -24,22 +24,47 @@ module.exports = (api, opts) => {
     //get config variables & add them to promise
     var config = await getConfig(['/AlwaysOnward/UserPoolId', '/AlwaysOnward/UserPoolClientId', '/AlwaysOnward/AuthDomain', '/AlwaysOnward/UserPoolClientSecret']);
     const host = url.parse(req.headers.referer || req.headers.host).host
-    var logout_response = {
+    var logoutResponse = {
       status: 'Logged in',
-      redirect_url: 'https://' + config['AuthDomain'] + '/logout?client_id='+config['UserPoolClientId']
-        +'&logout_uri=https://'+host,
+      redirect_url: '/api/auth/get_auth/logout'
       title: 'Logout'
     }
-    var login_response = {
+    var loginResponse = {
       status:'Not logged in',
       redirect_url: 'https://'+config['AuthDomain']+'/login?client_id='+config['UserPoolClientId']
         +'&response_type=code&scope=email+openid+phone+profile&redirect_uri=https://'
         +host,
       title: 'Login'
     }
+    var refreshTokenOptions = {
+      httpOnly: true,
+      path: '/api/auth/get_auth/refresh',
+      sameSite: true,
+      secure: true,
+      expires: date
+    }
+    var idTokenOptions = {
+      httpOnly: false,
+      sameSite: true,
+      secure: true,
+      expires: date
+    }
+    var accessTokenOptions = {
+      httpOnly: false,
+      sameSite: true,
+      secure: true,
+      expires: new Date(new Date().getTime() + tokens.expires_in*1000)
+    }
+    if (type == 'logout') {
+      res.clearCookie('access_token', accessTokenOptions)
+      res.clearCookie('id_token', idTokenOptions)
+      res.clearCookie('refresh_token', refreshTokenOptions)
+      return res.redirect('https://' + config['AuthDomain'] + '/logout?client_id='+config['UserPoolClientId']
+        +'&logout_uri=https://'+host)
+    }
     //If there is already an access token, then skip the rest
     if ('access_token' in req.cookies) {
-      return res.json(logout_response)
+      return res.json(logoutResponse)
     }
     if ('refresh_token' in req.cookies || 'code' in req.query) {
       var tokens = {}
@@ -66,37 +91,21 @@ module.exports = (api, opts) => {
       }
       if (tokens instanceof Error) {
         console.log(err)
-        return res.status(401).json(login_response)
+        return res.status(401).json(loginResponse)
       }
       var date = new Date();
       date.setDate(date.getDate() + 30)
       if ('refresh_token' in tokens) {
-        res.cookie('refresh_token', tokens.refresh_token, {
-          httpOnly: true,
-          path: '/api/auth/get_auth/refresh',
-          sameSite: true,
-          secure: true,
-          expires: date
-        })
+        res.cookie('refresh_token', tokens.refresh_token, refreshTokenOptions)
       }
       if ('id_token' in tokens) {
-        res.cookie('id_token', tokens.id_token, {
-          httpOnly: false,
-          sameSite: true,
-          secure: true,
-          expires: date
-        })
+        res.cookie('id_token', tokens.id_token, idTokenOptions)
       }
       if ('access_token' in tokens) {
-        res.cookie('access_token', tokens.access_token, {
-          httpOnly: false,
-          sameSite: true,
-          secure: true,
-          expires: new Date(new Date().getTime() + tokens.expires_in*1000)
-        })
+        res.cookie('access_token', tokens.access_token, accessTokenOptions)
       }
-      return res.status(200).json(logout_response)
+      return res.status(200).json(logoutResponse)
     }
-    return res.status(200).json(login_response)
+    return res.status(200).json(loginResponse)
   });
 }
