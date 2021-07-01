@@ -36,22 +36,28 @@ export class AlwaysOnwardStack extends cdk.Stack {
     const distribution = new CloudFrontWebDistribution(this, config.siteNames[0] + '-cfront', {
       originConfigs: [
         {
+          customOriginSource: {
+            domainName: `${apigw.restApiId}.execute-api.${this.region}.${this.urlSuffix}`,
+            //~ originProtocolPolicy: cf.OriginProtocolPolicy.MATCH_VIEWER
+          },
+          originPath: `/${apigw.deploymentStage.stageName}`,
+          behaviors: [{
+            pathPattern: '/api/*',
+            allowedMethods: CloudFrontAllowedMethods.ALL,
+            forwardedValues: {
+              queryString: true,
+              cookies: { forward: 'all'},
+              headers: [ "Referer" ]
+            },
+          }]
+        },
+        {
           s3OriginSource: {
             s3BucketSource: sourceBucket,
             originAccessIdentity: oia
           },
           behaviors : [ {isDefaultBehavior: true}]
         },
-        {
-          customOriginSource: {
-            domainName: `${apigw.restApiId}.execute-api.${this.region}.${this.urlSuffix}`
-          },
-          originPath: `/${apigw.deploymentStage.stageName}`,
-          behaviors: [{
-            pathPattern: '/api/*',
-            allowedMethods: CloudFrontAllowedMethods.ALL
-          }]
-        }
       ],
       aliasConfiguration: {
         acmCertRef: config.certificateArn,
@@ -119,7 +125,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
         },
         scopes: [ cognito.OAuthScope.OPENID, cognito.OAuthScope.EMAIL, cognito.OAuthScope.PHONE, cognito.OAuthScope.PROFILE ],
         callbackUrls: config.siteNames.map(i => 'https://' + i).concat(['https://localhost:3000']),
-        logoutUrls: config.siteNames.map(i => 'https://' + i),
+        logoutUrls: config.siteNames.map(i => 'https://' + i).concat(['https://localhost:3000']),
       },
       generateSecret: true,
       supportedIdentityProviders: [
