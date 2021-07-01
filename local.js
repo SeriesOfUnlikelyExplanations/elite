@@ -11,6 +11,11 @@ api.register(require('./lambda/api'), { prefix: '/api' })
 api.register(require('./static-routes'))
 
 const options = {
+  //https://nodejs.org/en/knowledge/HTTP/servers/how-to-create-a-HTTPS-server/
+  //~openssl genrsa -out key.pem
+  //~openssl req -new -key key.pem -out csr.pem
+  //~openssl x509 -req -days 9999 -in csr.pem -signkey key.pem -out cert.pem
+  //~rm csr.pem
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem')
 };
@@ -50,6 +55,7 @@ const serverWrapper = https.createServer(options, function (request, response) {
         response.end(body)
       })
       .catch((err) => {
+        console.log(err)
         console.error('Something went horribly, horribly wrong')
         response.writeHead(500, { 'content-length': 0 })
         response.end('')

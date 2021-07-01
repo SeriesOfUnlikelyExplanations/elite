@@ -11,7 +11,7 @@ module.exports = (api, opts) => {
 
     console.log(req.query)
     // if there is a code, get tokens
-    if (code in req.query) {
+    if (code in req.query && req.query.code != null) {
       var postData = querystring.stringify({
         'grant_type' : 'authorization_code',
         'code' : req.query.code,
