@@ -5,7 +5,7 @@ import { BucketDeployment, Source } from '@aws-cdk/aws-s3-deployment';
 import * as route53 from '@aws-cdk/aws-route53';
 import * as targets from '@aws-cdk/aws-route53-targets';
 import * as apigateway from '@aws-cdk/aws-apigateway';
-import * as config from './onwardConfig';
+import * as config from './config';
 import * as cognito from "@aws-cdk/aws-cognito";
 import * as acm from '@aws-cdk/aws-certificatemanager';
 import * as ssm from '@aws-cdk/aws-ssm';

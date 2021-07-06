@@ -1,5 +1,5 @@
 import * as cdk from '@aws-cdk/core';
-import * as config from './onwardConfig';
+import * as config from './config';
 import * as lambda from "@aws-cdk/aws-lambda";
 import * as apigateway from '@aws-cdk/aws-apigateway';
 import * as ssm from '@aws-cdk/aws-ssm';
