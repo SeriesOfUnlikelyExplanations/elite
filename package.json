@@ -20,7 +20,8 @@
     "test": "cdk synth",
     "static": "live-server ./static --https=/usr/local/lib/node_modules/live-server-https",
     "serve": "nodemon -L local.js",
-    "deploy": "npm run build && cdk deploy --all --require-approval never"
+    "cdk-deploy": "npm run build && cdk deploy --all --require-approval never",
+    "deploy": "git push origin main:live"
   },
   "dependencies": {
     "@aws-cdk/assert": "^1.107.0",
