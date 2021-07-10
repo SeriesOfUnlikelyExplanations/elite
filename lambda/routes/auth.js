@@ -4,6 +4,7 @@ var { httpRequest, getConfig } = require('../components');
 const url = require('url');
 
 module.exports = (api, opts) => {
+
   api.get('/logout', async (req,res) => {
     auth = new Auth()
     auth.clearCookies(res);
@@ -12,15 +13,35 @@ module.exports = (api, opts) => {
       +'&logout_uri=https://'+url.parse(req.headers.referer || req.headers.host).host)
   })
 
-
   api.get('/refresh', async (req,res) => {
+    var logoutResponse = {
+      status: 'Logged in',
+      redirect_url: '/api/auth/logout',
+      title: 'Logout'
+    }
+    //if there is already an access token, then skip the rest
+    if ('access_token' in req.cookies) {
+      return res.status(200).json(logoutResponse)
+    }
     auth = new Auth()
     await auth.init();
+    var loginResponse = {
+      status:'Not logged in',
+      redirect_url: 'https://'+auth.config['AuthDomain']+'/login?client_id='+auth.config['UserPoolClientId']
+        +'&response_type=code&scope=email+openid+phone+profile&redirect_uri=https://'
+        +url.parse(req.headers.referer || req.headers.host).host
+        +'/api/auth/callback',
+      title: 'Login'
+    }
+    if (!('refresh_token' in req.cookies)) {
+      return res.status(200).json(loginResponse)
+    }
     var tokens = await auth.refreshTokens(req.cookies.refresh_token);
-    delete myObject.refresh_token
-
-    return res.redirect('https://' + auth.config['AuthDomain'] + '/logout?client_id='+auth.config['UserPoolClientId']
-      +'&logout_uri=https://'+url.parse(req.headers.referer || req.headers.host).host)
+    if (tokens instanceof Error) {
+      return res.status(200).json(loginResponse)
+    }
+    auth.setCookies(res, tokens);
+    return res.status(200).json(logoutResponse)
   })
 
   api.get('/callback', async (req,res) => {
@@ -35,42 +56,6 @@ module.exports = (api, opts) => {
     }
     return res.redirect('https://'+url.parse(req.headers.referer || req.headers.host).host)
   })
-
-  api.get('/get_auth', async (req,res) => {
-    var logoutResponse = {
-      status: 'Logged in',
-      redirect_url: '/api/auth/logout',
-      title: 'Logout'
-    }
-    //If there is already an access token, then skip the rest
-    if ('access_token' in req.cookies) {
-      return res.json(logoutResponse)
-    }
-    auth = new Auth()
-    await auth.init();
-    var loginResponse = {
-      status:'Not logged in',
-      redirect_url: 'https://'+auth.config['AuthDomain']+'/login?client_id='+auth.config['UserPoolClientId']
-        +'&response_type=code&scope=email+openid+phone+profile&redirect_uri=https://'
-        +url.parse(req.headers.referer || req.headers.host).host,
-      title: 'Login'
-    }
-    if (!('code' in req.query) && !('refresh_token' in req.cookies)) {
-      return res.status(200).json(loginResponse)
-    }
-    if ('refresh_token' in req.cookies) {
-      var tokens = await auth.refreshTokens(req.cookies.refresh_token);
-      delete myObject.refresh_token
-    }
-
-    if (tokens instanceof Error) {
-      console.log(err)
-      return res.status(401).json(loginResponse)
-    }
-    console.log(tokens);
-    auth.setCookies(res, tokens);
-    return res.status(200).json(logoutResponse)
-  });
 }
 
 class Auth {

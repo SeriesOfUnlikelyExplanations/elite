@@ -129,10 +129,8 @@
     if (code != null) {
       var request_url = new URL( '/api/auth/calback', my_url);
       request_url.search = new URLSearchParams({code: code}).toString();
-    } else if (typeof $.cookie('access_token') === 'undefined') {
-      var request_url = new URL( '/api/auth/refresh', my_url);
     } else {
-      var request_url = new URL( '/api/auth/get_auth', my_url);
+      var request_url = new URL( '/api/auth/refresh', my_url);
     }
     fetch(request_url, {withCredentials: true, credentials: 'include'})
       .then((res) => res.json())
