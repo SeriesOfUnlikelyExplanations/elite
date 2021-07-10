@@ -114,24 +114,25 @@
       }
     }, 1000);
 
-    $("#login-link").click(function(e) {
-      console.log($("#login-text").text())
-      if ($("#login-text").text() == 'Logout') {
-        e.preventDefault();
-        $.removeCookie('access_token', { path: '/' });
-        $.removeCookie('id_token', { path: '/' });
-        window.location = $(this).attr('href');
-      }
-    });
+    //~ $("#login-link").click(function(e) {
+      //~ console.log($("#login-text").text())
+      //~ if ($("#login-text").text() == 'Logout') {
+        //~ e.preventDefault();
+        //~ $.removeCookie('access_token', { path: '/' });
+        //~ $.removeCookie('id_token', { path: '/' });
+        //~ window.location = $(this).attr('href');
+      //~ }
+    //~ });
     var my_url = new URL(window.location.href);
-    if (typeof $.cookie('access_token') === 'undefined') {
-      var request_url = new URL( '/api/auth/get_auth/refresh', my_url);
-      var code = my_url.searchParams.get("code");
-      if (code != null) {
-        request_url.search = new URLSearchParams({code: code}).toString();
-      }
+
+    var code = my_url.searchParams.get("code");
+    if (code != null) {
+      var request_url = new URL( '/api/auth/calback', my_url);
+      request_url.search = new URLSearchParams({code: code}).toString();
+    } else if (typeof $.cookie('access_token') === 'undefined') {
+      var request_url = new URL( '/api/auth/refresh', my_url);
     } else {
-      var request_url = new URL( '/api/auth/get_auth/initial', my_url);
+      var request_url = new URL( '/api/auth/get_auth', my_url);
     }
     fetch(request_url, {withCredentials: true, credentials: 'include'})
       .then((res) => res.json())

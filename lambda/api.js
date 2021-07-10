@@ -13,6 +13,14 @@ module.exports = (api, opts) => {
   api.get('/status', async (req,res) => {
     return { status: 'ok' }
   })
+
+  // define the auth paths
   api.register(require('./routes/auth'), { prefix: '/auth' })
 
+  //add authentication middleware
+  api.register(require('./routes/contracts'), { prefix: '/contracts' })
+
 }
+
+
+

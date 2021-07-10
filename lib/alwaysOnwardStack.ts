@@ -124,7 +124,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
           implicitCodeGrant: true,
         },
         scopes: [ cognito.OAuthScope.OPENID, cognito.OAuthScope.EMAIL, cognito.OAuthScope.PHONE, cognito.OAuthScope.PROFILE ],
-        callbackUrls: config.siteNames.map(i => 'https://' + i).concat(['https://localhost:3000']),
+        callbackUrls: config.siteNames.concat(['https://localhost:3000']).map(i => `https://${i}/api/auth/callback`),
         logoutUrls: config.siteNames.map(i => 'https://' + i).concat(['https://localhost:3000']),
       },
       generateSecret: true,

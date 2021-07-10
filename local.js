@@ -54,8 +54,7 @@ const serverWrapper = https.createServer(options, function (request, response) {
         }
         response.writeHead(statusCode, headers)
         response.end(body)
-      })
-      .catch((err) => {
+      }).catch((err) => {
         console.log(err)
         console.error('Something went horribly, horribly wrong')
         response.writeHead(500, { 'content-length': 0 })
