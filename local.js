@@ -44,7 +44,7 @@ const serverWrapper = https.createServer(options, function (request, response) {
 
     api.run(event, {})
       .then((res) => {
-        //~ console.log(res)
+        console.log(res.headers)
         let {body, headers, statusCode } = res
         if (res.isBase64Encoded) {
           body = Buffer.from(body, 'base64')
@@ -52,6 +52,7 @@ const serverWrapper = https.createServer(options, function (request, response) {
         if (!headers['content-length'] && body) {
           headers['content-length'] = body.length
         }
+        //~console.log(headers)
         response.writeHead(statusCode, headers)
         response.end(body)
       }).catch((err) => {
