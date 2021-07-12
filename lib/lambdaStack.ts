@@ -41,7 +41,7 @@ export class LambdaStack extends cdk.Stack {
       },
       binaryMediaTypes: ['*/*'],
       proxy: false,
-      description: `Simple lambda API service. Timestamp: ${Date.now()}`
+      description: `Simple lambda API. Timestamp: ${Date.now()}`
     });
 
     //add cognito authorizer to the Lambda
