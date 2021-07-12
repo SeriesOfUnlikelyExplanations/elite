@@ -76,7 +76,8 @@ class Auth {
   //get config variables from SSM store
   async init(req) {
     this.config = await getConfig(['/AlwaysOnward/UserPoolClientId', '/AlwaysOnward/AuthDomain', '/AlwaysOnward/UserPoolClientSecret'])
-    this.host = ((req.headers.host === 'localhost:3000') ? 'localhost:3000' : 'always-onward.com')
+    console.log(req.multiValueHeaders)
+    this.host = ((req.multiValueHeaders.host === 'localhost:3000') ? 'localhost:3000' : 'always-onward.com')
   }
 
   // clear cookies when customer logs out
