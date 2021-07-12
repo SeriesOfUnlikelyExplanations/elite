@@ -49,7 +49,7 @@ export class LambdaStack extends cdk.Stack {
       cognitoUserPools: [userPool]
     });
     const my_resource = this.apigw.root.addResource("private")
-    const post = this.apigw.root.addMethod('ANY', new apigateway.LambdaIntegration(handler), {
+    const private_route = my_resource.addMethod('ANY', new apigateway.LambdaIntegration(handler), {
       authorizationType: apigateway.AuthorizationType.COGNITO,
       authorizer: auth
     });
