@@ -114,15 +114,15 @@
       }
     }, 1000);
 
-     $("#login-link").click(function(e) {
-       console.log($("#login-text").text())
-       if ($("#login-text").text() == 'Logout') {
-         e.preventDefault();
-         $.removeCookie('access_token', { path: '/' });
-         $.removeCookie('id_token', { path: '/' });
-         window.location = $(this).attr('href');
-       }
-     });
+     //~$("#login-link").click(function(e) {
+       //~console.log($("#login-text").text())
+       //~if ($("#login-text").text() == 'Logout') {
+         //~e.preventDefault();
+         //~$.removeCookie('access_token', { path: '/' });
+         //~$.removeCookie('id_token', { path: '/' });
+         //~window.location = $(this).attr('href');
+       //~}
+     //~});
     var my_url = new URL(window.location.href);
 
     var code = my_url.searchParams.get("code");

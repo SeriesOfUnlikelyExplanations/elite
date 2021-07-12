@@ -67,7 +67,7 @@ class Auth {
     }
     this.refreshTokenOptions = {
       httpOnly: true,
-      path: '/api/auth/get_auth/refresh',
+      path: '/api/auth/refresh',
       sameSite: true,
       secure: true
     }
