@@ -34,25 +34,23 @@ const serverWrapper = https.createServer(options, function (request, response) {
       path: url.pathname,
       resource: '/{proxy+}',
       queryStringParameters: [...url.searchParams.keys()].reduce((output, key) => { output[key] = url.searchParams.get(key); return output }, {}),
-      headers: request.headers,
+      multiValueHeaders: request.headers,
       requestContext: {},
       pathParameters: {},
       stageVariables: {},
       isBase64Encoded: false,
       body: body,
     }
-
     api.run(event, {})
       .then((res) => {
-        let {body, headers, statusCode } = res;
-        console.log(headers);
+        let {body, multiValueHeaders, statusCode } = res;
         if (res.isBase64Encoded) {
           body = Buffer.from(body, 'base64')
         }
-        if (!headers['content-length'] && body && body.length) {
-          headers['content-length'] = body.length
+        if (!multiValueHeaders['content-length'] && body && body.length) {
+          multiValueHeaders['content-length'] = body.length
         }
-        response.writeHead(statusCode, headers)
+        response.writeHead(statusCode, multiValueHeaders)
         response.end(body)
       }).catch((err) => {
         console.log(err)

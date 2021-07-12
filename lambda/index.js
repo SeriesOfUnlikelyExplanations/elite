@@ -8,7 +8,6 @@ exports.handler = async (event, context) => {
   // Run the request
   //~ console.log(event);
   const response = await api.run(event, context)
-   console.log(response)
   return response
 }
 
