@@ -123,6 +123,7 @@ class Auth {
       this.tokenOptions['expires'] = new Date(new Date().getTime() + tokens.expires_in*1000)
       res.cookie('access_token', tokens.access_token, this.tokenOptions)
     }
+    console.log(res.getHeaders())
   }
   //internal method to call the get tokens api
   _callTokenApi(postData) {

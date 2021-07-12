@@ -2,10 +2,7 @@
  * A minimal web server that converts the request
  * object to something the lambda-api module understands.
  */
-const api = require('lambda-api')({serializer: (body) => {
-  console.log(body)
-  return body
-}})
+const api = require('lambda-api')()
 const https = require('https')
 const fs = require('fs')
 //~ const open = require('open');
@@ -47,13 +44,12 @@ const serverWrapper = https.createServer(options, function (request, response) {
 
     api.run(event, {})
       .then((res) => {
-        console.log(res)
-        let {body, headers, statusCode } = JSON.stringify(res);
+        let {body, headers, statusCode } = res;
         console.log(headers);
         if (res.isBase64Encoded) {
           body = Buffer.from(body, 'base64')
         }
-        if (!headers['content-length'] && body) {
+        if (!headers['content-length'] && body && body.length) {
           headers['content-length'] = body.length
         }
         response.writeHead(statusCode, headers)
