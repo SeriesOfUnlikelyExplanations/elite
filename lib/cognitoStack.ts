@@ -63,7 +63,7 @@ export class CognitoStack extends cdk.Stack {
         email: cognito.ProviderAttribute.AMAZON_EMAIL,
         fullname: cognito.ProviderAttribute.AMAZON_NAME
       },
-    })
+    }).node.addDependency(userPoolClient);
     new cognito.UserPoolIdentityProviderGoogle(this, 'Google', {
       clientId: config.GOOGLE_CLIENT_ID,
       clientSecret: config.GOOGLE_CLIENT_SECRET,
@@ -73,7 +73,7 @@ export class CognitoStack extends cdk.Stack {
         email: cognito.ProviderAttribute.GOOGLE_EMAIL,
         fullname: cognito.ProviderAttribute.GOOGLE_NAME
       },
-    });
+    }).node.addDependency(userPoolClient);
 
     //get client secret
     const describeCognitoUserPoolClient = new cr.AwsCustomResource(
