@@ -29,12 +29,14 @@ const serverWrapper = https.createServer(options, function (request, response) {
   request.on("end", function(){
     // The event object we're faking is a lightweight based on:
     // https://docs.aws.amazon.com/lambda/latest/dg/eventsources.html#eventsources-api-gateway-request
+    console.log(request.headers)
     const event = {
       httpMethod: request.method.toUpperCase(),
       path: url.pathname,
       resource: '/{proxy+}',
       queryStringParameters: [...url.searchParams.keys()].reduce((output, key) => { output[key] = url.searchParams.get(key); return output }, {}),
       multiValueHeaders: request.headers,
+      headers: request.headers,
       requestContext: {},
       pathParameters: {},
       stageVariables: {},
