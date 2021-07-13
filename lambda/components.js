@@ -42,33 +42,5 @@ module.exports = {
       config[i.Name.replace("/AlwaysOnward/","")] = i.Value;
     }
     return config
-  },
-
-  //token validation middleware
-  checkAuth: async (req, res, next) => {
-    const {
-      verifierFactory,
-      errors: { JwtVerificationError, JwksNoMatchingKeyError },
-    } = require('@southlane/cognito-jwt-verifier')
-    const { getConfig } = require('./components');
-
-    var config = await getConfig(['/AlwaysOnward/UserPoolId', '/AlwaysOnward/UserPoolClientId']);
-    // Put your config values here. calls https://cognito-idp.us-west-2.amazonaws.com/us-west-2_wNXUdpnmK/.well-known/jwks.json
-    const verifier = verifierFactory({
-      region: 'us-west-2',
-      userPoolId: config['UserPoolId'],
-      appClientId: config['UserPoolClientId'],
-      tokenType: 'access', // either "access" or "id"
-    })
-
-    try {
-      if (!('access_token' in req.cookies)) { return res.error(401, 'Not Authorized') }
-      const tokenPayload = await verifier.verify(req.cookies.access_token)
-      console.log(tokenPayload)
-      next()
-    } catch (e) {
-      console.error(e);
-      return res.error(401, 'Not Authorized');
-    }
   }
 }

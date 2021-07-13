@@ -20,6 +20,7 @@ module.exports = (api, opts) => {
       title: 'Logout'
     }
     //if there is already an access token, then skip the rest
+    console.log(req.cookies)
     if ('access_token' in req.cookies) {
       return res.status(200).json(logoutResponse)
     }
@@ -76,14 +77,14 @@ class Auth {
   //get config variables from SSM store
   async init(req) {
     this.config = await getConfig(['/AlwaysOnward/UserPoolClientId', '/AlwaysOnward/AuthDomain', '/AlwaysOnward/UserPoolClientSecret'])
-    console.log(req.multiValueHeaders)
-    this.host = ((req.multiValueHeaders.host === 'localhost:3000') ? 'localhost:3000' : 'always-onward.com')
+    this.host = ((req.multiValueHeaders.host === 'localhost:3000') ? 'localhost:3000' : 'www.always-onward.com')
   }
 
   // clear cookies when customer logs out
   clearCookies(res) {
     res.clearCookie('id_token', this.tokenOptions)
     res.clearCookie('refresh_token', this.refreshTokenOptions)
+    res.clearCookie('access_token', this.tokenOptions)
     res.clearCookie('access_token', this.tokenOptions)
   }
 

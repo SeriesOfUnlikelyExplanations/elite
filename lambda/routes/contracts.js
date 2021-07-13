@@ -1,7 +1,7 @@
-var { httpRequest, getConfig, checkAuth } = require('../components');
+// route - api/private/contracts
 
 module.exports = (api, opts) => {
-  api.get('/upload_contracts', checkAuth, async (req,res) => {
-    return res.status(200).json('{"success":"true"')
+  api.get('/logout', async (req,res) => {
+    return res.status(200).json({thing:true})
   })
 }
