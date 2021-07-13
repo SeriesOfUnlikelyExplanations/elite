@@ -39,7 +39,7 @@ export class StaticSite extends cdk.Stack {
     this.redirectRecord = new route53.ARecord(this, 'fake-alias-record', {
       target: route53.RecordTarget.fromAlias(new targets.BucketWebsiteTarget(redirectBucket)),
       zone: myHostedZone,
-      recordName: config.rootSiteName,
+      recordName: '',
     });
   }
 }
