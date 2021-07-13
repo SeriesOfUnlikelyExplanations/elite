@@ -22,7 +22,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
     super(scope, id, props);
 
     const {userPool, apigw, handler, sourceBucket} = props;
-    const distribution = new CloudFrontWebDistribution(this, config.siteNames[0] + '-cfront', {
+    const distribution = new CloudFrontWebDistribution(this, config.siteName + '-cfront', {
       originConfigs: [
         {
           customOriginSource: {
@@ -50,30 +50,25 @@ export class AlwaysOnwardStack extends cdk.Stack {
       ],
       aliasConfiguration: {
         acmCertRef: config.certificateArn,
-        names: config.siteNames
+        names: [config.siteName]
       }
     });
 
-    new BucketDeployment(this, config.siteNames[0] + 'DeployWebsite', {
+    new BucketDeployment(this, config.siteName + 'DeployWebsite', {
       sources: [Source.asset(config.websiteDistSourcePath)],
       destinationBucket: sourceBucket,
       distribution,
       distributionPaths: ['/*'],
     });
 
-    const myHostedZone = route53.HostedZone.fromHostedZoneAttributes(this, config.siteNames[0] + '-hosted-zone', {
+    const myHostedZone = route53.HostedZone.fromHostedZoneAttributes(this, config.siteName + '-hosted-zone', {
       hostedZoneId: config.hostedZoneId,
       zoneName: config.zoneName,
     });
-    new route53.ARecord(this, config.siteNames[0] + '-alias-record', {
+    new route53.ARecord(this, config.siteNames + '-alias-record', {
       target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
       zone: myHostedZone,
-      recordName: config.siteNames[0],
-    });
-    new route53.ARecord(this, config.siteNames[1] + '-alias-record', {
-      target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
-      zone: myHostedZone,
-      recordName: config.siteNames[1],
+      recordName: config.siteName,
     });
     //add cognito authorizer to the Lambda
     //~ const auth = new apigateway.CognitoUserPoolsAuthorizer(this, 'alwaysOnwardAuthorizer', {
