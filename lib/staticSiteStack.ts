@@ -32,13 +32,12 @@ export class StaticSite extends cdk.Stack {
       publicReadAccess: true,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
-    redirectBucket.grantRead(this.oia);
 
     const distribution = new CloudFrontWebDistribution(this, config.rootSiteName + '-cfront', {
       originConfigs: [{
-        s3OriginSource: {
-          s3BucketSource: redirectBucket,
-          originAccessIdentity: this.oia
+        customOriginSource: {
+          domainName: redirectBucket.bucketWebsiteDomainName,
+          //~ originProtocolPolicy: cf.OriginProtocolPolicy.MATCH_VIEWER
         },
         behaviors : [ {isDefaultBehavior: true}]
       }],
