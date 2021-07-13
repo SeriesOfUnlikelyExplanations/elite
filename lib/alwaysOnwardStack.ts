@@ -1,5 +1,5 @@
 import * as cdk from '@aws-cdk/core';
-import { CloudFrontWebDistribution, OriginAccessIdentity, CloudFrontAllowedMethods } from '@aws-cdk/aws-cloudfront'
+import { CloudFrontWebDistribution, CloudFrontAllowedMethods } from '@aws-cdk/aws-cloudfront'
 import { Bucket, BlockPublicAccess } from '@aws-cdk/aws-s3';
 import { BucketDeployment, Source } from '@aws-cdk/aws-s3-deployment';
 import * as lambda from "@aws-cdk/aws-lambda";
@@ -14,26 +14,14 @@ interface myStackProps extends cdk.StackProps {
   apigw: apigateway.LambdaRestApi;
   userPool: cognito.UserPool;
   handler: lambda.Function;
+  sourceBucket: Bucket
 }
 
 export class AlwaysOnwardStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props: myStackProps) {
     super(scope, id, props);
 
-    const {userPool, apigw, handler} = props;
-    // Create the static bucket
-    const sourceBucket = new Bucket(this, config.siteNames[0] + '-website', {
-      websiteIndexDocument: 'index.html',
-      bucketName: config.siteNames[0],
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
-      blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
-    });
-
-    // Create the base cloudfront distribution
-    const oia = new OriginAccessIdentity(this, 'OIA', {
-      comment: "Created by CDK"
-    });
-    sourceBucket.grantRead(oia);
+    const {userPool, apigw, handler, sourceBucket} = props;
     const distribution = new CloudFrontWebDistribution(this, config.siteNames[0] + '-cfront', {
       originConfigs: [
         {
@@ -55,7 +43,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
         {
           s3OriginSource: {
             s3BucketSource: sourceBucket,
-            originAccessIdentity: oia
+            //~ originAccessIdentity: oia
           },
           behaviors : [ {isDefaultBehavior: true}]
         },
