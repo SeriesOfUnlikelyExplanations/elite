@@ -8,16 +8,11 @@ import * as ssm from '@aws-cdk/aws-ssm';
 import * as iam from '@aws-cdk/aws-iam';
 //~ import console = require('console');
 
-interface myStackProps extends cdk.StackProps {
-  userPool: cognito.UserPool;
-}
-
 export class LambdaStack extends cdk.Stack {
   public readonly apigw: apigateway.LambdaRestApi;
-  constructor(scope: cdk.App, id: string, props: myStackProps) {
+  constructor(scope: cdk.App, id: string, props: cdk.StackProps) {
     super(scope, id, props);
 
-    const { userPool } = props;
     //Create the Lambda
     const handler = new lambda.Function(this, 'alwaysOnwardLambda', {
       functionName: `alwaysOnwardLambda`,
@@ -40,18 +35,7 @@ export class LambdaStack extends cdk.Stack {
         authorizationType: apigateway.AuthorizationType.NONE
       },
       binaryMediaTypes: ['*/*'],
-      proxy: false,
-      description: `Simple lambda API. Timestamp: ${Date.now()}`
-    });
-
-    //add cognito authorizer to the Lambda
-    const auth = new apigateway.CognitoUserPoolsAuthorizer(this, 'alwaysOnwardAuthorizer', {
-      cognitoUserPools: [userPool]
-    });
-    const my_resource = this.apigw.root.addResource("private")
-    const private_route = my_resource.addMethod('ANY', new apigateway.LambdaIntegration(handler), {
-      authorizationType: apigateway.AuthorizationType.COGNITO,
-      authorizer: auth
+      description: `Simple lambda API service. Timestamp: ${Date.now()}`
     });
   }
 }

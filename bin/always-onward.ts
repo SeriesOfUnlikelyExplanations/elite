@@ -19,13 +19,13 @@ const Cognito = new CognitoStack(app, "cognito", {
 });
 
 const Lambda = new LambdaStack(app, "lambda", {
-  userPool: Cognito.userPool,
   stackName: 'Always-Onward-lambda-stack',
   env: env,
 });
 
 new AlwaysOnwardStack(app, 'AlwaysOnwardStack', {
   apigw: Lambda.apigw,
+  //~ handler: Lambda.handler,
   userPool: Cognito.userPool,
   stackName: 'Always-Onward-base-stack',
   env: env,
