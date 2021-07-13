@@ -14,7 +14,7 @@ export class CognitoStack extends cdk.Stack {
     super(scope, id, props);
 
     this.userPool = new cognito.UserPool(this, "UserPool", {
-      userPoolName: config.siteNames[0],
+      userPoolName: config.siteName,
       selfSignUpEnabled: true, // Allow users to sign up
       autoVerify: { email: true }, // Verify email addresses by sending a verification code
       signInAliases: { email: true }, // Set email as an alias
@@ -28,8 +28,8 @@ export class CognitoStack extends cdk.Stack {
           implicitCodeGrant: true,
         },
         scopes: [ cognito.OAuthScope.OPENID, cognito.OAuthScope.EMAIL, cognito.OAuthScope.PHONE, cognito.OAuthScope.PROFILE ],
-        callbackUrls: config.siteNames.concat(['localhost:3000']).map(i => `https://${i}/api/auth/callback`),
-        logoutUrls: config.siteNames.map(i => 'https://' + i).concat(['https://localhost:3000']),
+        callbackUrls: [config.siteName, 'localhost:3000'].map(i => `https://${i}/api/auth/callback`),
+        logoutUrls: [config.siteName, 'localhost:3000'].map(i => `https://${i}`),
       },
       generateSecret: true,
       supportedIdentityProviders: [
@@ -94,16 +94,10 @@ export class CognitoStack extends cdk.Stack {
     )
 
     //Setup Cognito Domain names
-    const myHostedZone = route53.HostedZone.fromHostedZoneAttributes(this, config.siteNames[0] + '-hosted-zone', {
+    const myHostedZone = route53.HostedZone.fromHostedZoneAttributes(this, config.siteName + '-hosted-zone', {
       hostedZoneId: config.hostedZoneId,
       zoneName: config.zoneName,
     });
-    const aRecord = new route53.ARecord(this, 'fake-alias-record', {
-      target: route53.RecordTarget.fromIpAddresses('1.1.1.1'),
-      zone: myHostedZone,
-      recordName: config.siteNames[0],
-    });
-    this.userPool.node.addDependency(aRecord)
     this.userPool.addDomain('CognitoDomain', {
       cognitoDomain: {
         domainPrefix: config.authName,

@@ -1,6 +1,6 @@
 import * as cdk from '@aws-cdk/core';
 import { OriginAccessIdentity } from '@aws-cdk/aws-cloudfront'
-import { Bucket, BlockPublicAccess } from '@aws-cdk/aws-s3';
+import { Bucket, BlockPublicAccess, RedirectProtocol } from '@aws-cdk/aws-s3';
 import * as route53 from '@aws-cdk/aws-route53';
 import * as targets from '@aws-cdk/aws-route53-targets';
 import * as config from './config';
@@ -11,9 +11,9 @@ export class StaticSite extends cdk.Stack {
     super(scope, id, props);
 
     // Create the static bucket
-    this.sourceBucket = new Bucket(this, config.siteNames[0] + '-website', {
+    this.sourceBucket = new Bucket(this, config.siteName + '-website', {
       websiteIndexDocument: 'index.html',
-      bucketName: config.siteNames[0],
+      bucketName: config.siteName,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
     });
@@ -24,14 +24,21 @@ export class StaticSite extends cdk.Stack {
     });
     this.sourceBucket.grantRead(oia);
 
-    const myHostedZone = route53.HostedZone.fromHostedZoneAttributes(this, config.siteNames[0] + '-hosted-zone', {
+    const redirectBucket = new Bucket(this, config.rootSiteName + '-website', {
+      bucketName: config.rootSiteName,
+      websiteRedirect: {hostName: config.siteName, protocol: RedirectProtocol.HTTPS},
+      publicReadAccess: true,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+    });
+
+    const myHostedZone = route53.HostedZone.fromHostedZoneAttributes(this, config.siteName + '-hosted-zone', {
       hostedZoneId: config.hostedZoneId,
       zoneName: config.zoneName,
     });
     new route53.ARecord(this, 'fake-alias-record', {
-      target: route53.RecordTarget.fromAlias(new targets.BucketWebsiteTarget(this.sourceBucket)),
+      target: route53.RecordTarget.fromAlias(new targets.BucketWebsiteTarget(redirectBucket)),
       zone: myHostedZone,
-      recordName: config.siteNames[0],
+      recordName: config.rootSiteName,
     });
   }
 }
