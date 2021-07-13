@@ -1,6 +1,7 @@
 import * as cdk from '@aws-cdk/core';
 import { OriginAccessIdentity } from '@aws-cdk/aws-cloudfront'
 import { Bucket, BlockPublicAccess } from '@aws-cdk/aws-s3';
+import * as route53 from '@aws-cdk/aws-route53';
 import { alias } from '@aws-cdk/aws-route53-targets';
 import * as config from './config';
 
