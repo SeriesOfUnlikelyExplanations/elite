@@ -25,6 +25,27 @@ export class CognitoStack extends cdk.Stack {
       signInAliases: { email: true }, // Set email as an alias
     });
 
+    // Setup LWA & login with Google
+    const amznid = new cognito.UserPoolIdentityProviderAmazon(this, 'Amazon', {
+      clientId: config.LWA_CLIENT_ID,
+      clientSecret: config.LWA_CLIENT_SECRET,
+      scopes: ['profile'],
+      userPool: this.userPool,
+      attributeMapping: {
+        email: cognito.ProviderAttribute.AMAZON_EMAIL,
+        fullname: cognito.ProviderAttribute.AMAZON_NAME
+      },
+    })
+    const googleid = new cognito.UserPoolIdentityProviderGoogle(this, 'Google', {
+      clientId: config.GOOGLE_CLIENT_ID,
+      clientSecret: config.GOOGLE_CLIENT_SECRET,
+      scopes: ['profile', 'email', 'openid'],
+      userPool: this.userPool,
+      attributeMapping: {
+        email: cognito.ProviderAttribute.GOOGLE_EMAIL,
+        fullname: cognito.ProviderAttribute.GOOGLE_NAME
+      },
+    })
     // setup Clients
     const userPoolClient = this.userPool.addClient('app-client', {
       oAuth: {
@@ -42,7 +63,7 @@ export class CognitoStack extends cdk.Stack {
         cognito.UserPoolClientIdentityProvider.COGNITO,
         cognito.UserPoolClientIdentityProvider.GOOGLE
       ],
-    });
+    }).node.addDependency(amznid).node.addDependency(googleid);
     //Setup Identity Pool
     const identityPool = new cognito.CfnIdentityPool(this, "IdentityPool", {
       allowUnauthenticatedIdentities: false, // Don't allow unathenticated users
@@ -53,28 +74,6 @@ export class CognitoStack extends cdk.Stack {
         },
       ],
     });
-    // Setup LWA & login with Google
-    new cognito.UserPoolIdentityProviderAmazon(this, 'Amazon', {
-      clientId: config.LWA_CLIENT_ID,
-      clientSecret: config.LWA_CLIENT_SECRET,
-      scopes: ['profile'],
-      userPool: this.userPool,
-      attributeMapping: {
-        email: cognito.ProviderAttribute.AMAZON_EMAIL,
-        fullname: cognito.ProviderAttribute.AMAZON_NAME
-      },
-    }).node.addDependency(userPoolClient);
-    new cognito.UserPoolIdentityProviderGoogle(this, 'Google', {
-      clientId: config.GOOGLE_CLIENT_ID,
-      clientSecret: config.GOOGLE_CLIENT_SECRET,
-      scopes: ['profile', 'email', 'openid'],
-      userPool: this.userPool,
-      attributeMapping: {
-        email: cognito.ProviderAttribute.GOOGLE_EMAIL,
-        fullname: cognito.ProviderAttribute.GOOGLE_NAME
-      },
-    }).node.addDependency(userPoolClient);
-
     //get client secret
     const describeCognitoUserPoolClient = new cr.AwsCustomResource(
       this,
