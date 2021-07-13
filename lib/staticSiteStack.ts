@@ -1,5 +1,7 @@
 import * as cdk from '@aws-cdk/core';
-import { OriginAccessIdentity, CloudFrontWebDistribution } from '@aws-cdk/aws-cloudfront'
+import { OriginAccessIdentity, Distribution } from '@aws-cdk/aws-cloudfront'
+import * as origins from '@aws-cdk/aws-cloudfront-origins';
+import { Certificate } from '@aws-cdk/aws-certificatemanager';
 import { Bucket, BlockPublicAccess, RedirectProtocol } from '@aws-cdk/aws-s3';
 import { HostedZone, ARecord, RecordTarget } from '@aws-cdk/aws-route53';
 import { CloudFrontTarget } from '@aws-cdk/aws-route53-targets';
@@ -33,18 +35,10 @@ export class StaticSite extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
 
-    const distribution = new CloudFrontWebDistribution(this, config.rootSiteName + '-cfront', {
-      originConfigs: [{
-        customOriginSource: {
-          domainName: redirectBucket.bucketWebsiteDomainName,
-          //~ originProtocolPolicy: cf.OriginProtocolPolicy.MATCH_VIEWER
-        },
-        behaviors : [ {isDefaultBehavior: true}]
-      }],
-      aliasConfiguration: {
-        acmCertRef: config.certificateArn,
-        names: [config.rootSiteName]
-      }
+    const distribution = new Distribution(this, config.rootSiteName + '-cfront', {
+      defaultBehavior: { origin: new origins.S3Origin(redirectBucket) },
+      certificate: Certificate.fromCertificateArn(this, 'Certificate', config.certificateArn),
+      domainNames: [config.rootSiteName]
     });
 
     const myHostedZone = HostedZone.fromHostedZoneAttributes(this, config.siteName + '-hosted-zone', {

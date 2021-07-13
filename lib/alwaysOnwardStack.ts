@@ -6,7 +6,6 @@ import * as lambda from "@aws-cdk/aws-lambda";
 import * as cognito from "@aws-cdk/aws-cognito";
 import * as route53 from '@aws-cdk/aws-route53';
 import * as targets from '@aws-cdk/aws-route53-targets';
-import * as acm from '@aws-cdk/aws-certificatemanager';
 import * as apigateway from '@aws-cdk/aws-apigateway';
 import * as config from './config';
 
