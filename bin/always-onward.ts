@@ -25,7 +25,7 @@ const Lambda = new LambdaStack(app, "lambda", {
 
 new AlwaysOnwardStack(app, 'AlwaysOnwardStack', {
   apigw: Lambda.apigw,
-  //~ handler: Lambda.handler,
+  handler: Lambda.handler,
   userPool: Cognito.userPool,
   stackName: 'Always-Onward-base-stack',
   env: env,

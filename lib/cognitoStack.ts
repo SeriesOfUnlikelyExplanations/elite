@@ -93,6 +93,35 @@ export class CognitoStack extends cdk.Stack {
       }
     )
 
+    //Setup Cognito Domain names
+    const myHostedZone = route53.HostedZone.fromHostedZoneAttributes(this, config.siteNames[0] + '-hosted-zone', {
+      hostedZoneId: config.hostedZoneId,
+      zoneName: config.zoneName,
+    });
+    const aRecord = new route53.ARecord(this, 'fake-alias-record', {
+      target: route53.RecordTarget.fromIpAddresses('1.1.1.1'),
+      zone: myHostedZone,
+      recordName: config.siteNames[0],
+    });
+    this.userPool.node.addDependency(aRecord)
+    this.userPool.addDomain('CognitoDomain', {
+      cognitoDomain: {
+        domainPrefix: config.authName,
+      },
+    })
+    const domainCert = acm.Certificate.fromCertificateArn(this, 'domainCert', config.certificateArn);
+    const userPoolDomain = this.userPool.addDomain('CustomDomain', {
+      customDomain: {
+        domainName: config.authDomain,
+        certificate: domainCert,
+      },
+    });
+    new route53.ARecord(this, config.authDomain + '-alias-record', {
+     target: route53.RecordTarget.fromAlias(new targets.UserPoolDomainTarget(userPoolDomain)),
+      zone: myHostedZone,
+      recordName: config.authDomain,
+    });
+
     describeCognitoUserPoolClient.node.addDependency(userPoolClient);
     const userPoolClientSecret = describeCognitoUserPoolClient.getResponseField(
       'UserPoolClient.ClientSecret'

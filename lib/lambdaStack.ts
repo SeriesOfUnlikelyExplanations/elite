@@ -8,17 +8,12 @@ import * as ssm from '@aws-cdk/aws-ssm';
 import * as iam from '@aws-cdk/aws-iam';
 //~ import console = require('console');
 
-interface myStackProps extends cdk.StackProps {
-  userPool: cognito.UserPool;
-}
-
 export class LambdaStack extends cdk.Stack {
   public readonly apigw: apigateway.LambdaRestApi;
   public readonly handler: lambda.Function;
-  constructor(scope: cdk.App, id: string, props: myStackProps) {
+  constructor(scope: cdk.App, id: string, props: cdk.StackProps ) {
     super(scope, id, props);
 
-    const { userPool } = props;
     //Create the Lambda
     this.handler = new lambda.Function(this, 'alwaysOnwardLambda', {
       functionName: `alwaysOnwardLambda`,
