@@ -8,14 +8,18 @@ import * as ssm from '@aws-cdk/aws-ssm';
 import * as iam from '@aws-cdk/aws-iam';
 //~ import console = require('console');
 
+interface myStackProps extends cdk.StackProps {
+  userPool: cognito.UserPool;
+}
+
 export class LambdaStack extends cdk.Stack {
   public readonly apigw: apigateway.LambdaRestApi;
-  public readonly handler: lambda.Function;
-  constructor(scope: cdk.App, id: string, props: cdk.StackProps ) {
+  constructor(scope: cdk.App, id: string, props: myStackProps ) {
     super(scope, id, props);
 
+    const { userPool } = props;
     //Create the Lambda
-    this.handler = new lambda.Function(this, 'alwaysOnwardLambda', {
+    const handler = new lambda.Function(this, 'alwaysOnwardLambda', {
       functionName: `alwaysOnwardLambda`,
       code: lambda.Code.fromAsset('lambda'),
       handler: 'index.handler',
@@ -24,19 +28,29 @@ export class LambdaStack extends cdk.Stack {
       runtime: lambda.Runtime.NODEJS_14_X,
       retryAttempts: 0
     });
-    this.handler.addToRolePolicy(new iam.PolicyStatement({
+    handler.addToRolePolicy(new iam.PolicyStatement({
       resources: ['arn:aws:ssm:us-west-2:718523126320:parameter/AlwaysOnward/*'],
       actions: ['ssm:GetParameters'],
     }))
 
     //create an API gateway to trigger the lambda
     this.apigw = new apigateway.LambdaRestApi(this, "api", {
-      handler: this.handler,
+      handler: handler,
       defaultMethodOptions: {
         authorizationType: apigateway.AuthorizationType.NONE
       },
       binaryMediaTypes: ['*/*'],
+      proxy: false,
       description: `Simple lambda API. Timestamp: ${Date.now()}`
+    });
+    //add cognito authorizer to the Lambda
+    const auth = new apigateway.CognitoUserPoolsAuthorizer(this, 'alwaysOnwardAuthorizer', {
+      cognitoUserPools: [userPool]
+    });
+    const my_resource = this.apigw.root.addResource("private")
+    const private_route = my_resource.addMethod('ANY', new apigateway.LambdaIntegration(handler), {
+      authorizationType: apigateway.AuthorizationType.COGNITO,
+      authorizer: auth
     });
   }
 }

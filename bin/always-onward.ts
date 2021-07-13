@@ -25,16 +25,16 @@ const Cognito = new CognitoStack(app, "cognito", {
   env: env,
 });
 
-//~ const Lambda = new LambdaStack(app, "lambda", {
-  //~ stackName: 'Always-Onward-lambda-stack',
-  //~ env: env,
-//~ });
+const Lambda = new LambdaStack(app, "lambda", {
+  userPool: Cognito.userPool,
+  stackName: 'Always-Onward-lambda-stack',
+  env: env,
+});
 
-//~ new AlwaysOnwardStack(app, 'AlwaysOnwardStack', {
-  //~ apigw: Lambda.apigw,
-  //~ handler: Lambda.handler,
-  //~ userPool: Cognito.userPool,
-  //~ sourceBucket: staticSite.sourceBucket,
-  //~ stackName: 'Always-Onward-base-stack',
-  //~ env: env,
-//~ });
+new AlwaysOnwardStack(app, 'AlwaysOnwardStack', {
+  apigw: Lambda.apigw,
+  userPool: Cognito.userPool,
+  sourceBucket: staticSite.sourceBucket,
+  stackName: 'Always-Onward-base-stack',
+  env: env,
+});

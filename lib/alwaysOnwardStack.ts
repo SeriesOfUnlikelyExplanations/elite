@@ -13,7 +13,6 @@ import * as config from './config';
 interface myStackProps extends cdk.StackProps {
   apigw: apigateway.LambdaRestApi;
   userPool: cognito.UserPool;
-  handler: lambda.Function;
   sourceBucket: Bucket
 }
 
@@ -21,7 +20,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props: myStackProps) {
     super(scope, id, props);
 
-    const {userPool, apigw, handler, sourceBucket} = props;
+    const {userPool, apigw, sourceBucket} = props;
     const distribution = new CloudFrontWebDistribution(this, config.siteName + '-cfront', {
       originConfigs: [
         {
@@ -70,14 +69,6 @@ export class AlwaysOnwardStack extends cdk.Stack {
       zone: myHostedZone,
       recordName: config.siteName,
     });
-    //add cognito authorizer to the Lambda
-    //~ const auth = new apigateway.CognitoUserPoolsAuthorizer(this, 'alwaysOnwardAuthorizer', {
-      //~ cognitoUserPools: [userPool]
-    //~ });
-    //~ const my_resource = apigw.root.addResource("private")
-    //~ const private_route = my_resource.addMethod('ANY', new apigateway.LambdaIntegration(handler), {
-      //~ authorizationType: apigateway.AuthorizationType.COGNITO,
-      //~ authorizer: auth
-    //~ });
+
   }
 }
