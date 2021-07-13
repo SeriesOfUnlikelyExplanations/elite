@@ -19,10 +19,10 @@ const staticSite = new StaticSite(app, 'staticSite', {
   env: env,
 });
 
-//~ const Cognito = new CognitoStack(app, "cognito", {
-  //~ stackName: 'Always-Onward-cognito-stack',
-  //~ env: env,
-//~ });
+const Cognito = new CognitoStack(app, "cognito", {
+  stackName: 'Always-Onward-cognito-stack',
+  env: env,
+});
 
 //~ const Lambda = new LambdaStack(app, "lambda", {
   //~ stackName: 'Always-Onward-lambda-stack',
