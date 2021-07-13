@@ -13,14 +13,20 @@ interface myStackProps extends cdk.StackProps {
   apigw: apigateway.LambdaRestApi;
   userPool: cognito.UserPool;
   sourceBucket: Bucket;
-  oia: OriginAccessIdentity;
 }
 
 export class AlwaysOnwardStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props: myStackProps) {
     super(scope, id, props);
 
-    const {userPool, apigw, sourceBucket, oia} = props;
+    const {userPool, apigw, sourceBucket} = props;
+
+    // Create the base cloudfront distribution
+    oia = new OriginAccessIdentity(this, 'OIA', {
+      comment: "Created by CDK"
+    });
+    this.sourceBucket.grantRead(oia);
+
     const distribution = new CloudFrontWebDistribution(this, config.siteName + '-cfront', {
       originConfigs: [
         {

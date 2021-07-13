@@ -10,7 +10,6 @@ import * as config from './config';
 export class StaticSite extends cdk.Stack {
   public readonly sourceBucket: Bucket;
   public readonly redirectRecord: ARecord;
-  public readonly oia: OriginAccessIdentity;
   constructor(scope: cdk.App, id: string, props: cdk.StackProps) {
     super(scope, id, props);
 
@@ -21,12 +20,6 @@ export class StaticSite extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
     });
-
-    // Create the base cloudfront distribution
-    this.oia = new OriginAccessIdentity(this, 'OIA', {
-      comment: "Created by CDK"
-    });
-    this.sourceBucket.grantRead(this.oia);
 
     const redirectBucket = new Bucket(this, config.rootSiteName + '-website', {
       bucketName: config.rootSiteName,

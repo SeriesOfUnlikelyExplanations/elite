@@ -34,7 +34,6 @@ const Lambda = new LambdaStack(app, "lambda", {
 new AlwaysOnwardStack(app, 'AlwaysOnwardStack', {
   apigw: Lambda.apigw,
   userPool: Cognito.userPool,
-  oia: staticSite.oia,
   sourceBucket: staticSite.sourceBucket,
   stackName: 'Always-Onward-base-stack',
   env: env,
