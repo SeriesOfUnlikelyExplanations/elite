@@ -27,6 +27,7 @@ export class CognitoStack extends cdk.Stack {
 
     // setup Clients
     const userPoolClient = this.userPool.addClient('app-client', {
+      userPoolId: this.userPool.ref,
       oAuth: {
         flows: {
           authorizationCodeGrant: true, //really only using auth flow right now.
@@ -63,7 +64,7 @@ export class CognitoStack extends cdk.Stack {
         email: cognito.ProviderAttribute.AMAZON_EMAIL,
         fullname: cognito.ProviderAttribute.AMAZON_NAME
       },
-    });
+    })
     new cognito.UserPoolIdentityProviderGoogle(this, 'Google', {
       clientId: config.GOOGLE_CLIENT_ID,
       clientSecret: config.GOOGLE_CLIENT_SECRET,
