@@ -63,7 +63,9 @@ export class CognitoStack extends cdk.Stack {
         cognito.UserPoolClientIdentityProvider.COGNITO,
         cognito.UserPoolClientIdentityProvider.GOOGLE
       ],
-    }).node.addDependency(amznid).node.addDependency(googleid);
+    })
+    userPoolClient.node.addDependency(amznid);
+    userPoolClient.node.addDependency(googleid);
     //Setup Identity Pool
     const identityPool = new cognito.CfnIdentityPool(this, "IdentityPool", {
       allowUnauthenticatedIdentities: false, // Don't allow unathenticated users
