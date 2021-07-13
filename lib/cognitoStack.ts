@@ -122,11 +122,11 @@ export class CognitoStack extends cdk.Stack {
       recordName: config.authDomain,
     });
 
+    // Export values
     describeCognitoUserPoolClient.node.addDependency(userPoolClient);
     const userPoolClientSecret = describeCognitoUserPoolClient.getResponseField(
       'UserPoolClient.ClientSecret'
     )
-    // Export values
     new ssm.StringParameter(this, 'UserPoolId', {
       parameterName: '/AlwaysOnward/UserPoolId',
       stringValue: `${this.userPool.userPoolId}`
