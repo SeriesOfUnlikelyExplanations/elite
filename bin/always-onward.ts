@@ -15,12 +15,12 @@ const env = {
 }
 
 const staticSite = new StaticSite(app, 'staticSite', {
-  stackName: 'Always-Onward-staticSite-stack',
+  stackName: 'always-onward-staticSite-stack',
   env: env,
 });
 
 const Cognito = new CognitoStack(app, "cognito", {
-  stackName: 'Always-Onward-cognito-stack',
+  stackName: 'always-onward-cognito-stack',
   env: env,
 });
 

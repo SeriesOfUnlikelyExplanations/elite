@@ -7,6 +7,7 @@ import * as config from './config';
 
 export class StaticSite extends cdk.Stack {
   public readonly sourceBucket: Bucket;
+  public readonly redirectRecord: route53.ARecord
   constructor(scope: cdk.App, id: string, props: cdk.StackProps) {
     super(scope, id, props);
 
@@ -35,7 +36,7 @@ export class StaticSite extends cdk.Stack {
       hostedZoneId: config.hostedZoneId,
       zoneName: config.zoneName,
     });
-    new route53.ARecord(this, 'fake-alias-record', {
+    this.redirectRecord = new route53.ARecord(this, 'fake-alias-record', {
       target: route53.RecordTarget.fromAlias(new targets.BucketWebsiteTarget(redirectBucket)),
       zone: myHostedZone,
       recordName: config.rootSiteName,
