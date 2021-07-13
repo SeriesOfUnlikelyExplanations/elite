@@ -55,7 +55,7 @@ export class StaticSite extends cdk.Stack {
     this.redirectRecord = new ARecord(this, 'fake-alias-record', {
       target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
       zone: myHostedZone,
-      recordName: config.rootSiteName,
+      recordName: '',
     });
   }
 }
