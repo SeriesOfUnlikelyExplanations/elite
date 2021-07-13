@@ -24,7 +24,7 @@ export class CognitoStack extends cdk.Stack {
     const userPoolClient = this.userPool.addClient('app-client', {
       oAuth: {
         flows: {
-          authorizationCodeGrant: true,
+          authorizationCodeGrant: true, //really only using auth flow right now.
           implicitCodeGrant: true,
         },
         scopes: [ cognito.OAuthScope.OPENID, cognito.OAuthScope.EMAIL, cognito.OAuthScope.PHONE, cognito.OAuthScope.PROFILE ],
