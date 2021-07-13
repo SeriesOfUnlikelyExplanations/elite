@@ -20,6 +20,7 @@ const staticSite = new StaticSite(app, 'staticSite', {
 });
 
 const Cognito = new CognitoStack(app, "cognito", {
+  redirectRecord: staticSite.redirectRecord,
   stackName: 'always-onward-cognito-stack',
   env: env,
 });

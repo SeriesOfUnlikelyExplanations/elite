@@ -8,11 +8,16 @@ import * as route53 from '@aws-cdk/aws-route53';
 import * as targets from '@aws-cdk/aws-route53-targets';
 //~ import console = require('console');
 
+interface myStackProps extends cdk.StackProps {
+  redirectRecord: route53.ARecord
+}
+
 export class CognitoStack extends cdk.Stack {
   public readonly userPool: cognito.UserPool;
-  constructor(scope: cdk.App, id: string, props: cdk.StackProps) {
+  constructor(scope: cdk.App, id: string, props: myStackProps) {
     super(scope, id, props);
 
+    const { redirectRecord } = props;
     this.userPool = new cognito.UserPool(this, "UserPool", {
       userPoolName: config.siteName,
       selfSignUpEnabled: true, // Allow users to sign up
@@ -98,6 +103,7 @@ export class CognitoStack extends cdk.Stack {
       hostedZoneId: config.hostedZoneId,
       zoneName: config.zoneName,
     });
+    this.userPool.node.addDependency(redirectRecord)
     this.userPool.addDomain('CognitoDomain', {
       cognitoDomain: {
         domainPrefix: config.authName,
