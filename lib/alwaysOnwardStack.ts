@@ -1,5 +1,5 @@
 import * as cdk from '@aws-cdk/core';
-import { CloudFrontWebDistribution, CloudFrontAllowedMethods } from '@aws-cdk/aws-cloudfront'
+import { CloudFrontWebDistribution, OriginAccessIdentity, CloudFrontAllowedMethods } from '@aws-cdk/aws-cloudfront'
 import { Bucket, BlockPublicAccess } from '@aws-cdk/aws-s3';
 import { BucketDeployment, Source } from '@aws-cdk/aws-s3-deployment';
 import * as lambda from "@aws-cdk/aws-lambda";
@@ -13,14 +13,15 @@ import * as config from './config';
 interface myStackProps extends cdk.StackProps {
   apigw: apigateway.LambdaRestApi;
   userPool: cognito.UserPool;
-  sourceBucket: Bucket
+  sourceBucket: Bucket;
+  oia: OriginAccessIdentity;
 }
 
 export class AlwaysOnwardStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props: myStackProps) {
     super(scope, id, props);
 
-    const {userPool, apigw, sourceBucket} = props;
+    const {userPool, apigw, sourceBucket, oia} = props;
     const distribution = new CloudFrontWebDistribution(this, config.siteName + '-cfront', {
       originConfigs: [
         {
@@ -42,7 +43,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
         {
           s3OriginSource: {
             s3BucketSource: sourceBucket,
-            //~ originAccessIdentity: oia
+            originAccessIdentity: oia
           },
           behaviors : [ {isDefaultBehavior: true}]
         },

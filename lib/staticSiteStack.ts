@@ -1,13 +1,14 @@
 import * as cdk from '@aws-cdk/core';
-import { OriginAccessIdentity } from '@aws-cdk/aws-cloudfront'
+import { OriginAccessIdentity, CloudFrontWebDistribution } from '@aws-cdk/aws-cloudfront'
 import { Bucket, BlockPublicAccess, RedirectProtocol } from '@aws-cdk/aws-s3';
-import * as route53 from '@aws-cdk/aws-route53';
-import * as targets from '@aws-cdk/aws-route53-targets';
+import { HostedZone, ARecord, RecordTarget } from '@aws-cdk/aws-route53';
+import { CloudFrontTarget } from '@aws-cdk/aws-route53-targets';
 import * as config from './config';
 
 export class StaticSite extends cdk.Stack {
   public readonly sourceBucket: Bucket;
-  public readonly redirectRecord: route53.ARecord
+  public readonly redirectRecord: ARecord;
+  public readonly oia: OriginAccessIdentity;
   constructor(scope: cdk.App, id: string, props: cdk.StackProps) {
     super(scope, id, props);
 
@@ -20,10 +21,10 @@ export class StaticSite extends cdk.Stack {
     });
 
     // Create the base cloudfront distribution
-    const oia = new OriginAccessIdentity(this, 'OIA', {
+    this.oia = new OriginAccessIdentity(this, 'OIA', {
       comment: "Created by CDK"
     });
-    this.sourceBucket.grantRead(oia);
+    this.sourceBucket.grantRead(this.oia);
 
     const redirectBucket = new Bucket(this, config.rootSiteName + '-website', {
       bucketName: config.rootSiteName,
@@ -31,13 +32,28 @@ export class StaticSite extends cdk.Stack {
       publicReadAccess: true,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
+    redirectBucket.grantRead(this.oia);
 
-    const myHostedZone = route53.HostedZone.fromHostedZoneAttributes(this, config.siteName + '-hosted-zone', {
-      hostedZoneId: config.hostedZoneId,
-      zoneName: config.zoneName,
+    const distribution = new CloudFrontWebDistribution(this, config.rootSiteName + '-cfront', {
+      originConfigs: [{
+        s3OriginSource: {
+          s3BucketSource: redirectBucket,
+          originAccessIdentity: this.oia
+        },
+        behaviors : [ {isDefaultBehavior: true}]
+      }],
+      aliasConfiguration: {
+        acmCertRef: config.certificateArn,
+        names: [config.rootSiteName]
+      }
     });
-    this.redirectRecord = new route53.ARecord(this, 'fake-alias-record', {
-      target: route53.RecordTarget.fromAlias(new targets.BucketWebsiteTarget(redirectBucket)),
+
+    const myHostedZone = HostedZone.fromHostedZoneAttributes(this, config.siteName + '-hosted-zone', {
+      hostedZoneId: config.hostedZoneId,
+      zoneName: config.rootSiteName,
+    });
+    this.redirectRecord = new ARecord(this, 'fake-alias-record', {
+      target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
       zone: myHostedZone,
       recordName: config.rootSiteName,
     });
