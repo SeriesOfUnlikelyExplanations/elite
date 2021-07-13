@@ -20,7 +20,7 @@ module.exports = (api, opts) => {
       title: 'Logout'
     }
     //if there is already an access token, then skip the rest
-    console.log(req.cookies)
+    console.log(req)
     if ('access_token' in req.cookies) {
       return res.status(200).json(logoutResponse)
     }
