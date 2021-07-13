@@ -3,7 +3,6 @@ export var certificateArn = 'arn:aws:acm:us-east-1:718523126320:certificate/759a
 export var hostedZoneId = 'Z0092175EW0ABPS51GQB';
 export var siteName = 'www.always-onward.com';
 export var rootSiteName = 'always-onward.com';
-export var zoneName = 'always-onward.com';
 export var authDomain = 'auth.always-onward.com'
 export var authName = 'auth-onward'
 export var region = 'us-west-2'

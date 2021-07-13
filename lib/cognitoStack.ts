@@ -101,7 +101,7 @@ export class CognitoStack extends cdk.Stack {
     //Setup Cognito Domain names
     const myHostedZone = route53.HostedZone.fromHostedZoneAttributes(this, config.siteName + '-hosted-zone', {
       hostedZoneId: config.hostedZoneId,
-      zoneName: config.zoneName,
+      zoneName: config.rootSiteName,
     });
     this.userPool.node.addDependency(redirectRecord)
     this.userPool.addDomain('CognitoDomain', {

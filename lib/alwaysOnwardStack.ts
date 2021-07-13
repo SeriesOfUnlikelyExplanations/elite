@@ -62,7 +62,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
 
     const myHostedZone = route53.HostedZone.fromHostedZoneAttributes(this, config.siteName + '-hosted-zone', {
       hostedZoneId: config.hostedZoneId,
-      zoneName: config.zoneName,
+      zoneName: config.rootSiteName,
     });
     new route53.ARecord(this, config.siteName + '-alias-record', {
       target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
