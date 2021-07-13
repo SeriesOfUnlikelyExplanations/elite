@@ -75,17 +75,30 @@ export class AlwaysOnwardStack extends cdk.Stack {
       hostedZoneId: config.hostedZoneId,
       zoneName: config.zoneName,
     });
-
-    new route53.ARecord(this, config.siteNames[0]  + '-alias-record', {
-      target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
-      zone: myHostedZone,
-      recordName: config.siteNames[0],
+    config.siteNames.forEach((siteNames) => {
+      new route53.ARecord(this, siteNames + '-alias-record', {
+        target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
+        zone: myHostedZone,
+        recordName: config.siteNames[0],
+      });
+    })
+    //Setup Cognito Domain names
+    userPool.addDomain('CognitoDomain', {
+      cognitoDomain: {
+        domainPrefix: config.authName,
+      },
+    })
+    const domainCert = acm.Certificate.fromCertificateArn(this, 'domainCert', config.certificateArn);
+    const userPoolDomain = userPool.addDomain('CustomDomain', {
+      customDomain: {
+        domainName: config.authDomain,
+        certificate: domainCert,
+      },
     });
-
-    const aRecord = new route53.ARecord(this, config.siteNames[1] + '-alias-record', {
-      target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
+    new route53.ARecord(this, config.authDomain + '-alias-record', {
+     target: route53.RecordTarget.fromAlias(new targets.UserPoolDomainTarget(userPoolDomain)),
       zone: myHostedZone,
-      recordName: config.siteNames[1],
+      recordName: config.authDomain,
     });
   }
 }
