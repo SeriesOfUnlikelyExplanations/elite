@@ -8,13 +8,19 @@ import * as ssm from '@aws-cdk/aws-ssm';
 import * as iam from '@aws-cdk/aws-iam';
 //~ import console = require('console');
 
+interface myStackProps extends cdk.StackProps {
+  userPool: cognito.UserPool;
+}
+
 export class LambdaStack extends cdk.Stack {
   public readonly apigw: apigateway.LambdaRestApi;
-  constructor(scope: cdk.App, id: string, props: cdk.StackProps) {
+  public readonly handler: lambda.Function;
+  constructor(scope: cdk.App, id: string, props: myStackProps) {
     super(scope, id, props);
 
+    const { userPool } = props;
     //Create the Lambda
-    const handler = new lambda.Function(this, 'alwaysOnwardLambda', {
+    this.handler = new lambda.Function(this, 'alwaysOnwardLambda', {
       functionName: `alwaysOnwardLambda`,
       code: lambda.Code.fromAsset('lambda'),
       handler: 'index.handler',
@@ -23,19 +29,19 @@ export class LambdaStack extends cdk.Stack {
       runtime: lambda.Runtime.NODEJS_14_X,
       retryAttempts: 0
     });
-    handler.addToRolePolicy(new iam.PolicyStatement({
+    this.handler.addToRolePolicy(new iam.PolicyStatement({
       resources: ['arn:aws:ssm:us-west-2:718523126320:parameter/AlwaysOnward/*'],
       actions: ['ssm:GetParameters'],
     }))
 
     //create an API gateway to trigger the lambda
     this.apigw = new apigateway.LambdaRestApi(this, "api", {
-      handler: handler,
+      handler: this.handler,
       defaultMethodOptions: {
         authorizationType: apigateway.AuthorizationType.NONE
       },
       binaryMediaTypes: ['*/*'],
-      description: `Simple lambda API service. Timestamp: ${Date.now()}`
+      description: `Simple lambda API. Timestamp: ${Date.now()}`
     });
   }
 }

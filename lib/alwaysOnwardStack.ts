@@ -20,7 +20,7 @@ export class AlwaysOnwardStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props: myStackProps) {
     super(scope, id, props);
 
-    const {userPool, apigw } = props;
+    const {userPool, apigw, handler} = props;
     // Create the static bucket
     const sourceBucket = new Bucket(this, config.siteNames[0] + '-website', {
       websiteIndexDocument: 'index.html',
