@@ -47,12 +47,12 @@ export class LambdaStack extends cdk.Stack {
     const auth = new apigateway.CognitoUserPoolsAuthorizer(this, 'alwaysOnwardAuthorizer', {
       cognitoUserPools: [userPool]
     });
-    this.apigw.root.addResource("auth")
+    this.apigw.root.addResource("{proxy+}")
       .addMethod('ANY', new apigateway.LambdaIntegration(handler), {});
-    this.apigw.root.addResource("private")
+    this.apigw.root.addResource("api").addResource("private").addResource("{proxy+}")
       .addMethod('ANY', new apigateway.LambdaIntegration(handler), {
-      authorizationType: apigateway.AuthorizationType.COGNITO,
-      authorizer: auth
-    });
+        authorizationType: apigateway.AuthorizationType.COGNITO,
+        authorizer: auth
+      });
   }
 }
