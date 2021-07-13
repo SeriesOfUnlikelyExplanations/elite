@@ -40,19 +40,7 @@ export class LambdaStack extends cdk.Stack {
         authorizationType: apigateway.AuthorizationType.NONE
       },
       binaryMediaTypes: ['*/*'],
-      proxy: false,
       description: `Simple lambda API. Timestamp: ${Date.now()}`
     });
-    //add cognito authorizer to the Lambda
-    const auth = new apigateway.CognitoUserPoolsAuthorizer(this, 'alwaysOnwardAuthorizer', {
-      cognitoUserPools: [userPool]
-    });
-    this.apigw.root.addResource("{proxy+}")
-      .addMethod('ANY', new apigateway.LambdaIntegration(handler), {});
-    this.apigw.root.addResource("api").addResource("private").addResource("{proxy+}")
-      .addMethod('ANY', new apigateway.LambdaIntegration(handler), {
-        authorizationType: apigateway.AuthorizationType.COGNITO,
-        authorizer: auth
-      });
   }
 }
