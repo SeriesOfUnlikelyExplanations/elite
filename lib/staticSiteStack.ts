@@ -2,7 +2,7 @@ import * as cdk from '@aws-cdk/core';
 import { OriginAccessIdentity } from '@aws-cdk/aws-cloudfront'
 import { Bucket, BlockPublicAccess } from '@aws-cdk/aws-s3';
 import * as route53 from '@aws-cdk/aws-route53';
-import { alias } from '@aws-cdk/aws-route53-targets';
+import * as targets from '@aws-cdk/aws-route53-targets';
 import * as config from './config';
 
 export class StaticSite extends cdk.Stack {
@@ -29,7 +29,7 @@ export class StaticSite extends cdk.Stack {
       zoneName: config.zoneName,
     });
     new route53.ARecord(this, 'fake-alias-record', {
-      target: route53.RecordTarget.fromAlias(new alias.BucketWebsiteTarget(this.sourceBucket)),
+      target: route53.RecordTarget.fromAlias(new targets.BucketWebsiteTarget(this.sourceBucket)),
       zone: myHostedZone,
       recordName: config.siteNames[0],
     });
