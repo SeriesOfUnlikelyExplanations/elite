@@ -31,11 +31,11 @@ const Lambda = new LambdaStack(app, "lambda", {
   env: env,
 });
 
-new AlwaysOnwardStack(app, 'AlwaysOnwardStack', {
+new AlwaysOnwardStack(app, 'cloudfront', {
   apigw: Lambda.apigw,
   userPool: Cognito.userPool,
   oia: staticSite.oia,
   sourceBucket: staticSite.sourceBucket,
-  stackName: 'Always-Onward-base-stack',
+  stackName: 'Always-Onward-cloudfront-stack',
   env: env,
 });
