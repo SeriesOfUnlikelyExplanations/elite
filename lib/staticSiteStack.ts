@@ -1,6 +1,7 @@
 import * as cdk from '@aws-cdk/core';
 import { OriginAccessIdentity } from '@aws-cdk/aws-cloudfront'
 import { Bucket, BlockPublicAccess } from '@aws-cdk/aws-s3';
+import { alias } from '@aws-cdk/aws-route53-targets';
 import * as config from './config';
 
 export class StaticSite extends cdk.Stack {
@@ -21,5 +22,15 @@ export class StaticSite extends cdk.Stack {
       comment: "Created by CDK"
     });
     this.sourceBucket.grantRead(oia);
+
+    const myHostedZone = route53.HostedZone.fromHostedZoneAttributes(this, config.siteNames[0] + '-hosted-zone', {
+      hostedZoneId: config.hostedZoneId,
+      zoneName: config.zoneName,
+    });
+    new route53.ARecord(this, 'fake-alias-record', {
+      target: route53.RecordTarget.fromAlias(new alias.BucketWebsiteTarget(this.sourceBucket)),
+      zone: myHostedZone,
+      recordName: config.siteNames[0],
+    });
   }
 }
