@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Always Onward</title>
+  <link href="assets/base.css" rel="stylesheet">
+  <script>
+    if(window.location.href.toLowerCase() === "always-onward.com".toLowerCase()) {
+      window.location.replace("www.always-onward.com");
+    }
+    $(function(){
+      $("#header").load("header.html");
+      $("#footer").load("footer.html");
+    });
+  </script>
+</head>
+<body style="background-color: DarkGray; margin-bottom: 40px;">
+  <!-- Header -->
+  <div class="header">
+    <div class="container">
+      <div class="row" style="padding-top: 10px; padding-left: 20px">
+        <span class="site-name">Always Onward</span>
+        <div class="pull-right" style="padding-top: 10px;">
+          <a id="login-link" style="padding-right: 20px;" href="">
+            <span id="login-text"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ Login Again
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <p class="copyright-text">Copyright &copy; 2020 Always Onward
+<!--
+          <a href="ContactUs.html" style="float:right;margin-right: 20px"><span>Contact Us</span></a>
+-->
+          <a href="PrivacyPolicy.html" style="float:right;margin-right: 20px"><span>Privacy</span></a>
+        </p>
+
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script type="text/javascript" src="https://sdk.amazonaws.com/js/aws-sdk-2.924.0.min.js"></script>
+  <script type="text/javascript" src="/assets/common.js"></script>
+  <script>
+    login()
+
+  </script>
+</body>
+</html>

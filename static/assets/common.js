@@ -8,23 +8,30 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload);
 };
 
-function getCookie(name) {
-    var dc = document.cookie;
-    var prefix = name + "=";
-    var begin = dc.indexOf("; " + prefix);
-    if (begin == -1) {
-        begin = dc.indexOf(prefix);
-        if (begin != 0) return null;
-    }
-    else
-    {
-        begin += 2;
-        var end = document.cookie.indexOf(";", begin);
-        if (end == -1) {
-        end = dc.length;
-        }
-    }
-    // because unescape has been deprecated, replaced with decodeURI
-    //return unescape(dc.substring(begin + prefix.length, end));
-    return decodeURI(dc.substring(begin + prefix.length, end));
+function login() {
+  $("#login-link").click(function(e) {
+   console.log($("#login-text").text())
+   if ($("#login-text").text() == 'Logout') {
+     e.preventDefault();
+     $.removeCookie('access_token', { path: '/' });
+     $.removeCookie('id_token', { path: '/' });
+     window.location = $(this).attr('href');
+   }
+  });
+  var my_url = new URL(window.location.href);
+
+  var code = my_url.searchParams.get("code");
+  if (code != null) {
+  var request_url = new URL( '/api/auth/calback', my_url);
+  request_url.search = new URLSearchParams({code: code}).toString();
+  } else {
+  var request_url = new URL( '/api/auth/refresh', my_url);
+  }
+  fetch(request_url, {withCredentials: true, credentials: 'include'})
+  .then((res) => res.json())
+  .then((data) => {
+    $('#login-link').attr("href", data.redirect_url);
+    $('#login-text').text(data.title);
+    console.log(data);
+  });
 }
