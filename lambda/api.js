@@ -30,7 +30,6 @@ async function Authorizer(req, res, next) {
     errors: { JwtVerificationError, JwksNoMatchingKeyError },
   } = require('@southlane/cognito-jwt-verifier')
   const { getConfig } = require('./components');
-  console.log(req)
   if (!('access_token' in req.cookies)) { return res.error(401, 'Not Authorized') }
 
   var config = await getConfig(['/AlwaysOnward/UserPoolId', '/AlwaysOnward/UserPoolClientId']);
@@ -47,7 +46,6 @@ async function Authorizer(req, res, next) {
     console.log(tokenPayload)
     next()
   } catch (e) {
-    console.error(e);
-    return res.error(401, 'Not Authorized');
+    return res.status(401).json({statusblag:'Not Authorized'});
   }
 }

@@ -2,7 +2,7 @@
  * A minimal web server that converts the request
  * object to something the lambda-api module understands.
  */
-const api = require('lambda-api')()
+const api = require('lambda-api')({ logger: true })
 const https = require('https')
 const fs = require('fs')
 //~ const open = require('open');
@@ -29,12 +29,18 @@ const serverWrapper = https.createServer(options, function (request, response) {
   request.on("end", function(){
     // The event object we're faking is a lightweight based on:
     // https://docs.aws.amazon.com/lambda/latest/dg/eventsources.html#eventsources-api-gateway-request
+    const multiValueHeaders = {}
+    Object.keys(request.headers).forEach(
+      (header) =>
+        multiValueHeaders[header] = [ request.headers[header] ]
+    );
     const event = {
       httpMethod: request.method.toUpperCase(),
       path: url.pathname,
       resource: '/{proxy+}',
       queryStringParameters: [...url.searchParams.keys()].reduce((output, key) => { output[key] = url.searchParams.get(key); return output }, {}),
-      multiValueHeaders: request.headers,
+      headers: request.headers,
+      multiValueHeaders: multiValueHeaders,
       requestContext: {},
       pathParameters: {},
       stageVariables: {},
