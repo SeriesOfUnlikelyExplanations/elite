@@ -17,7 +17,6 @@
   html,body{font-family:"Lucida Bright", Georgia, serif;font-size:15px;line-height:1.5}html{overflow-x:hidden}
   h1 { font-family: "Lucida Bright", Georgia, serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; }
   h3 { font-family: "Lucida Bright", Georgia, serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; }
-  p { font-family: "Lucida Bright", Georgia, serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; }
   </style>
 </head>
 <body>
@@ -33,9 +32,9 @@
       <br>
         <h3>Tools to help agents and buyers buy houses</h3>
         <br>
-        <p><a class="button button-color login-link" href="">Create an account</a><br><br>
-          <a class="button button-color" href="/comps/address">Find Comps for a property</a><br>
-        </p>
+        <div id="create-account"><a class="button button-color login-link" href="">Create an account</a><br></div>
+        <a class="button button-color" href="/comps/address">Upload contracts for comparison</a>
+
     </div>
   </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -46,6 +45,13 @@
     $("#header").load("/components/header.html");
     $("#footer").load("/components/footer.html");
     login()
+      .then((data) => {
+        if (data.login) {
+          $("#create-account").hide()
+        } else {
+          $("#create-account").show()
+        }
+      })
   </script>
 </body>
 </html>

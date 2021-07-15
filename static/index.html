@@ -7,12 +7,19 @@
   <title>Always Onward</title>
   <link href="assets/base.css" rel="stylesheet">
   <script>
-    if(window.location.href.toLowerCase() === "always-onward.com".toLowerCase()) {
-      window.location.replace("www.always-onward.com");
+    if (sessionStorage.getItem("redirect")) {
+      if (location == sessionStorage.getItem("redirect")) {
+        sessionStorage.removeItem("redirect")
+      } else {
+        location.replace(sessionStorage.getItem("redirect"))
+      }
+    }
+    if(location.href.toLowerCase() === "always-onward.com".toLowerCase()) {
+      location.replace("www.always-onward.com");
     }
   </script>
 </head>
-<body style="background-color: DarkGray; margin-bottom: 40px;">
+<body>
   <div id="header"></div>
 
   <section class="container home-section" id="more">
@@ -37,9 +44,9 @@
           <!-- Mynd photo manager -->
     <div class="col-lg-4 col-md-4 col-sm-6">
       <div class="home-card">
-        <a href="rental/index.html"><img src="img/index-01.jpg" alt="image"></a>
+        <a href="real-estate/index.html"><img src="img/home.jpg" alt="image"></a>
           <div class="btn-primary tool-container">
-            <a href="https://photos.always-onward.com"><span>Photo Manager</span></a>
+            <a href="real-estate/index.html"><span>Real Estate Tools</span></a>
           </div>
       </div>
     </div>

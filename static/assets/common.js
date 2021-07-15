@@ -9,14 +9,6 @@ function parseJwt(token) {
 };
 
 function login() {
-  $("#login-link").click(function(e) {
-   if ($("#login-text").text() == 'Logout') {
-     e.preventDefault();
-     $.removeCookie('access_token', { path: '/' });
-     $.removeCookie('id_token', { path: '/' });
-     window.location = $(this).attr('href');
-   }
-  });
   var my_url = new URL(window.location.href);
 
   var code = my_url.searchParams.get("code");
@@ -26,15 +18,28 @@ function login() {
   } else {
   var request_url = new URL( '/api/auth/refresh', my_url);
   }
-  fetch(request_url, {withCredentials: true, credentials: 'include'})
+  return fetch(request_url, {withCredentials: true, credentials: 'include'})
   .then((res) => res.json())
   .then((data) => {
     console.log(data);
     $('.login-link').attr("href", data.redirect_url);
     if (data.login) {
-      $('#login-text').text('Sign Out');
+      $('.login-text').text('Sign Out');
     } else {
-      $('#login-text').text('Sign In');
+      $('.login-text').text('Sign In');
     }
+    return data
   });
+
+  $(".login-link").click(function(e) {
+    e.preventDefault();
+    sessionStorage.setItem('redirect',location.href);
+    console.log(sessionStorage.getItem("redirect"))
+    if ($(".login-text").text() == 'Sign Out') {
+      $.removeCookie('access_token', { path: '/' });
+      $.removeCookie('id_token', { path: '/' });
+    }
+    location.replace($(this).attr('href'));
+  });
+
 }
