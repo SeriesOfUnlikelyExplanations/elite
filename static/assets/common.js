@@ -10,7 +10,6 @@ function parseJwt(token) {
 
 function login() {
   $("#login-link").click(function(e) {
-   console.log($("#login-text").text())
    if ($("#login-text").text() == 'Logout') {
      e.preventDefault();
      $.removeCookie('access_token', { path: '/' });
@@ -30,8 +29,12 @@ function login() {
   fetch(request_url, {withCredentials: true, credentials: 'include'})
   .then((res) => res.json())
   .then((data) => {
-    $('#login-link').attr("href", data.redirect_url);
-    $('#login-text').text(data.title);
     console.log(data);
+    $('.login-link').attr("href", data.redirect_url);
+    if (data.login) {
+      $('#login-text').text('Sign Out');
+    } else {
+      $('#login-text').text('Sign In');
+    }
   });
 }

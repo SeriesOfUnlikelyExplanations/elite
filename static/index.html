@@ -13,19 +13,7 @@
   </script>
 </head>
 <body style="background-color: DarkGray; margin-bottom: 40px;">
-  <!-- Header -->
-  <div class="header">
-    <div class="container">
-      <div class="row" style="padding-top: 10px; padding-left: 20px">
-        <span class="site-name">Always Onward</span>
-        <div class="pull-right" style="padding-top: 10px;">
-          <a id="login-link" style="padding-right: 20px;" href="">
-            <span id="login-text"></span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div id="header"></div>
 
   <section class="container home-section" id="more">
     <!--blog-->
@@ -67,19 +55,7 @@
      </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <p class="copyright-text">Copyright &copy; 2020 Always Onward
-<!--
-          <a href="ContactUs.html" style="float:right;margin-right: 20px"><span>Contact Us</span></a>
--->
-          <a href="PrivacyPolicy.html" style="float:right;margin-right: 20px"><span>Privacy</span></a>
-        </p>
-
-      </div>
-    </div>
-  </footer>
+  <footer id="footer"></footer>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
   <script type="text/javascript" src="https://sdk.amazonaws.com/js/aws-sdk-2.924.0.min.js"></script>
@@ -116,33 +92,9 @@
         document.getElementById("countdown").innerHTML = "EXPIRED";
       }
     }, 1000);
-
-     $("#login-link").click(function(e) {
-       console.log($("#login-text").text())
-       if ($("#login-text").text() == 'Logout') {
-         e.preventDefault();
-         $.removeCookie('access_token', { path: '/' });
-         $.removeCookie('id_token', { path: '/' });
-         window.location = $(this).attr('href');
-       }
-     });
-    var my_url = new URL(window.location.href);
-
-    var code = my_url.searchParams.get("code");
-    if (code != null) {
-      var request_url = new URL( '/api/auth/calback', my_url);
-      request_url.search = new URLSearchParams({code: code}).toString();
-    } else {
-      var request_url = new URL( '/api/auth/refresh', my_url);
-    }
-    fetch(request_url, {withCredentials: true, credentials: 'include'})
-      .then((res) => res.json())
-      .then((data) => {
-        $('#login-link').attr("href", data.redirect_url);
-        $('#login-text').text(data.title);
-        console.log(data);
-      });
-
+    $("#header").load("/components/header.html");
+    $("#footer").load("/components/footer.html");
+    login()
   </script>
 </body>
 </html>

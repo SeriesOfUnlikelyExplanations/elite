@@ -15,24 +15,22 @@ module.exports = (api, opts) => {
 
   api.get('/refresh', async (req,res) => {
     var logoutResponse = {
-      status: 'Logged in',
+      login: true,
       redirect_url: '/api/auth/logout',
       title: 'Logout'
     }
     //if there is already an access token, then skip the rest
-    console.log(req)
     if ('access_token' in req.cookies) {
       return res.status(200).json(logoutResponse)
     }
     auth = new Auth()
     await auth.init(req);
     var loginResponse = {
-      status:'Not logged in',
+      login: false,
       redirect_url: 'https://'+auth.config['AuthDomain']+'/login?client_id='+auth.config['UserPoolClientId']
         +'&response_type=code&scope=email+openid+phone+profile&redirect_uri=https://'
         +auth.host
         +'/api/auth/callback',
-      title: 'Login'
     }
     if (!('refresh_token' in req.cookies)) {
       return res.status(200).json(loginResponse)
