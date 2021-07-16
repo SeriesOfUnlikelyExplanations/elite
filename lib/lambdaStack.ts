@@ -55,5 +55,9 @@ export class LambdaStack extends cdk.Stack {
       parameterName: '/AlwaysOnward/offersBucket',
       stringValue: `${offersBucket.bucketName}`
     });
+    new StringParameter(this, 'region', {
+      parameterName: '/AlwaysOnward/region',
+      stringValue: `${config.region}`
+    });
   }
 }

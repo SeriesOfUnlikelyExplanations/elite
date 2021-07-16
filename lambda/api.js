@@ -32,7 +32,7 @@ async function Authorizer(req, res, next) {
   const { getConfig } = require('./components');
   if (!('access_token' in req.cookies)) { return res.error(401, 'Not Authorized') }
 
-  var config = await getConfig(['/AlwaysOnward/UserPoolId', '/AlwaysOnward/UserPoolClientId']);
+  var config = await getConfig(['/AlwaysOnward/UserPoolId', '/AlwaysOnward/UserPoolClientId', '/AlwaysOnward/offersBucket']);
   // Put your config values here. calls https://cognito-idp.us-west-2.amazonaws.com/us-west-2_wNXUdpnmK/.well-known/jwks.json
   const verifierCofig = {
     region: 'us-west-2',
@@ -44,10 +44,12 @@ async function Authorizer(req, res, next) {
   const idVerifier = verifierFactory(Object.assign(verifierCofig, {tokenType: 'id'}))
 
   try {
-    const accessTokenPayload = accessVerifier.verify(req.cookies.access_token)
-    const idTokenPayload = idVerifier.verify(req.cookies.id_token)
-    req.accessTokenPayload = await accessTokenPayload
-    req.idTokenPayload = await idTokenPayload
+    const accessTokenPayload = accessVerifier.verify(req.cookies.access_token);
+    const idTokenPayload = idVerifier.verify(req.cookies.id_token);
+    req.accessTokenPayload = await accessTokenPayload;
+    req.idTokenPayload = await idTokenPayload;
+    req.offersBucket = config.offersBucket;
+    req.region = config.region;
     next()
   } catch (e) {
     console.log(e)
