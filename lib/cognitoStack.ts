@@ -1,7 +1,7 @@
 import * as cdk from '@aws-cdk/core';
 import * as config from './config';
 import * as cognito from "@aws-cdk/aws-cognito";
-import * as ssm from '@aws-cdk/aws-ssm';
+import { StringParameter } from '@aws-cdk/aws-ssm';
 import * as acm from '@aws-cdk/aws-certificatemanager';
 import * as cr from '@aws-cdk/custom-resources'
 import * as route53 from '@aws-cdk/aws-route53';
@@ -128,24 +128,24 @@ export class CognitoStack extends cdk.Stack {
     const userPoolClientSecret = describeCognitoUserPoolClient.getResponseField(
       'UserPoolClient.ClientSecret'
     )
-    new ssm.StringParameter(this, 'UserPoolId', {
+    new StringParameter(this, 'UserPoolId', {
       parameterName: '/AlwaysOnward/UserPoolId',
       stringValue: `${this.userPool.userPoolId}`
     });
-    new ssm.StringParameter(this, 'UserPoolClientId', {
+    new StringParameter(this, 'UserPoolClientId', {
       parameterName: '/AlwaysOnward/UserPoolClientId',
       stringValue: `${userPoolClient.userPoolClientId}`
     });
-    new ssm.StringParameter(this, 'UserPoolClientSecret', {
+    new StringParameter(this, 'UserPoolClientSecret', {
       parameterName: '/AlwaysOnward/UserPoolClientSecret',
       stringValue: `${userPoolClientSecret}`
     });
 
-    new ssm.StringParameter(this, 'IdentityPoolId', {
+    new StringParameter(this, 'IdentityPoolId', {
       parameterName: '/AlwaysOnward/IdentityPoolId',
       stringValue: `${identityPool.ref}`
     });
-    new ssm.StringParameter(this, 'AuthDomain', {
+    new StringParameter(this, 'AuthDomain', {
       parameterName: '/AlwaysOnward/AuthDomain',
       stringValue: `${config.authDomain}`
     });

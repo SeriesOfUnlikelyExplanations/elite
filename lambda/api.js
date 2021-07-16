@@ -20,7 +20,7 @@ module.exports = (api, opts) => {
   //Register authenticated endpoints
   api.register((api, opts) => {
     api.use(Authorizer);
-    api.register(require('./routes/contracts'), { prefix: '/contracts' })
+    api.register(require('./routes/offers'), { prefix: '/offers' })
   }, { prefix: '/private' })
 }
 
@@ -34,18 +34,24 @@ async function Authorizer(req, res, next) {
 
   var config = await getConfig(['/AlwaysOnward/UserPoolId', '/AlwaysOnward/UserPoolClientId']);
   // Put your config values here. calls https://cognito-idp.us-west-2.amazonaws.com/us-west-2_wNXUdpnmK/.well-known/jwks.json
-  const verifier = verifierFactory({
+  const verifierCofig = {
     region: 'us-west-2',
     userPoolId: config['UserPoolId'],
     appClientId: config['UserPoolClientId'],
-    tokenType: 'access', // either "access" or "id"
-  })
+  }
+  // tokenType: can be either "access" or "id"
+  const accessVerifier = verifierFactory(Object.assign(verifierCofig, {tokenType: 'access'}))
+  const idVerifier = verifierFactory(Object.assign(verifierCofig, {tokenType: 'id'}))
 
   try {
-    const tokenPayload = await verifier.verify(req.cookies.access_token)
-    console.log(tokenPayload)
+    const accessTokenPayload = accessVerifier.verify(req.cookies.access_token)
+    const idTokenPayload = idVerifier.verify(req.cookies.id_token)
+    req.accessTokenPayload = await accessTokenPayload
+    req.idTokenPayload = await idTokenPayload
     next()
   } catch (e) {
-    return res.status(401).json({statusblag:'Not Authorized'});
+    console.log(e)
+    res.clearCookie('access_token', this.tokenOptions)
+    return res.sendStatus(403)
   }
 }

@@ -1,10 +1,11 @@
 import * as cdk from '@aws-cdk/core';
 import * as config from './config';
+import { Bucket, BlockPublicAccess } from '@aws-cdk/aws-s3';
 import * as lambda from "@aws-cdk/aws-lambda";
 import * as cognito from "@aws-cdk/aws-cognito";
 import * as apigateway from '@aws-cdk/aws-apigateway';
 import { CloudFrontWebDistribution } from '@aws-cdk/aws-cloudfront'
-import * as ssm from '@aws-cdk/aws-ssm';
+import { StringParameter } from '@aws-cdk/aws-ssm';
 import * as iam from '@aws-cdk/aws-iam';
 //~ import console = require('console');
 
@@ -33,6 +34,13 @@ export class LambdaStack extends cdk.Stack {
       actions: ['ssm:GetParameters'],
     }))
 
+    //create bucket for storing offers
+    const offersBucket = new Bucket(this, config.rootSiteName + '-website', {
+      bucketName: config.offersBucket,
+      blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+    });
+
     //create an API gateway to trigger the lambda
     this.apigw = new apigateway.LambdaRestApi(this, "api", {
       handler: handler,
@@ -41,6 +49,11 @@ export class LambdaStack extends cdk.Stack {
       },
       binaryMediaTypes: ['*/*'],
       description: `Simple lambda API. Timestamp: ${Date.now()}`
+    });
+
+    new StringParameter(this, 'offersBucket', {
+      parameterName: '/AlwaysOnward/offersBucket',
+      stringValue: `${offersBucket.bucketName}`
     });
   }
 }

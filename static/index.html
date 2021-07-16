@@ -7,12 +7,10 @@
   <title>Always Onward</title>
   <link href="assets/base.css" rel="stylesheet">
   <script>
-    if (sessionStorage.getItem("redirect")) {
-      if (location == sessionStorage.getItem("redirect")) {
-        sessionStorage.removeItem("redirect")
-      } else {
-        location.replace(sessionStorage.getItem("redirect"))
-      }
+    if (sessionStorage.getItem("redirect") && location != sessionStorage.getItem("redirect")) {
+      const redirect = sessionStorage.getItem("redirect")
+      sessionStorage.removeItem("redirect")
+      location.replace(redirect)
     }
     if(location.href.toLowerCase() === "always-onward.com".toLowerCase()) {
       location.replace("www.always-onward.com");

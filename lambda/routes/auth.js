@@ -29,8 +29,7 @@ module.exports = (api, opts) => {
       login: false,
       redirect_url: 'https://'+auth.config['AuthDomain']+'/login?client_id='+auth.config['UserPoolClientId']
         +'&response_type=code&scope=email+openid+phone+profile&redirect_uri=https://'
-        +auth.host
-        +'/api/auth/callback',
+        +auth.host+'/api/auth/callback',
     }
     if (!('refresh_token' in req.cookies)) {
       return res.status(200).json(loginResponse)
@@ -82,7 +81,6 @@ class Auth {
   clearCookies(res) {
     res.clearCookie('id_token', this.tokenOptions)
     res.clearCookie('refresh_token', this.refreshTokenOptions)
-    res.clearCookie('access_token', this.tokenOptions)
     res.clearCookie('access_token', this.tokenOptions)
   }
 

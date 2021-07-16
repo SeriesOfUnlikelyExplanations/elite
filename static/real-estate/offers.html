@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contract Comparisons</title>
+  <link rel="shortcut icon" href="">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/assets/base.css" rel="stylesheet">
+</head>
+<body>
+  <div id="header"></div>
+  <div class="container home-section">
+    This tool allows you to upload multiple offer documents and compare them against each other automatically.<br>
+    Upload a PDF offer document or a zip file contining multiple PDF documents to continue.<br>
+    <h5 class='alert' style='color:red;' hidden></h5>
+    <div class="input-group col-sm-3">
+      <input type="file" class="form-control btn">
+      <div class="input-group-btn">
+        <span class="fileUpload btn btn-success">
+          <span class="upload">Upload file</span>
+          <input type="btn" class="upload up">
+        </span><!-- btn-orange -->
+      </div><!-- btn -->
+    </div>
+  </div>
+
+  <footer id="footer"></footer>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script type="text/javascript" src="/assets/common.js"></script>
+  <script>
+    $("#header").load("/components/header.html");
+    $("#footer").load("/components/footer.html");
+    login().then((data) => {
+      if (!(data.login)) {
+        location.replace("/real-estate/index.html");
+      }
+    });
+    // scripts for file upload functionality
+    $(".up").click(async function(e){
+      var file = $('.form-control')[0].files[0]
+      if (file){
+        $('.alert').hide()
+        //Get presigned upload url
+        const url = new URL('/api/private/offers/presigned_upload', document.baseURI)
+        url.search = new URLSearchParams({'filename':file.name }).toString();
+        const upload_url = await fetch(url, {method:'GET'})
+          .then((res) => res.text())
+        console.log(upload_url)
+        //~ //post to it
+        let formData = new FormData();
+        formData.append("file", file);
+
+        fetch(upload_url, {
+          method: 'POST',
+          formData: {
+            ...upload_url.url_fields,
+            file: file
+          }
+        })
+      } else {
+        $('.alert').show()
+        $('.alert').text("Please select a file first.");
+      }
+    });
+
+  </script>
+</body>
+</html>

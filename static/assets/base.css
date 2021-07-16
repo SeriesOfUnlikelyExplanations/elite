@@ -86,17 +86,24 @@ body {
 }
 
 /* Footer */
-#footer { background-color: #000; margin-top: 70px; }
-.copyright-text {
+#footer { background-color: #000; margin-top: 70px;    position:fixed;
+   left:0px;
+   bottom:0px;
+   height:40px;
+   width:100%;
+   z-index: 1;
+}
+
+.footer-text {
   color: white;
   text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-.copyright-text a {
+.footer-text a {
   color: #FCDD44;
 }
-.copyright-text a:hover {
+.footer-text a:hover {
   color: white;
 }
 
@@ -158,5 +165,25 @@ body {
   .right {width:90%; height:85%; right: 5%; top: 15% }
 }
 
+.input-group {
+  margin-top: 10px;
+}
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+}
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
 
-
+::-webkit-file-upload-button {
+   display: none;
+}

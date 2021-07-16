@@ -10,7 +10,6 @@ function parseJwt(token) {
 
 function login() {
   var my_url = new URL(window.location.href);
-
   var code = my_url.searchParams.get("code");
   if (code != null) {
   var request_url = new URL( '/api/auth/calback', my_url);
@@ -28,18 +27,11 @@ function login() {
     } else {
       $('.login-text').text('Sign In');
     }
+    $(".login-link").click(function(e) {
+      e.preventDefault();
+      sessionStorage.setItem('redirect',location.href);
+      location.replace($(this).attr('href'));
+    });
     return data
   });
-
-  $(".login-link").click(function(e) {
-    e.preventDefault();
-    sessionStorage.setItem('redirect',location.href);
-    console.log(sessionStorage.getItem("redirect"))
-    if ($(".login-text").text() == 'Sign Out') {
-      $.removeCookie('access_token', { path: '/' });
-      $.removeCookie('id_token', { path: '/' });
-    }
-    location.replace($(this).attr('href'));
-  });
-
 }
